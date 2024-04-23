@@ -85,6 +85,15 @@ void Error_Handler(void);
 #define VGA_HSYNC_GPIO_Port GPIOB
 #define VGA_VSYNC_Pin GPIO_PIN_12
 #define VGA_VSYNC_GPIO_Port GPIOB
+#define Green_Pin GPIO_PIN_12
+#define Green_GPIO_Port GPIOD
+#define Orange_Pin GPIO_PIN_13
+#define Orange_GPIO_Port GPIOD
+#define Red_Pin GPIO_PIN_14
+#define Red_GPIO_Port GPIOD
+#define Blue_Pin GPIO_PIN_15
+#define Blue_GPIO_Port GPIOD
+
 /* USER CODE BEGIN Private defines */
 
 #define BYTE_BUFLEN 	 1
@@ -119,5 +128,3 @@ extern volatile int key;
 #endif
 
 #endif /* __MAIN_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

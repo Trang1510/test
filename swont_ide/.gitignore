@@ -10,6 +10,11 @@ debug/
 Release/
 release
 
+#Cmake
+cmake-build-debug
+CMakeLists.txt
+CMakeLists_template.txt
+
 # Prerequisites
 *.d
 
