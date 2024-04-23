@@ -99,51 +99,49 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  UB_VGA_Screen_Init(); // Init VGA-Screen
+    UB_VGA_Screen_Init(); // Init VGA-Screen
 
-  UB_VGA_FillScreen(VGA_COL_WHITE);
-  UB_VGA_SetPixel(10,10,10);
-  UB_VGA_SetPixel(0,0,0x00);
-  UB_VGA_SetPixel(319,0,0x00);
+    UB_VGA_FillScreen(VGA_COL_WHITE);
+    UB_VGA_SetPixel(10, 10, 10);
+    UB_VGA_SetPixel(0, 0, 0x00);
+    UB_VGA_SetPixel(319, 0, 0x00);
 
-  int i;
+    int i;
 
-  for(i = 0; i < LINE_BUFLEN; i++)
-	  input.line_rx_buffer[i] = 0;
+    for (i = 0; i < LINE_BUFLEN; i++)
+        input.line_rx_buffer[i] = 0;
 
-  // Reset some stuff
-  input.byte_buffer_rx[0] = 0;
-  input.char_counter = 0;
-  input.command_execute_flag = FALSE;
+    // Reset some stuff
+    input.byte_buffer_rx[0] = 0;
+    input.char_counter = 0;
+    input.command_execute_flag = FALSE;
 
-  // HAl wants a memory location to store the charachter it receives from the UART
-  // We will pass it an array, but we will not use it. We declare our own variable in the interupt handler
-  // See stm32f4xx_it.c
-  HAL_UART_Receive_IT(&huart2, input.byte_buffer_rx, BYTE_BUFLEN);
+    // HAl wants a memory location to store the charachter it receives from the UART
+    // We will pass it an array, but we will not use it. We declare our own variable in the interupt handler
+    // See stm32f4xx_it.c
+    HAL_UART_Receive_IT(&huart2, input.byte_buffer_rx, BYTE_BUFLEN);
 
-  // Test to see if the screen reacts to UART
-  unsigned char colorTest = TRUE;
+    // Test to see if the screen reacts to UART
+    unsigned char colorTest = TRUE;
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-	  if(input.command_execute_flag == TRUE)
-	  {
-		  // Do some stuff
-		  printf("yes\n");
-		  colorTest = ~colorTest; // Toggle screen color
-		  UB_VGA_FillScreen(colorTest);
+    while (1) {
+        if (input.command_execute_flag == TRUE) {
+            // Do some stuff
+            printf("yes\n");
+            colorTest = ~colorTest; // Toggle screen color
+            UB_VGA_FillScreen(colorTest);
 
-		  // When finished reset the flag
-		  input.command_execute_flag = FALSE;
-	  }
+            // When finished reset the flag
+            input.command_execute_flag = FALSE;
+        }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+    }
   /* USER CODE END 3 */
 }
 
@@ -160,6 +158,7 @@ void SystemClock_Config(void)
   */
   __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
@@ -175,6 +174,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+
   /** Initializes the CPU, AHB and APB buses clocks
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
@@ -193,16 +193,16 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 
 #ifdef __GNUC__
-	#define USART_PRINTF int __io_putchar(int ch)		//With GCC/RAISONANCE printf calls __io_putchar()
+#define USART_PRINTF int __io_putchar(int ch)        //With GCC/RAISONANCE printf calls __io_putchar()
 #else
-	#define USART_PRINTF int fputc(int ch, FILE *f)		//With other compiler printf calls fputc()
+#define USART_PRINTF int fputc(int ch, FILE *f)		//With other compiler printf calls fputc()
 #endif /* __GNUC__ */
 
 //Retargets the C library printf function to the USART
 USART_PRINTF
 {
-	HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, 0xFFFF);	//Write character to UART2
-	return ch;												//Return the character
+    HAL_UART_Transmit(&huart2, (uint8_t*) &ch, 1, 0xFFFF);    //Write character to UART2
+    return ch;                                                //Return the character
 }
 
 /* USER CODE END 4 */
@@ -214,7 +214,7 @@ USART_PRINTF
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
+    /* User can add his own implementation to report the HAL error return state */
 
   /* USER CODE END Error_Handler_Debug */
 }
@@ -235,5 +235,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
