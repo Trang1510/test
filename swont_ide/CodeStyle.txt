@@ -1,0 +1,59 @@
+Alle pre-/postfixen van met de bestandsnaam moeten allemaal 3-5 letters zijn ALL CAPS vervolgd/voorafgaand met een _. Alle pre-/postfixen uit 1 bestand hebben allemaal de zelfde 3-5 letters.
+
+
+Macros en constant in SCREAMING_SNAKE_CASE
+Global Variablen in the .C file schrijven met: PascalCase.
+Global Variablen die buiten de orginele .C file worden gebruikt moeten worden blood gesteld via een extern. De variablen moeten een postfix hebben met _CODE.
+Global functies die buiten de .c file worden gebruikt moeten worden geprefixed van de naam van het bestand vervolgd door PascalCase zoals: CODE_PascalCase.
+Locale variablen en parameters moeten worden geschreven in: camelCase.
+Locale functies moeten worden geschreven met PascalCase zonder een pre-/postfix.
+struct/enum/unions moeten worden benoemd met een camelCase gevolgd door een _e voor enum, _u voor unions en _s voor structs. Als deze types buiten het bestand wordt bebruikt dan moeten ze worden be prefixed komen.
+
+statements:
+if/else if/ else statements moeten worden geschreven als volgt:
+if(()
+{
+
+}
+else if()
+{
+
+}
+else
+{
+
+}
+
+Switch case geschreven als volgt:
+switch()
+{
+case breakingCase:
+    // something
+    break;
+
+case noneBreakingCase:
+    // something
+    /* Fall through */
+case emptyCase:
+    /* Fall through */
+default:
+    break;
+}
+
+while loops geschreven als volgt.
+while()
+{
+
+}
+
+do while loop geschreven als volgt:
+do
+{
+
+} while();
+
+functions open als volgt:
+void FooBar()
+{
+
+}
