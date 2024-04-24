@@ -58,8 +58,6 @@ extern VGA_t VGA;
 //--------------------------------------------------------------
 extern uint8_t VGA_RAM1[(VGA_DISPLAY_X+1)*VGA_DISPLAY_Y];
 
-
-
 //--------------------------------------------------------------
 // Timer-1
 // Function  = Pixelclock (Speed for  DMA Transfer)
