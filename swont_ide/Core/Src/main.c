@@ -116,10 +116,12 @@ int main(void)
     input.char_counter = 0;
     input.command_execute_flag = FALSE;
 
-    // HAl wants a memory location to store the charachter it receives from the UART
-    // We will pass it an array, but we will not use it. We declare our own variable in the interupt handler
+    // HAL wants a memory location to store the character it receives from the UART
+    // We will pass it an array, but we will not use it. We declare our own variable in the interrupt handler
     // See stm32f4xx_it.c
-    HAL_UART_Receive_IT(&huart2, input.byte_buffer_rx, BYTE_BUFLEN);
+    //HAL_UART_Receive_IT(&huart2, input.byte_buffer_rx, BYTE_BUFLEN);
+    //HAL_UART_Receive(&huart2, input.line_rx_buffer, LINE_BUFLEN, 1000);
+    //HAL_UART_Receive_IT(huart, pData, Size)
 
     // Test to see if the screen reacts to UART
     unsigned char colorTest = TRUE;
@@ -129,6 +131,34 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
     while (1) {
+    	// Store the byte we received on the UART
+    	uint8_t uart_char;
+    	HAL_UART_Receive(&huart2, uart_char, LINE_BUFLEN, 1000);
+
+    	//Ignore the '\n' character
+    	if(uart_char != LINE_FEED)
+    	{
+    		//Check for CR or a dot
+    		// There was a small bug in the terminal program.
+    		// By terminating your message with a dot you can ignore the CR (Enter) character
+    		if((uart_char == CARRIAGE_RETURN) || (uart_char == '.'))
+    		{
+    			input.command_execute_flag = TRUE;
+    			// Store the message length for processing
+    			input.msglen = input.char_counter;
+    			// Reset the counter for the next line
+    			input.char_counter = 0;
+    			//Gently exit interrupt
+    		}
+    		else
+    		{
+    			input.command_execute_flag = FALSE;
+    			input.line_rx_buffer[input.char_counter] = uart_char;
+    			input.char_counter++;
+    		}
+    	}
+
+
         if (input.command_execute_flag == TRUE) {
             // Do some stuff
             printf("yes\n");
