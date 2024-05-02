@@ -38,7 +38,7 @@ extern "C" {
 #include "string.h"
 #include <stdlib.h>
 
-#include "stm32_ub_vga_screen.h"
+#include "VGA_io_driver.h"
 
 /* USER CODE END Includes */
 
