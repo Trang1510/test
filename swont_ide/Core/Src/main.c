@@ -102,6 +102,8 @@ int main(void)
     VGA_Init(); // Init vgaData_s-Screen
 
     API_clearscreen(VGA_COLOUR_WHITE);
+    API_draw_line(0,0,200,100,VGA_COLOUR_RED, 1, 0);
+
     VGA_SetPixel(10, 10, 10);
     VGA_SetPixel(0, 0, 0x00);
     VGA_SetPixel(319, 0, 0x00);
