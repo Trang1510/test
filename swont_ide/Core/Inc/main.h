@@ -39,6 +39,7 @@ extern "C" {
 #include <stdlib.h>
 
 #include "VGA_io_driver.h"
+#include "Logic_layer.h"
 
 /* USER CODE END Includes */
 
