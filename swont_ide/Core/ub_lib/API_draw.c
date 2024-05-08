@@ -37,43 +37,91 @@ int API_draw_line(int x_1, int y_1, int x_2, int y2, int color, int weight, int 
     if(weight <= 0)
         return -1;
     if((x_1 < 0) || (x_2 < 0) || (y_1 < 0) || (y2 < 0))
-        return 1;
+        return -1;
+
     if(x_1 > x_2)
     {
-        int x_1Holder = x_1;
+        uint8_t x1Holder = x_1;
         x_1 = x_2;
-        x_2 = x_1Holder;
+        x_2 = x1Holder;
     }
     if(y_1 > y2)
     {
-        int y_1Holder = y_1;
+        uint8_t y1Holder = y_1;
         y_1 = y2;
-        y2 = y_1Holder;
+        y2 = y1Holder;
     }
-    uint16_t currentX = x_1;
-    uint16_t currentY = y_1;
-    int errorX = x_2 - currentX;
-    int errorY = y2 - currentY;
-    uint32_t error = errorY / errorX;
+
+    if(x_1 == x_2)
+    {
+        do
+        {
+            VGA_SetPixel(x_1, y_1++, color);
+        }while(y_1 != y2);
+        return 0;
+    }
+    if(y_1 == y2)
+    {
+        do
+        {
+            VGA_SetPixel(x_1++, y_1, color);
+        }while(x_1 != x_2);
+        return 0;
+    }
+    int32_t deltaX = (int32_t)x_2 - (int32_t)x_1;
+    int32_t deltaY = (int32_t)y2 - (int32_t)y_1;
+    int32_t error = 0;
+    if(deltaX == deltaY)
+    {
+        do
+        {
+            VGA_SetPixel(x_1++, y_1++, color);
+        }while(y_1 != y2);
+        return 0;
+    }
+    if(deltaX > deltaY)
+    {
+        error = (deltaY<<10) / deltaX;
+    }
+    else if(deltaX < deltaY)
+    {
+        error = -(deltaX<<10) / deltaY;
+    }
+    // no fpu so try to keep a way of decimals for the most part
+    int32_t errorReset = error;
     do
     {
-        VGA_SetPixel(currentX, currentY, color);
-        if(error < 1)
+        VGA_SetPixel(x_1, y_1, color);
+        if(error > 0)
         {
-            currentY++;
+            error += errorReset;
+            x_1++;
+            if(error > 1024)
+            {
+                y_1++;
+                error -= 1024;
+            }
+            if(x_1 == VGA_DISPLAY_X) return 0;
         }
-        else if(error)
+        else if(error < 0)
         {
-            currentY++;
+            error += errorReset;
+            y_1++;
+            if(error <= -1024)
+            {
+                x_1++;
+                error += 1024;
+            }
+            if(y_1 == VGA_DISPLAY_Y) return 0;
         }
         else
         {
-            currentX++;
-            currentY++;
+            error = errorReset;
+            y_1++;
+            x_1++;
+            if((y_1 == VGA_DISPLAY_X) || (x_1 == VGA_DISPLAY_Y)) return 0;
         }
-        errorX = x_2 - currentX;
-        errorY = y2 - currentY;
-    }while(currentx != x_2 && current != y2);
+    }while((x_1 != x_2) || (y_1 != y2));
     return 0;
 }
 
