@@ -26,12 +26,25 @@
 /******************************************************************************
 *   Global functions                                                          *
 ******************************************************************************/
+/**
+  * @brief  Sets text on screen in the wanted colour and font
+  * @param  x_lup Start location of the text x-axis
+  * @param  y_lup Start location of the text y-axis
+  * @param  color string to be displayed
+  * @param  fontname font name
+  * @param  fontsize size of characters
+  * @param  fontstyle
+  * @param reserved unused
+  * @retval HAL status
+  */
 int API_draw_text(int x_lup, int y_lup, int color, char* text, char* fontname,
                   int fontsize, int fontstyle, int reserved)
 {
     return 1;
 }
-
+/*
+ * @brief
+ */
 int API_draw_line(int x_1, int y_1, int x_2, int y2, int color, int weight, int reserved)
 {
     if(weight <= 0)
