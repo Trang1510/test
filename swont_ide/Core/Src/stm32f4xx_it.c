@@ -209,37 +209,8 @@ void TIM2_IRQHandler(void)
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
   /* USER CODE BEGIN TIM2_IRQn 1 */
-  __HAL_TIM_CLEAR_IT(&htim2, TIM_IT_CC3); // uncomment HAL_TIM_IRQHandler(&htim2); ^^
-
-  VGA.hsync_cnt++;
-  if (VGA.hsync_cnt >= VGA_VSYNC_PERIODE)
-  {
-    // -----------
-    VGA.hsync_cnt = 0;
-    // Adresspointer first dot
-    VGA.start_adr = (uint32_t)(&VGA_RAM1[0]);
-  }
-
-  // HSync-Pixel
-  GPIOB->BSRR = (VGA.hsync_cnt < VGA_VSYNC_IMP) ? VGA_VSYNC_Pin << 16u: VGA_VSYNC_Pin;
-
-  // Test for DMA start
-  if((VGA.hsync_cnt >= VGA_VSYNC_BILD_START) && (VGA.hsync_cnt <= VGA_VSYNC_BILD_STOP))
-  {
-    // after FP start => DMA Transfer
-
-    // DMA2 init
-	  DMA2_Stream5->CR = VGA.dma2_cr_reg;
-    // set adress
-    DMA2_Stream5->M0AR = VGA.start_adr;
-    // Timer1 start
-    TIM1->CR1 |= TIM_CR1_CEN; // __HAL_TIM_ENABLE(&htim1); // too slow?
-    // DMA2 enable
-    __HAL_DMA_ENABLE(&hdma_tim1_up);
-    // Test Adrespointer for high
-    if(VGA.hsync_cnt & 0x01)
-      VGA.start_adr += (VGA_DISPLAY_X + 1); // inc after Hsync
-  }
+    __HAL_TIM_CLEAR_IT(&htim2, TIM_IT_CC3); // uncomment HAL_TIM_IRQHandler(&htim2); ^^
+    VGA_InterruptHsync();
   /* USER CODE END TIM2_IRQn 1 */
 }
 
@@ -289,6 +260,7 @@ void USART2_IRQHandler(void)
 
       /* USER CODE END USART2_IRQn 0 */
       HAL_UART_IRQHandler(&huart2);
+
   /* USER CODE BEGIN USART2_IRQn 1 */
 
   /* USER CODE END USART2_IRQn 1 */
@@ -300,19 +272,25 @@ void USART2_IRQHandler(void)
 void DMA2_Stream5_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream5_IRQn 0 */
-
-    // Timer1 stop
-    __HAL_TIM_DISABLE(&htim1);
-    // DMA2 disable
-    // __HAL_DMA_DISABLE(&hdma_tim1_up); // not needed?
-    // switch on black
-    GPIOE->BSRR = VGA_GPIO_HINIBBLE << 16u;
-
+    VGA_InterruptDma();
   /* USER CODE END DMA2_Stream5_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_tim1_up);
   /* USER CODE BEGIN DMA2_Stream5_IRQn 1 */
 
   /* USER CODE END DMA2_Stream5_IRQn 1 */
+}
+
+/**
+  * @brief This function handles FPU global interrupt.
+  */
+void FPU_IRQHandler(void)
+{
+  /* USER CODE BEGIN FPU_IRQn 0 */
+
+  /* USER CODE END FPU_IRQn 0 */
+  /* USER CODE BEGIN FPU_IRQn 1 */
+
+  /* USER CODE END FPU_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

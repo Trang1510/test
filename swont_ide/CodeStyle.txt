@@ -7,7 +7,7 @@ Global Variablen die buiten de orginele .C file worden gebruikt moeten worden bl
 Global functies die buiten de .c file worden gebruikt moeten worden geprefixed van de naam van het bestand vervolgd door PascalCase zoals: CODE_PascalCase.
 Locale variablen en parameters moeten worden geschreven in: camelCase.
 Locale functies moeten worden geschreven met PascalCase zonder een pre-/postfix.
-struct/enum/unions moeten worden benoemd met een camelCase gevolgd door een _e voor enum, _u voor unions en _s voor structs. Als deze types buiten het bestand wordt bebruikt dan moeten ze worden be prefixed komen.
+struct/enum/unions moeten worden benoemd met een camelCase gevolgd door een _e voor enum, _u voor unions en _s voor structs. Als deze types buiten het bestand wordt bebruikt dan moeten ze worden geprefixed.
 
 statements:
 if/else if/ else statements moeten worden geschreven als volgt:

@@ -82,7 +82,6 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-//This is a test
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -100,17 +99,19 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
-    UB_VGA_Screen_Init(); // Init VGA-Screen
+    VGA_Init(); // Init vgaData_s-Screen
 
-    UB_VGA_FillScreen(VGA_COL_WHITE);
-    UB_VGA_SetPixel(10, 10, 10);
-    UB_VGA_SetPixel(0, 0, 0x00);
-    UB_VGA_SetPixel(319, 0, 0x00);
+    VGA_FillScreen(VGA_COLOUR_WHITE);
+    VGA_SetPixel(10, 10, 10);
+    VGA_SetPixel(0, 0, 0x00);
+    VGA_SetPixel(319, 0, 0x00);
 
     int i;
 
-    for (i = 0; i < LINE_BUFLEN; i++)
+    for(i = 0; i < LINE_BUFLEN; i++)
+    {
         input.line_rx_buffer[i] = 0;
+    }
 
     // Reset some stuff
     input.byte_buffer_rx[0] = 0;
@@ -130,18 +131,20 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-    while (1)
-    {
-	if(input.command_execute_flag == TRUE)
-	{
-	    // Do some stuff
-	    printf("y\n");
-	    colorTest = ~colorTest; // Toggle screen color
-	    UB_VGA_FillScreen(colorTest);
 
-	    // When finished reset the flag
-	    input.command_execute_flag = FALSE;
-	}
+    while(1)
+    {
+        if(input.command_execute_flag == TRUE)
+        {
+            // Do some stuff
+            printf("yes\n");
+            colorTest = ~colorTest; // Toggle screen color
+            VGA_FillScreen(colorTest);
+
+            // When finished reset the flag
+            input.command_execute_flag = FALSE;
+        }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -205,7 +208,7 @@ void SystemClock_Config(void)
 //Retargets the C library printf function to the USART
 USART_PRINTF
 {
-    HAL_UART_Transmit(&huart2, (uint8_t*) &ch, 1, 0xFFFF);    //Write character to UART2
+    HAL_UART_Transmit(&huart2, (uint8_t*)&ch, 1, 0xFFFF);    //Write character to UART2
     return ch;                                                //Return the character
 }
 

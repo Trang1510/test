@@ -3,7 +3,7 @@
 // CPU      : STM32F4
 // IDE      : CooCox CoIDE 1.7.0
 // Module   : GPIO, TIM, MISC, DMA
-// Function : VGA out by GPIO (320x240 Pixel, 8bit color)
+// Function : vgaData_s out by GPIO (320x240 Pixel, 8bit color)
 //
 // signals  : PB11      = HSync-Signal
 //            PB12      = VSync-Signal
@@ -19,23 +19,29 @@
 //--------------------------------------------------------------
 // Includes
 //--------------------------------------------------------------
-#include "stm32_ub_vga_screen.h"
+#include "VGA_io_driver.h"
 
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
 extern DMA_HandleTypeDef hdma_tim1_up;
 
+typedef struct {
+    uint16_t    lineCounter;         // Line counter
+    uint32_t    startAddressDMA;     // Start Address for the DMA transfer
+    uint32_t    dmaConfigRegister;   // Register constant CR-Register
+    uint8_t     videoRAM[(VGA_DISPLAY_X + 1) * VGA_DISPLAY_Y];
+} VGA_metaData_s;
 
-uint8_t VGA_RAM1[(VGA_DISPLAY_X+1)*VGA_DISPLAY_Y];
-VGA_t VGA;
+VGA_metaData_s vgaData_s;
+
 //--------------------------------------------------------------
-// Init VGA-Module
+// Init vgaData_s-Module
 //--------------------------------------------------------------
-void UB_VGA_Screen_Init(void)
+void VGA_Init(void)
 {
-  VGA.hsync_cnt = 0;
-  VGA.start_adr = 0;
-  VGA.dma2_cr_reg = 0;
+    vgaData_s.lineCounter = 0;
+    vgaData_s.startAddressDMA = 0;
+    vgaData_s.dmaConfigRegister = 0;
 
   GPIOB->BSRR = VGA_VSYNC_Pin;
 
@@ -47,7 +53,7 @@ void UB_VGA_Screen_Init(void)
   // TIM1
   __HAL_TIM_ENABLE_DMA(&htim1, TIM_DMA_UPDATE);
   __HAL_TIM_ENABLE(&htim1);
-  HAL_DMA_Start_IT(&hdma_tim1_up, (uint32_t)&VGA_RAM1[0], VGA_GPIOE_ODR_ADDRESS, VGA_DISPLAY_X + 1);
+  HAL_DMA_Start_IT(&hdma_tim1_up, (uint32_t)&vgaData_s.videoRAM[0], VGA_GPIOE_ODR_ADDRESS, VGA_DISPLAY_X + 1);
 
   HAL_DMA_Init(&hdma_tim1_up);
   __HAL_DMA_ENABLE_IT(&hdma_tim1_up, DMA_IT_TC);
@@ -56,20 +62,20 @@ void UB_VGA_Screen_Init(void)
   // Register swap and safe
   //-----------------------
   // content of CR-Register read and save
-  VGA.dma2_cr_reg = DMA2_Stream5->CR;
+  vgaData_s.dmaConfigRegister = DMA2_Stream5->CR;
 }
 
 
 //--------------------------------------------------------------
 // fill the DMA RAM buffer with one color
 //--------------------------------------------------------------
-void UB_VGA_FillScreen(uint8_t color)
+void VGA_FillScreen(uint8_t color)
 {
   uint16_t xp,yp;
 
   for(yp = 0; yp < VGA_DISPLAY_Y; yp++) {
     for(xp = 0; xp < VGA_DISPLAY_X; xp++) {
-      UB_VGA_SetPixel(xp, yp, color);
+        VGA_SetPixel(xp, yp, color);
     }
   }
 }
@@ -79,7 +85,7 @@ void UB_VGA_FillScreen(uint8_t color)
 // put one Pixel on the screen with one color
 // Important : the last Pixel+1 from every line must be black (don't know why??)
 //--------------------------------------------------------------
-void UB_VGA_SetPixel(uint16_t xp, uint16_t yp, uint8_t color)
+void VGA_SetPixel(uint16_t xp, uint16_t yp, uint8_t color)
 {
   if(xp >= VGA_DISPLAY_X)
     xp = 0;
@@ -87,5 +93,40 @@ void UB_VGA_SetPixel(uint16_t xp, uint16_t yp, uint8_t color)
     yp = 0;
 
   // Write pixel to ram
-  VGA_RAM1[(yp * (VGA_DISPLAY_X + 1)) + xp] = color;
+    vgaData_s.videoRAM[(yp * (VGA_DISPLAY_X + 1)) + xp] = color;
+}
+
+__inline void VGA_InterruptHsync(void)
+{
+    vgaData_s.lineCounter++;
+    if (vgaData_s.lineCounter >= VGA_VSYNC_PERIODE)
+    {
+        // Address pointer first dot
+        vgaData_s.lineCounter = 0;
+        vgaData_s.startAddressDMA = (uint32_t)(&vgaData_s.videoRAM[0]);
+    }
+
+    // HSync-Pixel
+    GPIOB->BSRR = (vgaData_s.lineCounter < VGA_VSYNC_IMP) ? VGA_VSYNC_Pin<<16u : VGA_VSYNC_Pin;
+
+    // Test for DMA start
+    if((vgaData_s.lineCounter >= VGA_VSYNC_BILD_START) && (vgaData_s.lineCounter <= VGA_VSYNC_BILD_STOP))
+    {
+        // Restart DMA transfer
+        DMA2_Stream5->CR = vgaData_s.dmaConfigRegister;
+        DMA2_Stream5->M0AR = vgaData_s.startAddressDMA;
+        TIM1->CR1 |= TIM_CR1_CEN;
+        __HAL_DMA_ENABLE(&hdma_tim1_up);
+        // Test Adrespointer for high
+        if(vgaData_s.lineCounter & 0x01)
+            vgaData_s.startAddressDMA += (VGA_DISPLAY_X + 1); // inc after Hsync
+    }
+}
+
+__inline void VGA_InterruptDma(void)
+{
+    // Timer1 stop
+    __HAL_TIM_DISABLE(&htim1);
+    // switch on black
+    GPIOE->BSRR = VGA_GPIO_HINIBBLE<<16u;
 }

@@ -21,15 +21,15 @@
 // Green (3bit) -> Bit4-Bit2
 // Blue  (2bit) -> Bit1-Bit0
 //--------------------------------------------------------------
-#define  VGA_COL_BLACK          0x00
-#define  VGA_COL_BLUE           0x03
-#define  VGA_COL_GREEN          0x1C
-#define  VGA_COL_RED            0xE0
-#define  VGA_COL_WHITE          0xFF
+#define  VGA_COLOUR_BLACK          0x00
+#define  VGA_COLOUR_BLUE           0x03
+#define  VGA_COLOUR_GREEN          0x1C
+#define  VGA_COLOUR_RED            0xE0
+#define  VGA_COLOUR_WHITE          0xFF
 
-#define  VGA_COL_CYAN           0x1F
-#define  VGA_COL_MAGENTA        0xE3
-#define  VGA_COL_YELLOW         0xFC
+#define  VGA_COLOUR_CYAN           0x1F
+#define  VGA_COLOUR_MAGENTA        0xE3
+#define  VGA_COLOUR_YELLOW         0xFC
 
 
 
@@ -40,23 +40,14 @@
 #define VGA_DISPLAY_Y   240
 
 
-
 //--------------------------------------------------------------
-// VGA Structure
+// vgaData_s Structure
 //--------------------------------------------------------------
-typedef struct {
-  uint16_t hsync_cnt;   // counter
-  uint32_t start_adr;   // start_adres
-  uint32_t dma2_cr_reg; // Register constant CR-Register
-}VGA_t;
-extern VGA_t VGA;
-
 
 
 //--------------------------------------------------------------
 // Display RAM
 //--------------------------------------------------------------
-extern uint8_t VGA_RAM1[(VGA_DISPLAY_X+1)*VGA_DISPLAY_Y];
 
 //--------------------------------------------------------------
 // Timer-1
@@ -86,8 +77,7 @@ extern uint8_t VGA_RAM1[(VGA_DISPLAY_X+1)*VGA_DISPLAY_Y];
 
 #define  VGA_TIM2_HSYNC_IMP        320  // HSync-length (3,81us)
 #define  VGA_TIM2_HTRIGGER_START   480  // HSync+BackPorch (5,71us)
-#define  VGA_TIM2_DMA_DELAY         37  // ease the delay when DMA START (Optimization = none)
-// #define  VGA_TIM2_DMA_DELAY         30  // ease the delay when DMA START (Optimization = -O1)
+#define  VGA_TIM2_DMA_DELAY         10
 
 
 //--------------------------------------------------------------
@@ -121,9 +111,14 @@ extern uint8_t VGA_RAM1[(VGA_DISPLAY_X+1)*VGA_DISPLAY_Y];
 //--------------------------------------------------------------
 // Global Function call
 //--------------------------------------------------------------
-void UB_VGA_Screen_Init(void);
-void UB_VGA_FillScreen(uint8_t color);
-void UB_VGA_SetPixel(uint16_t xp, uint16_t yp, uint8_t color);
+void VGA_Init(void);
 
+void VGA_FillScreen(uint8_t color);
+
+void VGA_SetPixel(uint16_t xp, uint16_t yp, uint8_t color);
+
+void VGA_InterruptHsync(void);
+
+void VGA_InterruptDma(void);
 //--------------------------------------------------------------
 #endif // __STM32F4_UB_VGA_SCREEN_H
