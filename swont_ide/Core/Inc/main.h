@@ -38,6 +38,7 @@ extern "C" {
 #include "string.h"
 #include <stdlib.h>
 
+#include "API_draw.h"
 #include "VGA_io_driver.h"
 
 /* USER CODE END Includes */

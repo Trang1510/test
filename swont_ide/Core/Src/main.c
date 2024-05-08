@@ -101,7 +101,7 @@ int main(void)
 
     VGA_Init(); // Init vgaData_s-Screen
 
-    VGA_FillScreen(VGA_COLOUR_WHITE);
+    API_clearscreen(VGA_COLOUR_WHITE);
     VGA_SetPixel(10, 10, 10);
     VGA_SetPixel(0, 0, 0x00);
     VGA_SetPixel(319, 0, 0x00);
@@ -139,7 +139,7 @@ int main(void)
             // Do some stuff
             printf("yes\n");
             colorTest = ~colorTest; // Toggle screen color
-            VGA_FillScreen(colorTest);
+            API_clearscreen(colorTest);
 
             // When finished reset the flag
             input.command_execute_flag = FALSE;
