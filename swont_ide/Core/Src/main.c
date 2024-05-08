@@ -118,10 +118,11 @@ int main(void)
     input.char_counter = 0;
     input.command_execute_flag = FALSE;
 
-    // HAl wants a memory location to store the charachter it receives from the UART
-    // We will pass it an array, but we will not use it. We declare our own variable in the interupt handler
+    // HAL wants a memory location to store the character it receives from the UART
+    // We will pass it an array, but we will not use it. We declare our own variable in the interrupt handler
     // See stm32f4xx_it.c
     HAL_UART_Receive_IT(&huart2, input.byte_buffer_rx, BYTE_BUFLEN);
+
 
     // Test to see if the screen reacts to UART
     unsigned char colorTest = TRUE;
@@ -130,6 +131,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
     while(1)
     {
         if(input.command_execute_flag == TRUE)
@@ -142,6 +144,7 @@ int main(void)
             // When finished reset the flag
             input.command_execute_flag = FALSE;
         }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
