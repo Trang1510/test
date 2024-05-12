@@ -42,7 +42,7 @@ void LL_recieve(void)
 	    data = strtok(NULL, ",");
 	}
 
-	//DEBUG CHECK for data inside the parsed array
+	//DEBUG for data inside the parsed array
 	for (int j = 0; j < i; j++)
 	{
 		printf("data bit %d: %s\n", j, ParsedData[j]);
