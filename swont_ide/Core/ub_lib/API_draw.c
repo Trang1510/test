@@ -111,7 +111,7 @@ int API_draw_line(int x_1, int y_1, int x_2, int y2, int color, int weight, int 
                 x_1++;
             VGA_SetPixel(x_1, y_1, color);
             workingAngle += angleCalculated;
-        }while((x_1 != x_2) && (y_1 != y2));
+        }while((x_1 != x_2) || (y_1 != y2));
     }
     return 0;
 }
