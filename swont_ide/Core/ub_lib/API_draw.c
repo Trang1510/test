@@ -2,11 +2,11 @@
 *   Includes                                                                  *
 ******************************************************************************/
 #include "API_draw.h"
-
+#include "math.h"
 /******************************************************************************
 *   #defines                                                                  *
 ******************************************************************************/
-
+#define HALF_PIE ((float)M_PI/2.0f)
 /******************************************************************************
 *   Typedefs                                                                  *
 ******************************************************************************/
@@ -42,6 +42,7 @@ int API_draw_text(int x_lup, int y_lup, int color, char* text, char* fontname,
 {
     return 1;
 }
+
 /**
   * @brief  Sets line on screen
   * @param  x_1 Start location x
@@ -49,7 +50,7 @@ int API_draw_text(int x_lup, int y_lup, int color, char* text, char* fontname,
   * @param  x_2 End location x
   * @param  y2 End location y
   * @param  color Line colour
-  * @param  weight With of the line in pixels
+  * @param  weight Width of the line in pixels
   * @param  reserved Unused
   * @retval Error code
   */
@@ -62,87 +63,56 @@ int API_draw_line(int x_1, int y_1, int x_2, int y2, int color, int weight, int 
 
     if(x_1 > x_2)
     {
-        uint8_t x1Holder = x_1;
+        uint16_t x1Holder = x_1;
         x_1 = x_2;
         x_2 = x1Holder;
     }
     if(y_1 > y2)
     {
-        uint8_t y1Holder = y_1;
+        uint16_t y1Holder = y_1;
         y_1 = y2;
         y2 = y1Holder;
     }
-
-    if(x_1 == x_2)
+    int originalStartX = x_1;
+    int originalStartY = y_1;
+    int originalEndX = x_2;
+    int originalEndY = y2;
+    float deltaX = (float)x_2 - (float)x_1;
+    float deltaY = (float)y2 - (float)y_1;
+    float angleCalculated = (float)atan2((double)deltaY, (double)deltaX);
+    for(int i = 0; i < weight; i++)
     {
-        do
+        float workingAngle = angleCalculated;
+        if(angleCalculated == HALF_PIE)
         {
-            VGA_SetPixel(x_1, y_1++, color);
-        }while(y_1 != y2);
-        return 0;
-    }
-    if(y_1 == y2)
-    {
-        do
-        {
-            VGA_SetPixel(x_1++, y_1, color);
-        }while(x_1 != x_2);
-        return 0;
-    }
-    int32_t deltaX = (int32_t)x_2 - (int32_t)x_1;
-    int32_t deltaY = (int32_t)y2 - (int32_t)y_1;
-    int32_t error = 0;
-    if(deltaX == deltaY)
-    {
-        do
-        {
-            VGA_SetPixel(x_1++, y_1++, color);
-        }while(y_1 != y2);
-        return 0;
-    }
-    if(deltaX > deltaY)
-    {
-        error = (deltaY<<10) / deltaX;
-    }
-    else if(deltaX < deltaY)
-    {
-        error = -(deltaX<<10) / deltaY;
-    }
-    // no fpu so try to keep a way of decimals for the most part
-    int32_t errorReset = error;
-    do
-    {
-        VGA_SetPixel(x_1, y_1, color);
-        if(error > 0)
-        {
-            error += errorReset;
-            x_1++;
-            if(error > 1024)
-            {
-                y_1++;
-                error -= 1024;
-            }
-            if(x_1 == VGA_DISPLAY_X) return 0;
+            y_1 = originalStartY + i;
+            y2 = originalEndY + i;
         }
-        else if(error < 0)
+        else if(angleCalculated == 0.0f)
         {
-            error += errorReset;
-            y_1++;
-            if(error <= -1024)
-            {
-                x_1++;
-                error += 1024;
-            }
-            if(y_1 == VGA_DISPLAY_Y) return 0;
+            x_1 = originalStartX + i;
+            x_2 = originalEndX + i;
         }
         else
         {
-            error = errorReset;
-            y_1++;
-            x_1++;
-            if((y_1 == VGA_DISPLAY_X) || (x_1 == VGA_DISPLAY_Y)) return 0;
+            x_1 = originalStartX + i;
+            y_1 = originalStartY + i;
+            x_2 = originalEndX + i;
+            y2 = originalEndY + i;
         }
-    }while((x_1 != x_2) || (y_1 != y2));
+        do
+        {
+            if(workingAngle >= HALF_PIE)
+            {
+                y_1++;
+                workingAngle -= HALF_PIE;
+            }
+            else
+                x_1++;
+            VGA_SetPixel(x_1, y_1, color);
+            workingAngle += angleCalculated;
+        }while((x_1 != x_2) && (y_1 != y2));
+    }
     return 0;
 }
 
