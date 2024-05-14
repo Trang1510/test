@@ -85,13 +85,17 @@ int API_draw_line(int x_1, int y_1, int x_2, int y2, int color, int weight, int 
         float workingAngle = angleCalculated;
         if(angleCalculated == HALF_PIE)
         {
-            y_1 = originalStartY + i;
-            y2 = originalEndY + i;
+            x_1 = originalStartX + i;
+            x_2 = originalEndX + i;
+            y_1 = originalStartY;
+            y2  = originalEndY;
         }
         else if(angleCalculated == 0.0f)
         {
-            x_1 = originalStartX + i;
-            x_2 = originalEndX + i;
+            x_1 = originalStartX;
+            x_2 = originalEndX;
+            y_1 = originalStartY + i;
+            y2 = originalEndY + i;
         }
         else
         {
@@ -111,6 +115,7 @@ int API_draw_line(int x_1, int y_1, int x_2, int y2, int color, int weight, int 
                 x_1++;
             VGA_SetPixel(x_1, y_1, color);
             workingAngle += angleCalculated;
+
         }while((x_1 != x_2) || (y_1 != y2));
     }
     return 0;
