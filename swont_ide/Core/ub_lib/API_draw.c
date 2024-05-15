@@ -6,10 +6,31 @@
 /******************************************************************************
 *   #defines                                                                  *
 ******************************************************************************/
-#define HALF_PIE ((float)M_PI/2.0f)
+
 /******************************************************************************
 *   Typedefs                                                                  *
 ******************************************************************************/
+//------------------------------              ------------------------------
+//|              |             |            \ |              |             |
+//|     DATA     |     NEXT    |--------------|     DATA     |     NEXT    |
+//|              |             |            / |              |             |
+//------------------------------              ------------------------------
+
+typedef struct elements
+{
+    char* element;
+    struct elements* nextElement;
+} elementsParsed_t;
+
+typedef struct dataParsed
+{
+    char command[0x40];
+    uint8_t totalElements;
+    elementsParsed_t* elements;
+} dataParsed_t;
+
+// Jack output 5x char*
+// Trang input 19x char*
 
 /******************************************************************************
 *   Globals vars                                                              *
@@ -56,69 +77,7 @@ int API_draw_text(int x_lup, int y_lup, int color, char* text, char* fontname,
   */
 int API_draw_line(int x_1, int y_1, int x_2, int y2, int color, int weight, int reserved)
 {
-    if(weight <= 0)
-        return -1;
-    if((x_1 < 0) || (x_2 < 0) || (y_1 < 0) || (y2 < 0))
-        return -1;
-
-    if(x_1 > x_2)
-    {
-        uint16_t x1Holder = x_1;
-        x_1 = x_2;
-        x_2 = x1Holder;
-    }
-    if(y_1 > y2)
-    {
-        uint16_t y1Holder = y_1;
-        y_1 = y2;
-        y2 = y1Holder;
-    }
-    int originalStartX = x_1;
-    int originalStartY = y_1;
-    int originalEndX = x_2;
-    int originalEndY = y2;
-    float deltaX = (float)x_2 - (float)x_1;
-    float deltaY = (float)y2 - (float)y_1;
-    float angleCalculated = (float)atan2((double)deltaY, (double)deltaX);
-    for(int i = 0; i < weight; i++)
-    {
-        float workingAngle = angleCalculated;
-        if(angleCalculated == HALF_PIE)
-        {
-            x_1 = originalStartX + i;
-            x_2 = originalEndX + i;
-            y_1 = originalStartY;
-            y2  = originalEndY;
-        }
-        else if(angleCalculated == 0.0f)
-        {
-            x_1 = originalStartX;
-            x_2 = originalEndX;
-            y_1 = originalStartY + i;
-            y2 = originalEndY + i;
-        }
-        else
-        {
-            x_1 = originalStartX + i;
-            y_1 = originalStartY + i;
-            x_2 = originalEndX + i;
-            y2 = originalEndY + i;
-        }
-        do
-        {
-            if(workingAngle >= HALF_PIE)
-            {
-                y_1++;
-                workingAngle -= HALF_PIE;
-            }
-            else
-                x_1++;
-            VGA_SetPixel(x_1, y_1, color);
-            workingAngle += angleCalculated;
-
-        }while((x_1 != x_2) || (y_1 != y2));
-    }
-    return 0;
+    return 1;
 }
 
 /**
