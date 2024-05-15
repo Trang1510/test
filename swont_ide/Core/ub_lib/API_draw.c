@@ -86,6 +86,7 @@ int API_draw_line(int x1, int y1, int x2, int y2, int color, int weight, int res
     if (deltaX >= deltaY) 
     {
         stepX++;
+    }
     else 
     {
         stepY++;
