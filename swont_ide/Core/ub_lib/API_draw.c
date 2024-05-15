@@ -10,27 +10,6 @@
 /******************************************************************************
 *   Typedefs                                                                  *
 ******************************************************************************/
-//------------------------------              ------------------------------
-//|              |             |            \ |              |             |
-//|     DATA     |     NEXT    |--------------|     DATA     |     NEXT    |
-//|              |             |            / |              |             |
-//------------------------------              ------------------------------
-
-typedef struct elements
-{
-    char* element;
-    struct elements* nextElement;
-} elementsParsed_t;
-
-typedef struct dataParsed
-{
-    char command[0x40];
-    uint8_t totalElements;
-    elementsParsed_t* elements;
-} dataParsed_t;
-
-// Jack output 5x char*
-// Trang input 19x char*
 
 /******************************************************************************
 *   Globals vars                                                              *
