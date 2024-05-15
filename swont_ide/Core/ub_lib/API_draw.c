@@ -6,7 +6,7 @@
 /******************************************************************************
 *   #defines                                                                  *
 ******************************************************************************/
-
+#define SHIFTING_MULTIPLY_FLOATLESS_CALC (8)
 /******************************************************************************
 *   Typedefs                                                                  *
 ******************************************************************************/
@@ -22,6 +22,7 @@
 /******************************************************************************
 *   Local function prototypes                                                 *
 ******************************************************************************/
+int DrawLine(int x1, int x2, int y1, int y2, int color);
 
 /******************************************************************************
 *   Global functions                                                          *
@@ -45,18 +46,49 @@ int API_draw_text(int x_lup, int y_lup, int color, char* text, char* fontname,
 
 /**
   * @brief  Sets line on screen
-  * @param  x_1 Start location x
-  * @param  y_1 Start location y
-  * @param  x_2 End location x
+  * @param  x1 Start location x
+  * @param  y1 Start location y
+  * @param  x2 End location x
   * @param  y2 End location y
   * @param  color Line colour
   * @param  weight Width of the line in pixels
   * @param  reserved Unused
   * @retval Error code
   */
-int API_draw_line(int x_1, int y_1, int x_2, int y2, int color, int weight, int reserved)
+int API_draw_line(int x1, int y1, int x2, int y2, int color, int weight, int reserved)
 {
-    return 1;
+    if(weight <= 0)
+    {
+        return -1;
+    }
+    if((x1 < 0) || (x2 < 0) || (y1 < 0) || (y2 < 0) ||
+            (x1 >= VGA_DISPLAY_X) || (x2 >= VGA_DISPLAY_X) ||
+            (y1 >= VGA_DISPLAY_Y) || (y2 >= VGA_DISPLAY_Y))
+    {
+        return -1;
+    }
+    if(x1 > x2) // will be optimised out
+    {
+        int xHolder = x1;
+        x1 = x2;
+        x2 = xHolder;
+    }
+    if(y1 > y2) // will be optimised out
+    {
+        int yHolder = y1;
+        y1 = y2;
+        y2 = yHolder;
+    }
+    int stepX = 0;
+    int stepY = 0;
+    int deltaX = x2 - x1;
+    int deltaY = y2 - y1;
+    int stepSize = (deltaX >= deltaY) ? stepX++ : stepY++;
+    for(int i = 0; i < weight; i++)
+    {
+        DrawLine(x1+(stepX*i), x2+(stepX*i), y1+(stepY*i), y2+(stepY*i), color);
+    }
+    return 0;
 }
 
 /**
@@ -110,3 +142,72 @@ int API_clearscreen(uint8_t color)
 /******************************************************************************
 *   Local functions                                                           *
 ******************************************************************************/
+int DrawLine(int x1, int x2, int y1, int y2, int color)
+{
+    if((x1 < 0) || (x2 < 0) || (y1 < 0) || (y2 < 0) ||
+            (x1 >= VGA_DISPLAY_X) || (x2 >= VGA_DISPLAY_X) ||
+            (y1 >= VGA_DISPLAY_Y) || (y2 >= VGA_DISPLAY_Y))
+    {
+        return -1;
+    }
+    if(x1 > x2) // will be optimised out
+    {
+        int xHolder = x1;
+        x1 = x2;
+        x2 = xHolder;
+    }
+    if(y1 > y2) // will be optimised out
+    {
+        int yHolder = y1;
+        y1 = y2;
+        y2 = yHolder;
+    }
+    int deltaX = x2 - x1;
+    int deltaY = y2 - y1;
+    int errorXY = 0;
+    if(deltaX == 0)
+    {
+        errorXY = INT32_MIN;
+    }
+    else if(deltaY == 0)
+    {
+        errorXY = INT32_MAX;
+    }
+    else
+    {
+        errorXY = (deltaX<<SHIFTING_MULTIPLY_FLOATLESS_CALC) / deltaY;
+    }
+    int workingError = errorXY;
+    while((x1 != x2) || (y1 != y2))
+    {
+        VGA_SetPixel(x1, y1, color);
+        if(workingError == INT32_MAX)
+        {
+            x1++;
+            continue;
+        }
+        else if(workingError == INT32_MIN)
+        {
+            y1++;
+            continue;
+        }
+        if(workingError == (1<<SHIFTING_MULTIPLY_FLOATLESS_CALC))
+        {
+            x1++;
+            y1++;
+            workingError -= (1<<SHIFTING_MULTIPLY_FLOATLESS_CALC);
+        }
+        else if(workingError > (1<<SHIFTING_MULTIPLY_FLOATLESS_CALC))
+        {
+            x1++;
+            workingError -= (1<<SHIFTING_MULTIPLY_FLOATLESS_CALC);
+            continue;
+        }
+        else
+        {
+            y1++;
+        }
+        workingError += errorXY;
+    }
+    return 0;
+}
