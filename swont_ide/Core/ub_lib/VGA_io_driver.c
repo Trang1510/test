@@ -50,7 +50,6 @@ void VGA_Init(void)
     HAL_TIM_Base_Start(&htim2);
     HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
     HAL_TIM_PWM_Start_IT(&htim2, TIM_CHANNEL_3);
-
     // TIM1
     __HAL_TIM_ENABLE_DMA(&htim1, TIM_DMA_UPDATE);
     __HAL_TIM_ENABLE(&htim1);
@@ -58,12 +57,12 @@ void VGA_Init(void)
 
     HAL_DMA_Init(&hdma_tim1_up);
     __HAL_DMA_ENABLE_IT(&hdma_tim1_up, DMA_IT_TC);
-
     //-----------------------
     // Register swap and safe
     //-----------------------
     // content of CR-Register read and save
     vgaData_s.dmaConfigRegister = DMA2_Stream5->CR;
+    LOGI("VGA initialised");
 }
 
 
@@ -78,9 +77,9 @@ void VGA_Init(void)
 //--------------------------------------------------------------
 void VGA_SetPixel(uint16_t xp, uint16_t yp, uint8_t color)
 {
-    if(xp >= VGA_DISPLAY_X)
+    if(xp > VGA_DISPLAY_X)
         xp = 0;
-    if(yp >= VGA_DISPLAY_Y)
+    if(yp > VGA_DISPLAY_Y)
         yp = 0;
 
     // Write pixel to ram
