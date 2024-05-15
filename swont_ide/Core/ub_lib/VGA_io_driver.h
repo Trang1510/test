@@ -77,8 +77,7 @@
 
 #define  VGA_TIM2_HSYNC_IMP        320  // HSync-length (3,81us)
 #define  VGA_TIM2_HTRIGGER_START   480  // HSync+BackPorch (5,71us)
-#define  VGA_TIM2_DMA_DELAY         10
-
+#define  VGA_TIM2_DMA_DELAY         10  // Frontporch?
 
 //--------------------------------------------------------------
 // VSync-Signal
@@ -112,8 +111,6 @@
 // Global Function call
 //--------------------------------------------------------------
 void VGA_Init(void);
-
-void VGA_FillScreen(uint8_t color);
 
 void VGA_SetPixel(uint16_t xp, uint16_t yp, uint8_t color);
 
