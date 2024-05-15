@@ -40,7 +40,7 @@ extern "C" {
 
 #include "API_draw.h"
 #include "VGA_io_driver.h"
-
+#include "log.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

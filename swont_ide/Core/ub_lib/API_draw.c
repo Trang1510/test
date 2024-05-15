@@ -41,6 +41,7 @@ int DrawLine(int x1, int x2, int y1, int y2, int color);
 int API_draw_text(int x_lup, int y_lup, int color, char* text, char* fontname,
                   int fontsize, int fontstyle, int reserved)
 {
+    LOGW("Not implemented yet");
     return 1;
 }
 
@@ -59,12 +60,14 @@ int API_draw_line(int x1, int y1, int x2, int y2, int color, int weight, int res
 {
     if(weight <= 0)
     {
+        LOGE("Can not draw a line of 0 or less pixels");
         return -1;
     }
     if((x1 < 0) || (x2 < 0) || (y1 < 0) || (y2 < 0) ||
             (x1 >= VGA_DISPLAY_X) || (x2 >= VGA_DISPLAY_X) ||
             (y1 >= VGA_DISPLAY_Y) || (y2 >= VGA_DISPLAY_Y))
     {
+        LOGE("Line start and end point must be on screen");
         return -1;
     }
     if(x1 > x2) // will be optimised out
@@ -95,6 +98,7 @@ int API_draw_line(int x1, int y1, int x2, int y2, int color, int weight, int res
     {
         DrawLine(x1+(stepX*i), x2+(stepX*i), y1+(stepY*i), y2+(stepY*i), color);
     }
+    LOGI("Line from {%d;%d} to {%d;%d} of %d thick",x1, y1, x2, y2, weight);
     return 0;
 }
 
@@ -113,6 +117,7 @@ int API_draw_line(int x1, int y1, int x2, int y2, int color, int weight, int res
 int API_draw_rectangle(int x, int y, int width, int height, int color, int filled,
                        int reserved0, int reserved1)
 {
+    LOGW("Not implemented yet");
     return 1;
 }
 
@@ -125,6 +130,7 @@ int API_draw_rectangle(int x, int y, int width, int height, int color, int fille
   */
 int API_draw_bitmap(int x_lup, int y_lup, int bm_nr)
 {
+    LOGW("Not implemented yet");
     return 1;
 }
 
@@ -143,6 +149,7 @@ int API_clearscreen(uint8_t color)
             VGA_SetPixel(xp, yp, color);
         }
     }
+    LOGI("Screen filled with color: 0x%2x", color);
     return 0;
 }
 
@@ -151,12 +158,6 @@ int API_clearscreen(uint8_t color)
 ******************************************************************************/
 int DrawLine(int x1, int x2, int y1, int y2, int color)
 {
-    if((x1 < 0) || (x2 < 0) || (y1 < 0) || (y2 < 0) ||
-            (x1 >= VGA_DISPLAY_X) || (x2 >= VGA_DISPLAY_X) ||
-            (y1 >= VGA_DISPLAY_Y) || (y2 >= VGA_DISPLAY_Y))
-    {
-        return -1;
-    }
     if(x1 > x2) // will be optimised out
     {
         int xHolder = x1;

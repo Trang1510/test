@@ -27,7 +27,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "stdbool.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -52,13 +52,13 @@ input_vars input;
 volatile char container[1024];
 volatile int temp;
 volatile int key;
-
+volatile bool logTxDone;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-
+void HardwareInfo(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -98,16 +98,21 @@ int main(void)
     MX_TIM2_Init();
     MX_USART2_UART_Init();
     /* USER CODE BEGIN 2 */
+    HardwareInfo();
 
     VGA_Init(); // Init vgaData_s-Screen
-
     API_clearscreen(VGA_COLOUR_WHITE);
     API_draw_line(20, 20, 100, 100, VGA_COLOUR_RED, 5, 0);
+    API_draw_line(20, -5, 100, 100, VGA_COLOUR_RED, 5, 0);
+    API_draw_line(20, 1, 100, 100, VGA_COLOUR_RED, 0, 0);
+
+    API_draw_text(0,0,VGA_COLOUR_BLACK, "TEST", "Joost", 15, 0, 0);
+    API_draw_bitmap(0,0,1);
+    API_draw_rectangle(0, 0, 20, 20, VGA_COLOUR_CYAN, 0, 0,0);
 
     VGA_SetPixel(10, 10, 10);
     VGA_SetPixel(0, 0, 0x00);
     VGA_SetPixel(319, 0, 0x00);
-
     int i;
 
     for(i = 0; i < LINE_BUFLEN; i++)
@@ -139,12 +144,16 @@ int main(void)
         if(input.command_execute_flag == TRUE)
         {
             // Do some stuff
-            printf("yes\n");
+//            printf("yes\n");
             colorTest = ~colorTest; // Toggle screen color
             API_clearscreen(colorTest);
 
             // When finished reset the flag
             input.command_execute_flag = FALSE;
+        }
+        if (logTxDone) {
+            LOG_SendNextLog();
+            logTxDone = false;
         }
 
         /* USER CODE END WHILE */
@@ -200,20 +209,22 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
-#ifdef __GNUC__
-#define USART_PRINTF int __io_putchar(int ch)        //With GCC/RAISONANCE printf calls __io_putchar()
-#else
-#define USART_PRINTF int fputc(int ch, FILE *f)		//With other compiler printf calls fputc()
-#endif /* __GNUC__ */
-
-//Retargets the C library printf function to the USART
-USART_PRINTF
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
-    HAL_UART_Transmit(&huart2, (uint8_t*)&ch, 1, 0xFFFF);    //Write character to UART2
-    return ch;                                                //Return the character
+    logTxDone = true;
 }
 
+void HardwareInfo(void)
+{
+    LOGH("\n\n\n\n\n");
+    LOGH("MCU: %s", "stm32f407vgt6");
+    LOGH("Core: Cotrex-m%d", __CORTEX_M);
+    LOGH("uid: 0x%lx 0x%lx 0x%lX", HAL_GetUIDw0(), HAL_GetUIDw1(), HAL_GetUIDw2());
+    LOGH("\tSystem clock: %lu Hz", HAL_RCC_GetSysClockFreq());
+    LOGH("\tAHB clock: %lu Hz", HAL_RCC_GetHCLKFreq());
+    LOGH("\tPCLK1 clock: %lu Hz", HAL_RCC_GetPCLK1Freq());
+    LOGH("\tPCLK2 clock: %lu Hz", HAL_RCC_GetPCLK2Freq());
+}
 /* USER CODE END 4 */
 
 /**
