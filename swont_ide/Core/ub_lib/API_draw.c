@@ -83,7 +83,13 @@ int API_draw_line(int x1, int y1, int x2, int y2, int color, int weight, int res
     int stepY = 0;
     int deltaX = x2 - x1;
     int deltaY = y2 - y1;
-    int stepSize = (deltaX >= deltaY) ? stepX++ : stepY++;
+    if (deltaX >= deltaY) 
+    {
+        stepX++;
+    else 
+    {
+        stepY++;
+    }
     for(int i = 0; i < weight; i++)
     {
         DrawLine(x1+(stepX*i), x2+(stepX*i), y1+(stepY*i), y2+(stepY*i), color);
