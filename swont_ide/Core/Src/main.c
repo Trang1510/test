@@ -58,10 +58,8 @@ volatile bool logTxDone;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-
 /* USER CODE BEGIN PFP */
 void HardwareInfo(void);
-
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -74,7 +72,6 @@ void HardwareInfo(void);
   * @retval int
   */
 int main(void)
-
 {
     /* USER CODE BEGIN 1 */
 
@@ -101,11 +98,12 @@ int main(void)
     MX_TIM1_Init();
     MX_TIM2_Init();
     MX_USART2_UART_Init();
-    MX_IWDG_Init();
+	MX_IWDG_Init();
     /* USER CODE BEGIN 2 */
     HAL_GPIO_WritePin(Green_GPIO_Port, Green_Pin, GPIO_PIN_SET);
     HAL_GPIO_WritePin(Red_GPIO_Port, Red_Pin, GPIO_PIN_SET);
     HardwareInfo();
+
     VGA_Init(); // Init vgaData_s-Screen
     API_clearscreen(VGA_COLOUR_WHITE);
     API_draw_line(20, 20, 100, 100, VGA_COLOUR_RED, 5, 0);
@@ -152,15 +150,15 @@ int main(void)
         if(input.command_execute_flag == TRUE)
         {
             // Do some stuff
-            //            printf("yes\n");
+//            printf("yes\n");
             colorTest = ~colorTest; // Toggle screen color
             API_clearscreen(colorTest);
 
             // When finished reset the flag
             input.command_execute_flag = FALSE;
         }
-        if(logTxDone)
-        {
+        if (logTxDone)
+		{
             LOG_SendNextLog();
             logTxDone = false;
         }
@@ -195,9 +193,8 @@ void SystemClock_Config(void)
     /** Initializes the RCC Oscillators according to the specified parameters
     * in the RCC_OscInitTypeDef structure.
     */
-    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
+    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
     RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-    RCC_OscInitStruct.LSIState = RCC_LSI_ON;
     RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
     RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
     RCC_OscInitStruct.PLL.PLLM = 4;
@@ -225,7 +222,7 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef* huart)
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
     logTxDone = true;
 }
@@ -233,11 +230,9 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef* huart)
 void HardwareInfo(void)
 {
     LOGH("\n\n\n\n\n");
-    LOGH("Device info:");
-    LOGH("\tID: 0x%lx;       Rev: 0x%lx ", HAL_GetDEVID(), HAL_GetREVID());
-    LOGH("\tCore: Cotrex-m%d; FPU: %s", __CORTEX_M, (__FPU_PRESENT) ? "Yes" : "No");
-    LOGH("\tuid: 0x%lx 0x%lx 0x%lX", HAL_GetUIDw0(), HAL_GetUIDw1(), HAL_GetUIDw2());
-    LOGH("Clocks:");
+    LOGH("MCU: %s", "stm32f407vgt6");
+    LOGH("Core: Cotrex-m%d", __CORTEX_M);
+    LOGH("uid: 0x%lx 0x%lx 0x%lX", HAL_GetUIDw0(), HAL_GetUIDw1(), HAL_GetUIDw2());
     LOGH("\tSystem clock: %lu Hz", HAL_RCC_GetSysClockFreq());
     LOGH("\tAHB clock:    %lu Hz", HAL_RCC_GetHCLKFreq());
     LOGH("\tPCLK1 clock:  %lu Hz", HAL_RCC_GetPCLK1Freq());
