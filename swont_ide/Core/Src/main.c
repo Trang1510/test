@@ -148,7 +148,7 @@ int main(void)
         {
             // Do some stuff
             printf("yes\n");
-            LL_recieve();
+            LL_receive();
             // When finished reset the flag
             input.command_execute_flag = FALSE;
         }

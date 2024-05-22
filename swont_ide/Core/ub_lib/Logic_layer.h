@@ -44,8 +44,8 @@ extern input_vars input;
 /******************************************************************************
 *   Global function prototypes                                                *
 ******************************************************************************/
-void LL_recieve(void);
+void LL_receive(void);
 
-void LL_exec(char* parsedData);
+void LL_exec(void);
 
 #endif /* UB_LIB_LOGIC_LAYER_H_ */
