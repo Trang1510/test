@@ -41,8 +41,7 @@ void LL_recieve(void)
 	// Get the first token
 #ifdef DEBUG
 	data = strtok(command, ",");
-#endif
-#ifndef DEBUG
+#else
 	data = strtok(input.line_rx_buffer, ",");
 #endif
 
@@ -57,16 +56,9 @@ void LL_recieve(void)
 	//DEBUG for data inside the parsed array
 	for (int j = 0; j < i; j++)
 	{
-		printf("data bit %d: %s\n", j, ParsedData[j]);
+		LOGD("data bit %d: %s\n", j, ParsedData[j]);
 	}
 
 	LL_exec(ParsedData[]);
-	// Example of checking values
-	// Assuming the command structure is known
-	if (strcmp(ParsedData[0], "rechthoek") == 0)
-	{
-		//print test
-		printf("banger");
-	}
 	return;
 }
