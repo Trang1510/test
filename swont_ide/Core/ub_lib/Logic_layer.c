@@ -1,22 +1,20 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : Logic_layer.c
-  * @brief          : Logic functions for SoftOnt project
-  ******************************************************************************
-  * @attention
-  *
-  * Created on: May 8, 2024
-  *    Author: jackt
-  * test
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : Logic_layer.c
+ * @brief          : Logic functions for SoftOnt project
+ ******************************************************************************
+ * @attention
+ *
+ * Created on: May 8, 2024
+ *    Author: jackt
+ * test
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 #include "main.h"
-
-#define DEBUG
 
 //array for testing
 char command[] = "rechthoek,10,10,150,100,licht blauw,0";
@@ -39,7 +37,7 @@ void LL_recieve(void)
 	while (data != NULL && i < MAX_VARS)
 	{
 		ParsedData[i++] = data;
-	    data = strtok(NULL, ",");
+		data = strtok(NULL, ",");
 	}
 
 	//DEBUG for data inside the parsed array
@@ -48,15 +46,13 @@ void LL_recieve(void)
 		printf("data bit %d: %s\n", j, ParsedData[j]);
 	}
 
+	LL_exec();
 	// Example of checking values
 	// Assuming the command structure is known
 	if (strcmp(ParsedData[0], "rechthoek") == 0)
 	{
 		//print test
 		printf("banger");
-		volatile int x = atoi(ParsedData[1]);
-		volatile int y = atoi(ParsedData[2]);
-		// Check other values and proceed accordingly
 	}
 	return;
 }

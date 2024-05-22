@@ -17,6 +17,7 @@
 #define MAX_VARS 10
 
 void LL_recieve(void);
+void LL_exec(void);
 
 
 

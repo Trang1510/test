@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file    stm32f4xx_it.c
-  * @brief   Interrupt Service Routines.
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    stm32f4xx_it.c
+ * @brief   Interrupt Service Routines.
+ ******************************************************************************
+ * @attention
+ *
+ * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
+ * All rights reserved.</center></h2>
+ *
+ * This software component is licensed by ST under BSD 3-Clause license,
+ * the "License"; You may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at:
+ *                        opensource.org/licenses/BSD-3-Clause
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
@@ -67,129 +67,129 @@ extern TIM_HandleTypeDef htim1;
 /*           Cortex-M4 Processor Interruption and Exception Handlers          */
 /******************************************************************************/
 /**
-  * @brief This function handles Non maskable interrupt.
-  */
+ * @brief This function handles Non maskable interrupt.
+ */
 void NMI_Handler(void)
 {
-  /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
+	/* USER CODE BEGIN NonMaskableInt_IRQn 0 */
 
-  /* USER CODE END NonMaskableInt_IRQn 0 */
-  /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
+	/* USER CODE END NonMaskableInt_IRQn 0 */
+	/* USER CODE BEGIN NonMaskableInt_IRQn 1 */
 
-  /* USER CODE END NonMaskableInt_IRQn 1 */
+	/* USER CODE END NonMaskableInt_IRQn 1 */
 }
 
 /**
-  * @brief This function handles Hard fault interrupt.
-  */
+ * @brief This function handles Hard fault interrupt.
+ */
 void HardFault_Handler(void)
 {
-  /* USER CODE BEGIN HardFault_IRQn 0 */
+	/* USER CODE BEGIN HardFault_IRQn 0 */
 
-  /* USER CODE END HardFault_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_HardFault_IRQn 0 */
-    /* USER CODE END W1_HardFault_IRQn 0 */
-  }
+	/* USER CODE END HardFault_IRQn 0 */
+	while (1)
+	{
+		/* USER CODE BEGIN W1_HardFault_IRQn 0 */
+		/* USER CODE END W1_HardFault_IRQn 0 */
+	}
 }
 
 /**
-  * @brief This function handles Memory management fault.
-  */
+ * @brief This function handles Memory management fault.
+ */
 void MemManage_Handler(void)
 {
-  /* USER CODE BEGIN MemoryManagement_IRQn 0 */
+	/* USER CODE BEGIN MemoryManagement_IRQn 0 */
 
-  /* USER CODE END MemoryManagement_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_MemoryManagement_IRQn 0 */
-    /* USER CODE END W1_MemoryManagement_IRQn 0 */
-  }
+	/* USER CODE END MemoryManagement_IRQn 0 */
+	while (1)
+	{
+		/* USER CODE BEGIN W1_MemoryManagement_IRQn 0 */
+		/* USER CODE END W1_MemoryManagement_IRQn 0 */
+	}
 }
 
 /**
-  * @brief This function handles Pre-fetch fault, memory access fault.
-  */
+ * @brief This function handles Pre-fetch fault, memory access fault.
+ */
 void BusFault_Handler(void)
 {
-  /* USER CODE BEGIN BusFault_IRQn 0 */
+	/* USER CODE BEGIN BusFault_IRQn 0 */
 
-  /* USER CODE END BusFault_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_BusFault_IRQn 0 */
-    /* USER CODE END W1_BusFault_IRQn 0 */
-  }
+	/* USER CODE END BusFault_IRQn 0 */
+	while (1)
+	{
+		/* USER CODE BEGIN W1_BusFault_IRQn 0 */
+		/* USER CODE END W1_BusFault_IRQn 0 */
+	}
 }
 
 /**
-  * @brief This function handles Undefined instruction or illegal state.
-  */
+ * @brief This function handles Undefined instruction or illegal state.
+ */
 void UsageFault_Handler(void)
 {
-  /* USER CODE BEGIN UsageFault_IRQn 0 */
+	/* USER CODE BEGIN UsageFault_IRQn 0 */
 
-  /* USER CODE END UsageFault_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_UsageFault_IRQn 0 */
-    /* USER CODE END W1_UsageFault_IRQn 0 */
-  }
+	/* USER CODE END UsageFault_IRQn 0 */
+	while (1)
+	{
+		/* USER CODE BEGIN W1_UsageFault_IRQn 0 */
+		/* USER CODE END W1_UsageFault_IRQn 0 */
+	}
 }
 
 /**
-  * @brief This function handles System service call via SWI instruction.
-  */
+ * @brief This function handles System service call via SWI instruction.
+ */
 void SVC_Handler(void)
 {
-  /* USER CODE BEGIN SVCall_IRQn 0 */
+	/* USER CODE BEGIN SVCall_IRQn 0 */
 
-  /* USER CODE END SVCall_IRQn 0 */
-  /* USER CODE BEGIN SVCall_IRQn 1 */
+	/* USER CODE END SVCall_IRQn 0 */
+	/* USER CODE BEGIN SVCall_IRQn 1 */
 
-  /* USER CODE END SVCall_IRQn 1 */
+	/* USER CODE END SVCall_IRQn 1 */
 }
 
 /**
-  * @brief This function handles Debug monitor.
-  */
+ * @brief This function handles Debug monitor.
+ */
 void DebugMon_Handler(void)
 {
-  /* USER CODE BEGIN DebugMonitor_IRQn 0 */
+	/* USER CODE BEGIN DebugMonitor_IRQn 0 */
 
-  /* USER CODE END DebugMonitor_IRQn 0 */
-  /* USER CODE BEGIN DebugMonitor_IRQn 1 */
+	/* USER CODE END DebugMonitor_IRQn 0 */
+	/* USER CODE BEGIN DebugMonitor_IRQn 1 */
 
-  /* USER CODE END DebugMonitor_IRQn 1 */
+	/* USER CODE END DebugMonitor_IRQn 1 */
 }
 
 /**
-  * @brief This function handles Pendable request for system service.
-  */
+ * @brief This function handles Pendable request for system service.
+ */
 void PendSV_Handler(void)
 {
-  /* USER CODE BEGIN PendSV_IRQn 0 */
+	/* USER CODE BEGIN PendSV_IRQn 0 */
 
-  /* USER CODE END PendSV_IRQn 0 */
-  /* USER CODE BEGIN PendSV_IRQn 1 */
+	/* USER CODE END PendSV_IRQn 0 */
+	/* USER CODE BEGIN PendSV_IRQn 1 */
 
-  /* USER CODE END PendSV_IRQn 1 */
+	/* USER CODE END PendSV_IRQn 1 */
 }
 
 /**
-  * @brief This function handles System tick timer.
-  */
+ * @brief This function handles System tick timer.
+ */
 void SysTick_Handler(void)
 {
-  /* USER CODE BEGIN SysTick_IRQn 0 */
+	/* USER CODE BEGIN SysTick_IRQn 0 */
 
-  /* USER CODE END SysTick_IRQn 0 */
-  HAL_IncTick();
-  /* USER CODE BEGIN SysTick_IRQn 1 */
+	/* USER CODE END SysTick_IRQn 0 */
+	HAL_IncTick();
+	/* USER CODE BEGIN SysTick_IRQn 1 */
 
-  /* USER CODE END SysTick_IRQn 1 */
+	/* USER CODE END SysTick_IRQn 1 */
 }
 
 /******************************************************************************/
@@ -200,97 +200,95 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles TIM2 global interrupt.
-  */
+ * @brief This function handles TIM2 global interrupt.
+ */
 void TIM2_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM2_IRQn 0 */
+	/* USER CODE BEGIN TIM2_IRQn 0 */
 
-  /* USER CODE END TIM2_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim2);
-  /* USER CODE BEGIN TIM2_IRQn 1 */
-    __HAL_TIM_CLEAR_IT(&htim2, TIM_IT_CC3); // uncomment HAL_TIM_IRQHandler(&htim2); ^^
-    VGA_InterruptHsync();
-  /* USER CODE END TIM2_IRQn 1 */
+	/* USER CODE END TIM2_IRQn 0 */
+	HAL_TIM_IRQHandler(&htim2);
+	/* USER CODE BEGIN TIM2_IRQn 1 */
+	__HAL_TIM_CLEAR_IT(&htim2, TIM_IT_CC3); // uncomment HAL_TIM_IRQHandler(&htim2); ^^
+	VGA_InterruptHsync();
+	/* USER CODE END TIM2_IRQn 1 */
 }
 
 /**
-  * @brief This function handles USART2 global interrupt.
-  */
+ * @brief This function handles USART2 global interrupt.
+ */
 void USART2_IRQHandler(void)
 {
-  /* USER CODE BEGIN USART2_IRQn 0 */
+	/* USER CODE BEGIN USART2_IRQn 0 */
 
-    // Check if UART interrupt flag is set
-        if ((USART2->SR & USART_SR_RXNE) != 0)
-        {
-            // Read the received character
-            char uart_char = USART2->DR;
+	// Check if UART interrupt flag is set
+	if ((USART2->SR & USART_SR_RXNE) != 0)
+	{
+		// Read the received character
+		char uart_char = USART2->DR;
 
+		// Check for CR or a dot
+		// There was a small bug in the terminal program.
+		// By terminating your message with a dot you can ignore the CR (Enter) character
+		if ((uart_char == CARRIAGE_RETURN) || (uart_char == '.') || uart_char == LINE_FEED)
+		{
+			// Set the flag to indicate command execution
+			input.command_execute_flag = TRUE;
+			// Store the message length for processing
+			input.msglen = input.char_counter;
+			// Reset the counter for the next line
+			input.char_counter = 0;
+		}
+		else
+		{
+			// Store the received character in the buffer
+			input.command_execute_flag = FALSE;
+			input.line_rx_buffer[input.char_counter] = uart_char;
+			input.char_counter++;
+			// Ensure the counter doesn't exceed buffer size
+			if (input.char_counter >= LINE_BUFLEN)
+			{
+				// Handle buffer overflow here if needed
+			}
+		}
+	}
 
-                // Check for CR or a dot
-                // There was a small bug in the terminal program.
-                // By terminating your message with a dot you can ignore the CR (Enter) character
-                if ((uart_char == CARRIAGE_RETURN) || (uart_char == '.') || uart_char == LINE_FEED)
-                {
-                    // Set the flag to indicate command execution
-                    input.command_execute_flag = TRUE;
-                    // Store the message length for processing
-                    input.msglen = input.char_counter;
-                    // Reset the counter for the next line
-                    input.char_counter = 0;
-                }
-                else
-                {
-                    // Store the received character in the buffer
-                    input.command_execute_flag = FALSE;
-                    input.line_rx_buffer[input.char_counter] = uart_char;
-                    input.char_counter++;
-                    // Ensure the counter doesn't exceed buffer size
-                    if (input.char_counter >= LINE_BUFLEN)
-                    {
-                        // Handle buffer overflow here if needed
-                    }
-                }
+	// Clear UART interrupt flag
+	USART2->SR &= ~USART_SR_RXNE;
 
-        }
+	/* USER CODE END USART2_IRQn 0 */
+	HAL_UART_IRQHandler(&huart2);
 
-        // Clear UART interrupt flag
-        USART2->SR &= ~USART_SR_RXNE;
+	/* USER CODE BEGIN USART2_IRQn 1 */
 
-      /* USER CODE END USART2_IRQn 0 */
-      HAL_UART_IRQHandler(&huart2);
-
-  /* USER CODE BEGIN USART2_IRQn 1 */
-
-  /* USER CODE END USART2_IRQn 1 */
+	/* USER CODE END USART2_IRQn 1 */
 }
 
 /**
-  * @brief This function handles DMA2 stream5 global interrupt.
-  */
+ * @brief This function handles DMA2 stream5 global interrupt.
+ */
 void DMA2_Stream5_IRQHandler(void)
 {
-  /* USER CODE BEGIN DMA2_Stream5_IRQn 0 */
-    VGA_InterruptDma();
-  /* USER CODE END DMA2_Stream5_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_tim1_up);
-  /* USER CODE BEGIN DMA2_Stream5_IRQn 1 */
+	/* USER CODE BEGIN DMA2_Stream5_IRQn 0 */
+	VGA_InterruptDma();
+	/* USER CODE END DMA2_Stream5_IRQn 0 */
+	HAL_DMA_IRQHandler(&hdma_tim1_up);
+	/* USER CODE BEGIN DMA2_Stream5_IRQn 1 */
 
-  /* USER CODE END DMA2_Stream5_IRQn 1 */
+	/* USER CODE END DMA2_Stream5_IRQn 1 */
 }
 
 /**
-  * @brief This function handles FPU global interrupt.
-  */
+ * @brief This function handles FPU global interrupt.
+ */
 void FPU_IRQHandler(void)
 {
-  /* USER CODE BEGIN FPU_IRQn 0 */
+	/* USER CODE BEGIN FPU_IRQn 0 */
 
-  /* USER CODE END FPU_IRQn 0 */
-  /* USER CODE BEGIN FPU_IRQn 1 */
+	/* USER CODE END FPU_IRQn 0 */
+	/* USER CODE BEGIN FPU_IRQn 1 */
 
-  /* USER CODE END FPU_IRQn 1 */
+	/* USER CODE END FPU_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
