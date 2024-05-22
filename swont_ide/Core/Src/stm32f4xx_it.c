@@ -237,48 +237,43 @@ void TIM2_IRQHandler(void)
   */
 void USART2_IRQHandler(void)
 {
-  /* USER CODE BEGIN USART2_IRQn 0 */
+	/* USER CODE BEGIN USART2_IRQn 0 */
 
-	// Check if UART interrupt flag is set
-	if ((USART2->SR & USART_SR_RXNE) != 0)
+	// Read the received character
+	char uart_char = USART2->DR;
+
+	// Check for CR, LF or dot to determine end of transmission.
+	// Current SerialPort Terminal (SPT) does not send CR or LF when sending single command. (PuTTy does at least)
+	// When sending data sequence send 0 has CR or LF but subsequent don't
+	// Recommend to use dot to terminate when sending single message using SPT
+	if ((uart_char == CARRIAGE_RETURN) || (uart_char == '.') || (uart_char == LINE_FEED))
 	{
-		// Read the received character
-		char uart_char = USART2->DR;
-
-		// Check for CR or a dot
-		// There was a small bug in the terminal program.
-		// By terminating your message with a dot you can ignore the CR (Enter) character
-		if ((uart_char == CARRIAGE_RETURN) || (uart_char == '.') || (uart_char == LINE_FEED))
+		// Set the flag to indicate command execution
+		input.command_execute_flag = TRUE;
+		// Store the message length for processing
+		input.msglen = input.char_counter;
+		// Reset the counter for the next line
+		input.char_counter = 0;
+	}
+	else
+	{
+		// Store the received character in the buffer
+		input.command_execute_flag = FALSE;
+		input.line_rx_buffer[input.char_counter] = uart_char;
+		input.char_counter++;
+		// Ensure the counter doesn't exceed buffer size
+		if (input.char_counter >= LINE_BUFLEN)
 		{
-			// Set the flag to indicate command execution
-			input.command_execute_flag = TRUE;
-			// Store the message length for processing
-			input.msglen = input.char_counter;
-			// Reset the counter for the next line
-			input.char_counter = 0;
-		}
-		else
-		{
-			// Store the received character in the buffer
-			input.command_execute_flag = FALSE;
-			input.line_rx_buffer[input.char_counter] = uart_char;
-			input.char_counter++;
-			// Ensure the counter doesn't exceed buffer size
-			if (input.char_counter >= LINE_BUFLEN)
-			{
-				// Handle buffer overflow here if needed
-			}
+			// Handle buffer overflow here if needed
+			LOGW("UART Buffer overflow");
 		}
 	}
 
-	// Clear UART interrupt flag
-	USART2->SR &= ~USART_SR_RXNE;
+	/* USER CODE END USART2_IRQn 0 */
+	HAL_UART_IRQHandler(&huart2);
+	/* USER CODE BEGIN USART2_IRQn 1 */
 
-  /* USER CODE END USART2_IRQn 0 */
-  HAL_UART_IRQHandler(&huart2);
-  /* USER CODE BEGIN USART2_IRQn 1 */
-
-  /* USER CODE END USART2_IRQn 1 */
+	/* USER CODE END USART2_IRQn 1 */
 }
 
 /**
