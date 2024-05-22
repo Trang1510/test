@@ -67,7 +67,7 @@
 // Function  = CH4 : HSync-Signal on PB11
 //             CH3 : Trigger point for DMA start
 //
-// basefreq = 2*APB1 (APB1=48MHz) => TIM_CLK=84MHz
+// basefreq  = 2*APB1 (APB1=48MHz) => TIM_CLK=84MHz
 // Frq       = 84MHz/1/2668 = 31,48kHz => T = 31,76us
 // 1TIC      = 11,90ns
 //

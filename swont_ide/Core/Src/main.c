@@ -21,6 +21,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "dma.h"
+#include "iwdg.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -97,7 +98,10 @@ int main(void)
     MX_TIM1_Init();
     MX_TIM2_Init();
     MX_USART2_UART_Init();
+	MX_IWDG_Init();
     /* USER CODE BEGIN 2 */
+    HAL_GPIO_WritePin(Green_GPIO_Port, Green_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(Red_GPIO_Port, Red_Pin, GPIO_PIN_SET);
     HardwareInfo();
 
     VGA_Init(); // Init vgaData_s-Screen
@@ -106,13 +110,15 @@ int main(void)
     API_draw_line(20, -5, 100, 100, VGA_COLOUR_RED, 5, 0);
     API_draw_line(20, 1, 100, 100, VGA_COLOUR_RED, 0, 0);
 
-    API_draw_text(0,0,VGA_COLOUR_BLACK, "TEST", "Joost", 15, 0, 0);
-    API_draw_bitmap(0,0,1);
-    API_draw_rectangle(0, 0, 20, 20, VGA_COLOUR_CYAN, 0, 0,0);
+    API_draw_text(0, 0, VGA_COLOUR_BLACK, "TEST", "Joost", 15, 0, 0);
+    API_draw_bitmap(0, 0, 1);
+    API_draw_rectangle(0, 0, 20, 20, VGA_COLOUR_CYAN, 0, 0, 0);
 
     VGA_SetPixel(10, 10, 10);
     VGA_SetPixel(0, 0, 0x00);
     VGA_SetPixel(319, 0, 0x00);
+    HAL_GPIO_WritePin(Green_GPIO_Port, Green_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(Red_GPIO_Port, Red_Pin, GPIO_PIN_RESET);
     int i;
 
     for(i = 0; i < LINE_BUFLEN; i++)
@@ -133,7 +139,7 @@ int main(void)
 
     // Test to see if the screen reacts to UART
     unsigned char colorTest = TRUE;
-
+    uint32_t timeToFeed = HAL_GetTick() + 100;
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -151,9 +157,16 @@ int main(void)
             // When finished reset the flag
             input.command_execute_flag = FALSE;
         }
-        if (logTxDone) {
+        if (logTxDone)
+		{
             LOG_SendNextLog();
             logTxDone = false;
+        }
+        if(HAL_GetTick() >= timeToFeed)
+        {
+            HAL_IWDG_Refresh(&hiwdg); // needs to be fed with in 500ms or device will restart.
+            HAL_GPIO_TogglePin(Green_GPIO_Port, Green_Pin);
+            timeToFeed = HAL_GetTick() + 499;
         }
 
         /* USER CODE END WHILE */
@@ -221,9 +234,14 @@ void HardwareInfo(void)
     LOGH("Core: Cotrex-m%d", __CORTEX_M);
     LOGH("uid: 0x%lx 0x%lx 0x%lX", HAL_GetUIDw0(), HAL_GetUIDw1(), HAL_GetUIDw2());
     LOGH("\tSystem clock: %lu Hz", HAL_RCC_GetSysClockFreq());
-    LOGH("\tAHB clock: %lu Hz", HAL_RCC_GetHCLKFreq());
-    LOGH("\tPCLK1 clock: %lu Hz", HAL_RCC_GetPCLK1Freq());
-    LOGH("\tPCLK2 clock: %lu Hz", HAL_RCC_GetPCLK2Freq());
+    LOGH("\tAHB clock:    %lu Hz", HAL_RCC_GetHCLKFreq());
+    LOGH("\tPCLK1 clock:  %lu Hz", HAL_RCC_GetPCLK1Freq());
+    LOGH("\tPCLK2 clock:  %lu Hz", HAL_RCC_GetPCLK2Freq());
+#if HAL_RTC_MODULE_ENABLED
+    LOGH("\tRTC clock:    Enabled\n");
+#else
+    LOGH("\tRTC clock:    Disabled\n");
+#endif
 }
 /* USER CODE END 4 */
 
