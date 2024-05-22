@@ -59,6 +59,12 @@ void LL_recieve(void)
 		LOGD("data bit %d: %s\n", j, ParsedData[j]);
 	}
 
-	LL_exec(ParsedData[]);
+	LL_exec(ParsedData[0]);
 	return;
 }
+
+void LL_exec(char* parsedData)
+{
+    assert_param(parsedData);
+}
+
