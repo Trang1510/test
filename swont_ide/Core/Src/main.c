@@ -145,10 +145,12 @@ int main(void)
 
     while(1)
     {
+    	//LL_recieve();
         if(input.command_execute_flag == TRUE)
         {
             // Do some stuff
-//            printf("yes\n");
+            printf("yes\n");
+            LL_recieve();
             colorTest = ~colorTest; // Toggle screen color
             API_clearscreen(colorTest);
 
