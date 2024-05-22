@@ -8,7 +8,7 @@
 *     Marijn Kagchelland                                                      *
 *                                                                             *
 *   Revision information:                                                     *
-*     @version $Revision:: 1.12.1                                           $ *
+*     @version $Revision:: 1.13.2                                           $ *
 *     @author    $Author:: Marijn Kagchelland                               $ *
 *     @date        $Date:: 15/05/2024                                       $ *
 *     to do list:                                                             *
@@ -63,7 +63,7 @@ static LogLevel_e CurrentLogLevel = LOG_VERBOSE;
 static char logBuffer[LOG_BUFFER_SIZE + MAX_MESSAGE_LENGTH + 1];
 static volatile uint16_t logBufferLength = LOG_BUFFER_SIZE;
 static uint16_t logBufferInPtr = 0;
-static volatile uint16_t logBufferOutPtr = 0;
+static uint16_t logBufferOutPtr = 0;
 
 #if LOG_USE_FREERTOS == 1
 static SemaphoreHandle_t logWriteSemaphore = NULL;
@@ -75,7 +75,7 @@ TaskHandle_t waitingTaskHandle = NULL;
 static bool stopping = false;
 static uint32_t numDroppedMessages = 0;
 #else
-static char txDmaBuffer[MAX_MESSAGE_LENGTH] = {0};
+static char txDmaBuffer[MAX_MESSAGE_LENGTH + 1] = {0};
 static int numTotalMessages = 0;
 static volatile bool Sending = false;
 #endif
@@ -86,6 +86,7 @@ static volatile bool Sending = false;
 #if LOG_USE_FREERTOS == 1
 static void Main(void);
 #endif
+
 static int Log(const char* logMessageFormat, va_list logMessageArguments);
 
 /******************************************************************************
@@ -94,11 +95,6 @@ static int Log(const char* logMessageFormat, va_list logMessageArguments);
 __inline void LOG_SetLogLevel(LogLevel_e logLevel)
 {
 	CurrentLogLevel = logLevel;
-}
-
-__inline LogLevel_e LOG_GetLogLevel(void)
-{
-	return CurrentLogLevel;
 }
 
 void LOG_Log(LogLevel_e logLevel, const char* logMessageFormat, ...)
@@ -149,24 +145,34 @@ void LOG_Start(void)
 	LOGC(LOG_COLOR_CYAN, "Logs starting...");
 }
 #else
+
 void LOG_SendNextLog(void)
 {
-    if (numTotalMessages > 0) {
-        uint32_t i = 0;
-        do {
-            txDmaBuffer[i++] = logBuffer[logBufferOutPtr++];
-            if (logBufferOutPtr == LOG_BUFFER_SIZE)
-                logBufferOutPtr = 0;
-        } while(logBuffer[logBufferOutPtr] != 0);
-        numTotalMessages--;
-        txDmaBuffer[i++] = 0;
-        HAL_UART_Transmit_DMA(&huart2, (uint8_t*) txDmaBuffer, i);
-        Sending = true;
-    } else
-        Sending = false;
+	uint16_t ptrOut = logBufferOutPtr;
+	if (numTotalMessages > 0) {
+		uint32_t i = 0;
+		/* On the end of the buffer is a High chance to be empty so skip that part if need be*/
+		while(logBuffer[ptrOut] == 0) {
+			ptrOut++;
+			if (ptrOut == BUFFER_SIZE_TOTAL)
+				ptrOut = 0;
+		}
+		do {
+			txDmaBuffer[i++] = logBuffer[ptrOut++];
+			if (ptrOut == BUFFER_SIZE_TOTAL)
+				ptrOut = 0;
+		} while (logBuffer[ptrOut] != 0);
+		ptrOut++; // skip \0
+		numTotalMessages--;
+		txDmaBuffer[i++] = 0;
+		HAL_UART_Transmit_DMA(&huart2, (uint8_t*) txDmaBuffer, i);
+		Sending = true;
+	} else
+		Sending = false;
+	logBufferOutPtr = ptrOut;
 }
-#endif
 
+#endif
 /******************************************************************************
 *   Local functions                                                           *
 ******************************************************************************/
@@ -273,7 +279,6 @@ static int Log(const char* logMessageFormat, va_list logMessageArguments)
 	}
 #endif
 #else
-	numTotalMessages++;
 	uint16_t remainingSpace;
 	uint16_t numPrintedCharacters = 0;
 	if (logBufferInPtr >= logBufferOutPtr) {
@@ -281,26 +286,30 @@ static int Log(const char* logMessageFormat, va_list logMessageArguments)
 	} else {
 		remainingSpace = MIN(logBufferOutPtr, LOG_BUFFER_SIZE) - logBufferInPtr;
 	}
-	
 	numPrintedCharacters += vsnprintf(&logBuffer[logBufferInPtr],
 									  remainingSpace,
 									  logMessageFormat, logMessageArguments);
 	if (numPrintedCharacters > remainingSpace) {
+		numTotalMessages = 1;
+		while (Sending) {
+		}
 		logBufferInPtr = 0;
-        logBufferOutPtr = 0;
+		logBufferOutPtr = 0;
 		remainingSpace = BUFFER_SIZE_TOTAL - 1;
 		numPrintedCharacters = snprintf(&logBuffer[logBufferInPtr], remainingSpace,
-										DROP_COUNT_FORMAT, numTotalMessages);
-		numTotalMessages = 1;
+										DROP_COUNT_FORMAT, ++numTotalMessages);
+		numTotalMessages = 0;
 	}
-	
+	numTotalMessages++;
 	logBufferInPtr += numPrintedCharacters + 1;
 	if (logBufferInPtr > LOG_BUFFER_SIZE) {
 		logBufferLength = logBufferInPtr - 1;
 		logBufferInPtr = 0;
 	}
-    if (!Sending)
-        LOG_SendNextLog();
+	if (!Sending)
+		LOG_SendNextLog();
 	return numTotalMessages;
 #endif
 }
+
+
