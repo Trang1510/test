@@ -133,10 +133,10 @@ int API_draw_rectangle(int x, int y, int width, int height, int color, int fille
     }
     else
     {
-        API_draw_line(x, y, x + width, y, color, 1, 0);
-        API_draw_line(x, y, x, y + height, color, 1, 0);
-        API_draw_line(x + width, y, x + width, y + height, color, 1, 0);
-        API_draw_line(x, y + height, x + width, y + height, color, 1, 0);
+        DrawLine(x, y, x + width, y, color);
+        DrawLine(x, y, x, y + height, color);
+        DrawLine(x + width, y, x + width, y + height, color);
+        DrawLine(x, y + height, x + width, y + height, color);
     }
     LOGI("Rectangle draw with width/height: {%d; %d} from {%d; %d} with color: 0x%x", width, height, x, y, color);
     return 0;
