@@ -11,18 +11,18 @@
 /******************************************************************************
 *   Typedefs                                                                  *
 ******************************************************************************/
-typedef struct {
-    uint16_t heightFont;
-    uint16_t widthFont;
-    uint8_t fontArray[][][42];
-} font_s;
-
-
-typedef struct {
-    font_s normal[2];
-    font_s italic[2];
-    font_s bold[2];
-} font_complete_s;
+//typedef struct {
+//    uint16_t heightFont;
+//    uint16_t widthFont;
+//    uint8_t fontArray[][][42];
+//} font_s;
+//
+//
+//typedef struct {
+//    font_s normal[2];
+//    font_s italic[2];
+//    font_s bold[2];
+//} font_complete_s;
 
 /******************************************************************************
 *   Globals vars                                                              *

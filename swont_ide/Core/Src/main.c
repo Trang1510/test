@@ -29,6 +29,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdbool.h"
+#include "Logic_layer.h"
+#include "VGA_io_driver.h"
+#include "API_draw.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -48,16 +51,13 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-input_vars input;
 
-volatile char container[1024];
-volatile int temp;
-volatile int key;
 volatile bool logTxDone;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+
 /* USER CODE BEGIN PFP */
 void HardwareInfo(void);
 /* USER CODE END PFP */
@@ -98,7 +98,7 @@ int main(void)
     MX_TIM1_Init();
     MX_TIM2_Init();
     MX_USART2_UART_Init();
-	MX_IWDG_Init();
+    MX_IWDG_Init();
     /* USER CODE BEGIN 2 */
     HAL_GPIO_WritePin(Green_GPIO_Port, Green_Pin, GPIO_PIN_SET);
     HAL_GPIO_WritePin(Red_GPIO_Port, Red_Pin, GPIO_PIN_SET);
@@ -110,9 +110,9 @@ int main(void)
     API_draw_line(20, -5, 100, 100, VGA_COLOUR_RED, 5, 0);
     API_draw_line(20, 1, 100, 100, VGA_COLOUR_RED, 0, 0);
 
-    API_draw_text(0,0,VGA_COLOUR_BLACK, "TEST", "Joost", 15, 0, 0);
-    API_draw_bitmap(0,0,1);
-    API_draw_rectangle(69, 69, 20, 20, VGA_COLOUR_CYAN, 1, 0,0);
+    API_draw_text(0, 0, VGA_COLOUR_BLACK, "TEST", "Joost", 15, 0, 0);
+    API_draw_bitmap(0, 0, 1);
+    API_draw_rectangle(69, 69, 20, 20, VGA_COLOUR_CYAN, 1, 0, 0);
 
     HAL_GPIO_WritePin(Green_GPIO_Port, Green_Pin, GPIO_PIN_RESET);
     HAL_GPIO_WritePin(Red_GPIO_Port, Red_Pin, GPIO_PIN_RESET);
@@ -145,20 +145,17 @@ int main(void)
 
     while(1)
     {
-    	//LL_recieve();
         if(input.command_execute_flag == TRUE)
         {
             // Do some stuff
             printf("yes\n");
             LL_recieve();
-            colorTest = ~colorTest; // Toggle screen color
-            API_clearscreen(colorTest);
 
             // When finished reset the flag
             input.command_execute_flag = FALSE;
         }
-        if (logTxDone)
-		{
+        if(logTxDone)
+        {
             LOG_SendNextLog();
             logTxDone = false;
         }
@@ -193,8 +190,9 @@ void SystemClock_Config(void)
     /** Initializes the RCC Oscillators according to the specified parameters
     * in the RCC_OscInitTypeDef structure.
     */
-    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
     RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+    RCC_OscInitStruct.LSIState = RCC_LSI_ON;
     RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
     RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
     RCC_OscInitStruct.PLL.PLLM = 4;
@@ -222,7 +220,7 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef* huart)
 {
     logTxDone = true;
 }
