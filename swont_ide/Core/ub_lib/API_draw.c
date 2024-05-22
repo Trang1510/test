@@ -128,7 +128,7 @@ int API_draw_rectangle(int x, int y, int width, int height, int color, int fille
     {
         for(int i = y; i < (y + height); i++)
         {
-            API_draw_line(x, i, x + width, i, color, 1, 0);
+        	DrawLine(x, i, x + width, i, color, 1, 0);
         }
     }
     else
