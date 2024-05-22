@@ -41,6 +41,25 @@ int DrawLine(int x1, int x2, int y1, int y2, int color);
 int API_draw_text(int x_lup, int y_lup, int color, char* text, char* fontname,
                   int fontsize, int fontstyle, int reserved)
 {
+    if((text == NULL) || (fontname == NULL))
+    {
+        LOGE("Font name and/or Text ti be displayed are not existing");
+        return -1;
+    }
+    if((x_lup >= VGA_DISPLAY_X) || (y_lup >= VGA_DISPLAY_Y) || (y_lup < 0) || (x_lup < 0))
+    {
+        LOGE("Out of bounce");
+        return -1;
+    }
+    if (fontsize < 1)  {
+        LOGE("Fontsize to small");
+        return -1;
+    }
+    if ((fontstyle != 0) && (fontstyle != 1) && (fontstyle != 3)) {
+        LOGE("Font style not supported");
+        return -1;
+    }
+
     LOGW("Not implemented yet");
     return 1;
 }
@@ -128,15 +147,15 @@ int API_draw_rectangle(int x, int y, int width, int height, int color, int fille
     {
         for(int i = y; i < (y + height); i++)
         {
-        	DrawLine(x, i, x + width, i, color);
+            DrawLine(x, x + width, i, i, color);
         }
     }
     else
     {
-        DrawLine(x, y, x + width, y, color);
-        DrawLine(x, y, x, y + height, color);
-        DrawLine(x + width, y, x + width, y + height, color);
-        DrawLine(x, y + height, x + width, y + height, color);
+        DrawLine(x, x + width, x, y, color);
+        DrawLine(x, x, y, y + height, color);
+        DrawLine(x + width, x + width, y, y + height, color);
+        DrawLine(x, x + width, y + height, y + height, color);
     }
     LOGI("Rectangle draw with width/height: {%d; %d} from {%d; %d} with color: 0x%x", width, height, x, y, color);
     return 0;
