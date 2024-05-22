@@ -36,11 +36,12 @@ extern "C" {
 
 #include "stdio.h"
 #include "string.h"
-#include <stdlib.h>
+#include "stdlib.h"
 
+#include "API_draw.h"
 #include "VGA_io_driver.h"
 #include "Logic_layer.h"
-
+#include "log.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
