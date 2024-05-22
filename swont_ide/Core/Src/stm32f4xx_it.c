@@ -230,7 +230,7 @@ void USART2_IRQHandler(void)
 		// Check for CR or a dot
 		// There was a small bug in the terminal program.
 		// By terminating your message with a dot you can ignore the CR (Enter) character
-		if ((uart_char == CARRIAGE_RETURN) || (uart_char == '.') || uart_char == LINE_FEED)
+		if ((uart_char == CARRIAGE_RETURN) || (uart_char == '.') || (uart_char == LINE_FEED))
 		{
 			// Set the flag to indicate command execution
 			input.command_execute_flag = TRUE;
