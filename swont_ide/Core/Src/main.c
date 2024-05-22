@@ -108,11 +108,8 @@ int main(void)
 
     API_draw_text(0,0,VGA_COLOUR_BLACK, "TEST", "Joost", 15, 0, 0);
     API_draw_bitmap(0,0,1);
-    API_draw_rectangle(0, 0, 20, 20, VGA_COLOUR_CYAN, 0, 0,0);
+    API_draw_rectangle(69, 69, 20, 20, VGA_COLOUR_CYAN, 1, 0,0);
 
-    VGA_SetPixel(10, 10, 10);
-    VGA_SetPixel(0, 0, 0x00);
-    VGA_SetPixel(319, 0, 0x00);
     int i;
 
     for(i = 0; i < LINE_BUFLEN; i++)

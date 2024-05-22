@@ -86,19 +86,19 @@ int API_draw_line(int x1, int y1, int x2, int y2, int color, int weight, int res
     int stepY = 0;
     int deltaX = x2 - x1;
     int deltaY = y2 - y1;
-    if (deltaX >= deltaY) 
+    if(deltaX >= deltaY)
     {
         stepX++;
     }
-    else 
+    else
     {
         stepY++;
     }
     for(int i = 0; i < weight; i++)
     {
-        DrawLine(x1+(stepX*i), x2+(stepX*i), y1+(stepY*i), y2+(stepY*i), color);
+        DrawLine(x1 + (stepX * i), x2 + (stepX * i), y1 + (stepY * i), y2 + (stepY * i), color);
     }
-    LOGI("Line from {%d;%d} to {%d;%d} of %d thick",x1, y1, x2, y2, weight);
+    LOGI("Line from {%d;%d} to {%d;%d} of %d thick", x1, y1, x2, y2, weight);
     return 0;
 }
 
@@ -117,8 +117,29 @@ int API_draw_line(int x1, int y1, int x2, int y2, int color, int weight, int res
 int API_draw_rectangle(int x, int y, int width, int height, int color, int filled,
                        int reserved0, int reserved1)
 {
-    LOGW("Not implemented yet");
-    return 1;
+    if((x < 0) || (y < 0) || (width < 0) || (height < 0) || (x >= VGA_DISPLAY_X) || (y >= VGA_DISPLAY_Y) ||
+            (x + width >= VGA_DISPLAY_X) || (y + height >= VGA_DISPLAY_Y))
+    {
+        LOGE("Out of bounce");
+        return -1;
+    }
+
+    if(filled)
+    {
+        for(int i = y; i < (y + height); i++)
+        {
+            API_draw_line(x, i, x + width, i, color, 1, 0);
+        }
+    }
+    else
+    {
+        API_draw_line(x, y, x + width, y, color, 1, 0);
+        API_draw_line(x, y, x, y + height, color, 1, 0);
+        API_draw_line(x + width, y, x + width, y + height, color, 1, 0);
+        API_draw_line(x, y + height, x + width, y + height, color, 1, 0);
+    }
+    LOGI("Rectangle draw with width/height: {%d; %d} from {%d; %d} with color: 0x%x", width, height, x, y, color);
+    return 0;
 }
 
 /**
