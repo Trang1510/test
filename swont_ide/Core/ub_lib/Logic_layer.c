@@ -36,15 +36,19 @@ char* ParsedData[MAX_VARS];
   * @param  input.line_rx_buffer used
   * @retval None currently
   */
-void LL_recieve(void)
+void LL_receive(void)
 {
 	char* data;
-	// Get the first token
+	char temp_buffer[LINE_BUFLEN]; // Adjust size as necessary
+
 #ifdef DEBUG
-	data = strtok(command, ",");
+	strncpy(temp_buffer, command, input.msglen);
 #else
-	data = strtok(input.line_rx_buffer, ",");
+	strncpy(temp_buffer, input.line_rx_buffer, input.msglen);
 #endif
+
+	// Get the first token
+	data = strtok(temp_buffer, ",");
 
 	// Walk through other tokens
 	int i = 0;
@@ -57,15 +61,16 @@ void LL_recieve(void)
 	//DEBUG for data inside the parsed array
 	for (int j = 0; j < i; j++)
 	{
-		LOGD("data bit %d: %s\n", j, ParsedData[j]);
+		LOGD("data bit %d: %s", j, ParsedData[j]);
 	}
 
-	LL_exec(ParsedData[0]);
+	LL_exec();
 	return;
 }
 
-void LL_exec(char* parsedData)
+void LL_exec(void)
 {
     assert_param(parsedData);
 }
+
 
