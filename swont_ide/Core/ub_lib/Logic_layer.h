@@ -13,7 +13,6 @@
 ******************************************************************************/
 #include "main.h"
 #include "log.h"
-#include "Logic_layer.h"
 
 /******************************************************************************
 *   #defines                                                                  *
@@ -36,6 +35,37 @@ typedef struct
     char command_execute_flag;				/* Set = whole transmission is received, ready for processing \
 											   Reset = still receiving*/
 }input_vars;
+
+/**
+ * @enum CommandType
+ * @brief Enumeratie van beschikbare commando types.
+ */
+typedef enum
+{
+	CMD_LINE,         /// Commando om een lijn te tekenen.
+	CMD_RECTANGLE,    /// Commando om een rechthoek te tekenen.
+	CMD_TEXT,         /// Commando om tekst te tekenen.
+	CMD_BITMAP,       /// Commando om een bitmap te tonen.
+	CMD_CLEAR_SCREEN, /// Commando om het scherm te wissen.
+	CMD_UNKNOWN       /// Onbekend commando.
+} CommandType;
+
+/**
+ * @enum CommandType
+ * @brief Enumeratie van beschikbare commando types.
+ */
+typedef enum
+{
+	VGA_COLOUR_BLACK,
+	VGA_COLOUR_BLUE,
+	VGA_COLOUR_GREEN,
+	VGA_COLOUR_RED,
+	VGA_COLOUR_WHITE,
+	VGA_COLOUR_CYAN,
+	VGA_COLOUR_MAGENTA,
+	VGA_COLOUR_YELLOW,
+	CMD_UNKNOWN_COLOR
+} ColorType;
 
 /******************************************************************************
 *   Globals vars                                                              *
