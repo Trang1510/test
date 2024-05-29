@@ -144,9 +144,9 @@ void LL_exec(void)
 	            	API_clearscreen(colorType);
 	            	break;
 	        case CMD_UNKNOWN:
-	            // Foutafhandeling voor onbekende commando's
-	            LOGW("Onbekend commando: %s\n", ParsedData[0]);
-	            break;
+			// Foutafhandeling voor onbekende commando's
+			LOGW("Onbekend commando: %s\n", ParsedData[0]);
+			break;
 		}
 
 }
