@@ -47,6 +47,7 @@ typedef enum
 	CMD_TEXT,         /// Commando om tekst te tekenen.
 	CMD_BITMAP,       /// Commando om een bitmap te tonen.
 	CMD_CLEAR_SCREEN, /// Commando om het scherm te wissen.
+	CMD_DEBUG,        /// Commando om het log level aan te passen
 	CMD_UNKNOWN       /// Onbekend commando.
 } CommandType;
 
@@ -70,12 +71,12 @@ typedef enum
 /******************************************************************************
 *   Globals vars                                                              *
 ******************************************************************************/
-extern input_vars input;
+extern input_vars Input;
 /******************************************************************************
 *   Global function prototypes                                                *
 ******************************************************************************/
-void LL_receive(void);
+void LL_Receive(void);
 
-void LL_exec(void);
+void LL_Execute(void);
 
 #endif /* UB_LIB_LOGIC_LAYER_H_ */
