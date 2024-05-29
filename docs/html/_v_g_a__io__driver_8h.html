@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Software ontwikkeling: ub_lib/VGA_io_driver.h File Reference</title>
+<title>My Project: ub_lib/VGA_io_driver.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Software ontwikkeling<span id="projectnumber">&#160;2.1</span>
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -91,49 +91,49 @@ Macros</h2></td></tr>
 <tr class="separator:ace7f348dc91111917772d3e19f8821d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c3e46882b624fe1887d0ec6171d771b" id="r_a9c3e46882b624fe1887d0ec6171d771b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c3e46882b624fe1887d0ec6171d771b">VGA_DISPLAY_Y</a>&#160;&#160;&#160;240</td></tr>
 <tr class="separator:a9c3e46882b624fe1887d0ec6171d771b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3336e31bfbbd8199e506f39164a19eb" id="r_ac3336e31bfbbd8199e506f39164a19eb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3336e31bfbbd8199e506f39164a19eb">VGA_GPIO_BYTE_OFFSET</a>&#160;&#160;&#160;((uint32_t)0x00000001)</td></tr>
+<tr class="separator:ac3336e31bfbbd8199e506f39164a19eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a114dc879235023dc8e6f360a6f487a6b" id="r_a114dc879235023dc8e6f360a6f487a6b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a114dc879235023dc8e6f360a6f487a6b">VGA_GPIO_HINIBBLE</a>&#160;&#160;&#160;((uint16_t)0xFF00)</td></tr>
+<tr class="separator:a114dc879235023dc8e6f360a6f487a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af70daf7e1e57589c259536efc1187d6c" id="r_af70daf7e1e57589c259536efc1187d6c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af70daf7e1e57589c259536efc1187d6c">VGA_GPIO_ODR_OFFSET</a>&#160;&#160;&#160;((uint32_t)0x00000014)</td></tr>
+<tr class="separator:af70daf7e1e57589c259536efc1187d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a758dadcf25d5a3b26f4791e9a332f1bb" id="r_a758dadcf25d5a3b26f4791e9a332f1bb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a758dadcf25d5a3b26f4791e9a332f1bb">VGA_GPIOE_BASE_ADR</a>&#160;&#160;&#160;((uint32_t)0x40021000)</td></tr>
+<tr class="separator:a758dadcf25d5a3b26f4791e9a332f1bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fb72da69dd330b1ebbff2b8550d1db2" id="r_a2fb72da69dd330b1ebbff2b8550d1db2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fb72da69dd330b1ebbff2b8550d1db2">VGA_GPIOE_ODR_ADDRESS</a>&#160;&#160;&#160;(<a class="el" href="#a758dadcf25d5a3b26f4791e9a332f1bb">VGA_GPIOE_BASE_ADR</a> | <a class="el" href="#af70daf7e1e57589c259536efc1187d6c">VGA_GPIO_ODR_OFFSET</a> | <a class="el" href="#ac3336e31bfbbd8199e506f39164a19eb">VGA_GPIO_BYTE_OFFSET</a>)</td></tr>
+<tr class="separator:a2fb72da69dd330b1ebbff2b8550d1db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9934465d996215f7e3a39f574116cd16" id="r_a9934465d996215f7e3a39f574116cd16"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9934465d996215f7e3a39f574116cd16">VGA_TIM1_PERIODE</a>&#160;&#160;&#160;10</td></tr>
 <tr class="separator:a9934465d996215f7e3a39f574116cd16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab20ff576649ab2c78f0f87b758c2705b" id="r_ab20ff576649ab2c78f0f87b758c2705b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab20ff576649ab2c78f0f87b758c2705b">VGA_TIM1_PRESCALE</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:ab20ff576649ab2c78f0f87b758c2705b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0447f6b6430a8c09536288b2b01abb4" id="r_ae0447f6b6430a8c09536288b2b01abb4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0447f6b6430a8c09536288b2b01abb4">VGA_TIM2_DMA_DELAY</a>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:ae0447f6b6430a8c09536288b2b01abb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3ef518a75a4d574f2a36ce343157676" id="r_ad3ef518a75a4d574f2a36ce343157676"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3ef518a75a4d574f2a36ce343157676">VGA_TIM2_HSYNC_IMP</a>&#160;&#160;&#160;320</td></tr>
+<tr class="separator:ad3ef518a75a4d574f2a36ce343157676"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6781ff356015bb423813eb349582faa3" id="r_a6781ff356015bb423813eb349582faa3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6781ff356015bb423813eb349582faa3">VGA_TIM2_HSYNC_PERIODE</a>&#160;&#160;&#160;2667</td></tr>
 <tr class="separator:a6781ff356015bb423813eb349582faa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0124ad9d53b4c2af5902820421aea02" id="r_ae0124ad9d53b4c2af5902820421aea02"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0124ad9d53b4c2af5902820421aea02">VGA_TIM2_HSYNC_PRESCALE</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:ae0124ad9d53b4c2af5902820421aea02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3ef518a75a4d574f2a36ce343157676" id="r_ad3ef518a75a4d574f2a36ce343157676"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3ef518a75a4d574f2a36ce343157676">VGA_TIM2_HSYNC_IMP</a>&#160;&#160;&#160;320</td></tr>
-<tr class="separator:ad3ef518a75a4d574f2a36ce343157676"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dabd74236cb9b42d94ccc7435176d40" id="r_a5dabd74236cb9b42d94ccc7435176d40"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5dabd74236cb9b42d94ccc7435176d40">VGA_TIM2_HTRIGGER_START</a>&#160;&#160;&#160;480</td></tr>
 <tr class="separator:a5dabd74236cb9b42d94ccc7435176d40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0447f6b6430a8c09536288b2b01abb4" id="r_ae0447f6b6430a8c09536288b2b01abb4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0447f6b6430a8c09536288b2b01abb4">VGA_TIM2_DMA_DELAY</a>&#160;&#160;&#160;10</td></tr>
-<tr class="separator:ae0447f6b6430a8c09536288b2b01abb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73e729af6a6a2eb20ef3804cf794e4bd" id="r_a73e729af6a6a2eb20ef3804cf794e4bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73e729af6a6a2eb20ef3804cf794e4bd">VGA_VSYNC_PERIODE</a>&#160;&#160;&#160;525</td></tr>
-<tr class="separator:a73e729af6a6a2eb20ef3804cf794e4bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3c951f66600690235db2c93e74bc82f" id="r_ad3c951f66600690235db2c93e74bc82f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3c951f66600690235db2c93e74bc82f">VGA_VSYNC_IMP</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:ad3c951f66600690235db2c93e74bc82f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bf220647b6ad6187cc358cbffbb74fc" id="r_a1bf220647b6ad6187cc358cbffbb74fc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bf220647b6ad6187cc358cbffbb74fc">VGA_VSYNC_BILD_START</a>&#160;&#160;&#160;36</td></tr>
 <tr class="separator:a1bf220647b6ad6187cc358cbffbb74fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf14fb3313d4de9367100e2dcddcd39f" id="r_abf14fb3313d4de9367100e2dcddcd39f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf14fb3313d4de9367100e2dcddcd39f">VGA_VSYNC_BILD_STOP</a>&#160;&#160;&#160;514</td></tr>
 <tr class="separator:abf14fb3313d4de9367100e2dcddcd39f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a758dadcf25d5a3b26f4791e9a332f1bb" id="r_a758dadcf25d5a3b26f4791e9a332f1bb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a758dadcf25d5a3b26f4791e9a332f1bb">VGA_GPIOE_BASE_ADR</a>&#160;&#160;&#160;((uint32_t)0x40021000)</td></tr>
-<tr class="separator:a758dadcf25d5a3b26f4791e9a332f1bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af70daf7e1e57589c259536efc1187d6c" id="r_af70daf7e1e57589c259536efc1187d6c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af70daf7e1e57589c259536efc1187d6c">VGA_GPIO_ODR_OFFSET</a>&#160;&#160;&#160;((uint32_t)0x00000014)</td></tr>
-<tr class="separator:af70daf7e1e57589c259536efc1187d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3336e31bfbbd8199e506f39164a19eb" id="r_ac3336e31bfbbd8199e506f39164a19eb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3336e31bfbbd8199e506f39164a19eb">VGA_GPIO_BYTE_OFFSET</a>&#160;&#160;&#160;((uint32_t)0x00000001)</td></tr>
-<tr class="separator:ac3336e31bfbbd8199e506f39164a19eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fb72da69dd330b1ebbff2b8550d1db2" id="r_a2fb72da69dd330b1ebbff2b8550d1db2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fb72da69dd330b1ebbff2b8550d1db2">VGA_GPIOE_ODR_ADDRESS</a>&#160;&#160;&#160;(<a class="el" href="#a758dadcf25d5a3b26f4791e9a332f1bb">VGA_GPIOE_BASE_ADR</a> | <a class="el" href="#af70daf7e1e57589c259536efc1187d6c">VGA_GPIO_ODR_OFFSET</a> | <a class="el" href="#ac3336e31bfbbd8199e506f39164a19eb">VGA_GPIO_BYTE_OFFSET</a>)</td></tr>
-<tr class="separator:a2fb72da69dd330b1ebbff2b8550d1db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a114dc879235023dc8e6f360a6f487a6b" id="r_a114dc879235023dc8e6f360a6f487a6b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a114dc879235023dc8e6f360a6f487a6b">VGA_GPIO_HINIBBLE</a>&#160;&#160;&#160;((uint16_t)0xFF00)</td></tr>
-<tr class="separator:a114dc879235023dc8e6f360a6f487a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3c951f66600690235db2c93e74bc82f" id="r_ad3c951f66600690235db2c93e74bc82f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3c951f66600690235db2c93e74bc82f">VGA_VSYNC_IMP</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:ad3c951f66600690235db2c93e74bc82f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73e729af6a6a2eb20ef3804cf794e4bd" id="r_a73e729af6a6a2eb20ef3804cf794e4bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73e729af6a6a2eb20ef3804cf794e4bd">VGA_VSYNC_PERIODE</a>&#160;&#160;&#160;525</td></tr>
+<tr class="separator:a73e729af6a6a2eb20ef3804cf794e4bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a1eb0ed04a3ad078ead07f8ad2d53e9d3" id="r_a1eb0ed04a3ad078ead07f8ad2d53e9d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1eb0ed04a3ad078ead07f8ad2d53e9d3">VGA_Init</a> (void)</td></tr>
 <tr class="separator:a1eb0ed04a3ad078ead07f8ad2d53e9d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd59ec5680a14a2ca2034ae39d0da198" id="r_afd59ec5680a14a2ca2034ae39d0da198"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd59ec5680a14a2ca2034ae39d0da198">VGA_SetPixel</a> (uint16_t xp, uint16_t yp, uint8_t color)</td></tr>
-<tr class="separator:afd59ec5680a14a2ca2034ae39d0da198"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e70c58fa222d09216d9f049da1ea272" id="r_a1e70c58fa222d09216d9f049da1ea272"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e70c58fa222d09216d9f049da1ea272">VGA_InterruptHsync</a> (void)</td></tr>
-<tr class="separator:a1e70c58fa222d09216d9f049da1ea272"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c18e9230b5aaf7d1cf1a2c99069ee52" id="r_a7c18e9230b5aaf7d1cf1a2c99069ee52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c18e9230b5aaf7d1cf1a2c99069ee52">VGA_InterruptDma</a> (void)</td></tr>
 <tr class="separator:a7c18e9230b5aaf7d1cf1a2c99069ee52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e70c58fa222d09216d9f049da1ea272" id="r_a1e70c58fa222d09216d9f049da1ea272"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e70c58fa222d09216d9f049da1ea272">VGA_InterruptHsync</a> (void)</td></tr>
+<tr class="separator:a1e70c58fa222d09216d9f049da1ea272"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd59ec5680a14a2ca2034ae39d0da198" id="r_afd59ec5680a14a2ca2034ae39d0da198"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd59ec5680a14a2ca2034ae39d0da198">VGA_SetPixel</a> (uint16_t xp, uint16_t yp, uint8_t color)</td></tr>
+<tr class="separator:afd59ec5680a14a2ca2034ae39d0da198"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ace7f348dc91111917772d3e19f8821d3" name="ace7f348dc91111917772d3e19f8821d3"></a>

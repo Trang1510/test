@@ -9,24 +9,45 @@
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{log_8c_ab234d1358562b66925fb7223c087556b}{MAX\+\_\+\+MESSAGE\+\_\+\+LENGTH}}~(256)
-\item 
-\#define \mbox{\hyperlink{log_8c_a381c342b2b34df0b1a5b39c0d94da4e1}{LOG\+\_\+\+BUFFER\+\_\+\+SIZE}}~(8 \texorpdfstring{$\ast$}{*} 1024)
-\item 
 \#define \mbox{\hyperlink{log_8c_a5779573a359f6955255d59d39e68c52c}{BUFFER\+\_\+\+SIZE\+\_\+\+TOTAL}}~(\mbox{\hyperlink{log_8c_a381c342b2b34df0b1a5b39c0d94da4e1}{LOG\+\_\+\+BUFFER\+\_\+\+SIZE}} + \mbox{\hyperlink{log_8c_ab234d1358562b66925fb7223c087556b}{MAX\+\_\+\+MESSAGE\+\_\+\+LENGTH}} + 1)
 \item 
 \#define \mbox{\hyperlink{log_8c_a56b2b8d92ed426a7d8ed05bb3e28c953}{DROP\+\_\+\+COUNT\+\_\+\+FORMAT}}~"{}\mbox{[}DROP \%u\mbox{]} "{}
+\item 
+\#define \mbox{\hyperlink{log_8c_a381c342b2b34df0b1a5b39c0d94da4e1}{LOG\+\_\+\+BUFFER\+\_\+\+SIZE}}~(8 \texorpdfstring{$\ast$}{*} 1024)
+\item 
+\#define \mbox{\hyperlink{log_8c_ab234d1358562b66925fb7223c087556b}{MAX\+\_\+\+MESSAGE\+\_\+\+LENGTH}}~(256)
 \item 
 \#define \mbox{\hyperlink{log_8c_a3acffbd305ee72dcd4593c0d8af64a4f}{MIN}}(a,  b)~((a) $<$ (b) ? (a) \+: (b))
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\+\_\+\+\_\+inline void \mbox{\hyperlink{log_8c_a7e5c41ee1777c3ba80b846cab7242909}{LOG\+\_\+\+Set\+Log\+Level}} (\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}} log\+Level)
+static int \mbox{\hyperlink{log_8c_a4eaf67179b418d3f0ec611af0cc4ba82}{Log}} (const char \texorpdfstring{$\ast$}{*}log\+Message\+Format, va\+\_\+list log\+Message\+Arguments)
 \item 
 void \mbox{\hyperlink{log_8c_a625faf686e4194055f8f3616abf1eacd}{LOG\+\_\+\+Log}} (\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}} log\+Level, const char \texorpdfstring{$\ast$}{*}log\+Message\+Format,...)
 \item 
 void \mbox{\hyperlink{log_8c_ad08a3e87381760257cb1ea0618d2cd2d}{LOG\+\_\+\+Send\+Next\+Log}} (void)
+\item 
+\+\_\+\+\_\+inline void \mbox{\hyperlink{log_8c_a7e5c41ee1777c3ba80b846cab7242909}{LOG\+\_\+\+Set\+Log\+Level}} (\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}} log\+Level)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}} \mbox{\hyperlink{log_8c_afbcdce480c19d492656a65199dda34ae}{Current\+Log\+Level}} = \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ac74e4f8b7fa7b544b66d09e854b8773a}{LOG\+\_\+\+VERBOSE}}
+\item 
+static char \mbox{\hyperlink{log_8c_adab8a0a5555592be29ea5af82593b56b}{log\+Buffer}} \mbox{[}\mbox{\hyperlink{log_8c_a381c342b2b34df0b1a5b39c0d94da4e1}{LOG\+\_\+\+BUFFER\+\_\+\+SIZE}}+\mbox{\hyperlink{log_8c_ab234d1358562b66925fb7223c087556b}{MAX\+\_\+\+MESSAGE\+\_\+\+LENGTH}}+1\mbox{]}
+\item 
+static uint16\+\_\+t \mbox{\hyperlink{log_8c_ab8c72faadc84e4f389056dfcb4e4ea08}{log\+Buffer\+In\+Ptr}} = 0
+\item 
+static volatile uint16\+\_\+t \mbox{\hyperlink{log_8c_abe1a2a2407e4eb38809e2589e363abd8}{log\+Buffer\+Length}} = \mbox{\hyperlink{log_8c_a381c342b2b34df0b1a5b39c0d94da4e1}{LOG\+\_\+\+BUFFER\+\_\+\+SIZE}}
+\item 
+static uint16\+\_\+t \mbox{\hyperlink{log_8c_aefc34f15ba62c0cbe42627b47911a68a}{log\+Buffer\+Out\+Ptr}} = 0
+\item 
+static int \mbox{\hyperlink{log_8c_a258ede8cc1663e735902422c19250dcc}{num\+Total\+Messages}} = 0
+\item 
+static volatile bool \mbox{\hyperlink{log_8c_a9bd68eea901ad45687e8ca8c414a0141}{Sending}} = false
+\item 
+static char \mbox{\hyperlink{log_8c_afbfa0607fb5b5538b4556e140ad44888}{tx\+Dma\+Buffer}} \mbox{[}\mbox{\hyperlink{log_8c_ab234d1358562b66925fb7223c087556b}{MAX\+\_\+\+MESSAGE\+\_\+\+LENGTH}}+1\mbox{]} = \{0\}
 \end{DoxyCompactItemize}
 
 
@@ -64,6 +85,12 @@ void \mbox{\hyperlink{log_8c_ad08a3e87381760257cb1ea0618d2cd2d}{LOG\+\_\+\+Send\
 
 
 \doxysubsection{Function Documentation}
+\Hypertarget{log_8c_a4eaf67179b418d3f0ec611af0cc4ba82}\label{log_8c_a4eaf67179b418d3f0ec611af0cc4ba82} 
+\index{log.c@{log.c}!Log@{Log}}
+\index{Log@{Log}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{Log()}{Log()}}
+{\footnotesize\ttfamily static int Log (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{log\+Message\+Format,  }\item[{va\+\_\+list}]{log\+Message\+Arguments }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
 \Hypertarget{log_8c_a625faf686e4194055f8f3616abf1eacd}\label{log_8c_a625faf686e4194055f8f3616abf1eacd} 
 \index{log.c@{log.c}!LOG\_Log@{LOG\_Log}}
 \index{LOG\_Log@{LOG\_Log}!log.c@{log.c}}
@@ -81,4 +108,55 @@ void \mbox{\hyperlink{log_8c_ad08a3e87381760257cb1ea0618d2cd2d}{LOG\+\_\+\+Send\
 \index{LOG\_SetLogLevel@{LOG\_SetLogLevel}!log.c@{log.c}}
 \doxysubsubsection{\texorpdfstring{LOG\_SetLogLevel()}{LOG\_SetLogLevel()}}
 {\footnotesize\ttfamily \+\_\+\+\_\+inline void LOG\+\_\+\+Set\+Log\+Level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}}}]{log\+Level }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{log_8c_afbcdce480c19d492656a65199dda34ae}\label{log_8c_afbcdce480c19d492656a65199dda34ae} 
+\index{log.c@{log.c}!CurrentLogLevel@{CurrentLogLevel}}
+\index{CurrentLogLevel@{CurrentLogLevel}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{CurrentLogLevel}{CurrentLogLevel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}} Current\+Log\+Level = \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ac74e4f8b7fa7b544b66d09e854b8773a}{LOG\+\_\+\+VERBOSE}}\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{log_8c_adab8a0a5555592be29ea5af82593b56b}\label{log_8c_adab8a0a5555592be29ea5af82593b56b} 
+\index{log.c@{log.c}!logBuffer@{logBuffer}}
+\index{logBuffer@{logBuffer}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{logBuffer}{logBuffer}}
+{\footnotesize\ttfamily char log\+Buffer\mbox{[}\mbox{\hyperlink{log_8c_a381c342b2b34df0b1a5b39c0d94da4e1}{LOG\+\_\+\+BUFFER\+\_\+\+SIZE}}+\mbox{\hyperlink{log_8c_ab234d1358562b66925fb7223c087556b}{MAX\+\_\+\+MESSAGE\+\_\+\+LENGTH}}+1\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{log_8c_ab8c72faadc84e4f389056dfcb4e4ea08}\label{log_8c_ab8c72faadc84e4f389056dfcb4e4ea08} 
+\index{log.c@{log.c}!logBufferInPtr@{logBufferInPtr}}
+\index{logBufferInPtr@{logBufferInPtr}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{logBufferInPtr}{logBufferInPtr}}
+{\footnotesize\ttfamily uint16\+\_\+t log\+Buffer\+In\+Ptr = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{log_8c_abe1a2a2407e4eb38809e2589e363abd8}\label{log_8c_abe1a2a2407e4eb38809e2589e363abd8} 
+\index{log.c@{log.c}!logBufferLength@{logBufferLength}}
+\index{logBufferLength@{logBufferLength}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{logBufferLength}{logBufferLength}}
+{\footnotesize\ttfamily volatile uint16\+\_\+t log\+Buffer\+Length = \mbox{\hyperlink{log_8c_a381c342b2b34df0b1a5b39c0d94da4e1}{LOG\+\_\+\+BUFFER\+\_\+\+SIZE}}\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{log_8c_aefc34f15ba62c0cbe42627b47911a68a}\label{log_8c_aefc34f15ba62c0cbe42627b47911a68a} 
+\index{log.c@{log.c}!logBufferOutPtr@{logBufferOutPtr}}
+\index{logBufferOutPtr@{logBufferOutPtr}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{logBufferOutPtr}{logBufferOutPtr}}
+{\footnotesize\ttfamily uint16\+\_\+t log\+Buffer\+Out\+Ptr = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{log_8c_a258ede8cc1663e735902422c19250dcc}\label{log_8c_a258ede8cc1663e735902422c19250dcc} 
+\index{log.c@{log.c}!numTotalMessages@{numTotalMessages}}
+\index{numTotalMessages@{numTotalMessages}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{numTotalMessages}{numTotalMessages}}
+{\footnotesize\ttfamily int num\+Total\+Messages = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{log_8c_a9bd68eea901ad45687e8ca8c414a0141}\label{log_8c_a9bd68eea901ad45687e8ca8c414a0141} 
+\index{log.c@{log.c}!Sending@{Sending}}
+\index{Sending@{Sending}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{Sending}{Sending}}
+{\footnotesize\ttfamily volatile bool Sending = false\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{log_8c_afbfa0607fb5b5538b4556e140ad44888}\label{log_8c_afbfa0607fb5b5538b4556e140ad44888} 
+\index{log.c@{log.c}!txDmaBuffer@{txDmaBuffer}}
+\index{txDmaBuffer@{txDmaBuffer}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{txDmaBuffer}{txDmaBuffer}}
+{\footnotesize\ttfamily char tx\+Dma\+Buffer\mbox{[}\mbox{\hyperlink{log_8c_ab234d1358562b66925fb7223c087556b}{MAX\+\_\+\+MESSAGE\+\_\+\+LENGTH}}+1\mbox{]} = \{0\}\hspace{0.3cm}{\ttfamily [static]}}
 

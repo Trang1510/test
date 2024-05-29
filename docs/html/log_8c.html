@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Software ontwikkeling: ub_lib/log.c File Reference</title>
+<title>My Project: ub_lib/log.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Software ontwikkeling<span id="projectnumber">&#160;2.1</span>
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -77,7 +77,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">log.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -90,25 +91,46 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ab234d1358562b66925fb7223c087556b" id="r_ab234d1358562b66925fb7223c087556b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab234d1358562b66925fb7223c087556b">MAX_MESSAGE_LENGTH</a>&#160;&#160;&#160;(256)</td></tr>
-<tr class="separator:ab234d1358562b66925fb7223c087556b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a381c342b2b34df0b1a5b39c0d94da4e1" id="r_a381c342b2b34df0b1a5b39c0d94da4e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a381c342b2b34df0b1a5b39c0d94da4e1">LOG_BUFFER_SIZE</a>&#160;&#160;&#160;(8 * 1024)</td></tr>
-<tr class="separator:a381c342b2b34df0b1a5b39c0d94da4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5779573a359f6955255d59d39e68c52c" id="r_a5779573a359f6955255d59d39e68c52c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5779573a359f6955255d59d39e68c52c">BUFFER_SIZE_TOTAL</a>&#160;&#160;&#160;(<a class="el" href="#a381c342b2b34df0b1a5b39c0d94da4e1">LOG_BUFFER_SIZE</a> + <a class="el" href="#ab234d1358562b66925fb7223c087556b">MAX_MESSAGE_LENGTH</a> + 1)</td></tr>
 <tr class="separator:a5779573a359f6955255d59d39e68c52c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56b2b8d92ed426a7d8ed05bb3e28c953" id="r_a56b2b8d92ed426a7d8ed05bb3e28c953"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56b2b8d92ed426a7d8ed05bb3e28c953">DROP_COUNT_FORMAT</a>&#160;&#160;&#160;&quot;[DROP %u] &quot;</td></tr>
 <tr class="separator:a56b2b8d92ed426a7d8ed05bb3e28c953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a381c342b2b34df0b1a5b39c0d94da4e1" id="r_a381c342b2b34df0b1a5b39c0d94da4e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a381c342b2b34df0b1a5b39c0d94da4e1">LOG_BUFFER_SIZE</a>&#160;&#160;&#160;(8 * 1024)</td></tr>
+<tr class="separator:a381c342b2b34df0b1a5b39c0d94da4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab234d1358562b66925fb7223c087556b" id="r_ab234d1358562b66925fb7223c087556b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab234d1358562b66925fb7223c087556b">MAX_MESSAGE_LENGTH</a>&#160;&#160;&#160;(256)</td></tr>
+<tr class="separator:ab234d1358562b66925fb7223c087556b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3acffbd305ee72dcd4593c0d8af64a4f" id="r_a3acffbd305ee72dcd4593c0d8af64a4f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3acffbd305ee72dcd4593c0d8af64a4f">MIN</a>(a,  b)&#160;&#160;&#160;((a) &lt; (b) ? (a) : (b))</td></tr>
 <tr class="separator:a3acffbd305ee72dcd4593c0d8af64a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7e5c41ee1777c3ba80b846cab7242909" id="r_a7e5c41ee1777c3ba80b846cab7242909"><td class="memItemLeft" align="right" valign="top">__inline void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e5c41ee1777c3ba80b846cab7242909">LOG_SetLogLevel</a> (<a class="el" href="log__config_8h.html#a8afdce0fcb23aca7d0641a1e2d233782">LogLevel_e</a> logLevel)</td></tr>
-<tr class="separator:a7e5c41ee1777c3ba80b846cab7242909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eaf67179b418d3f0ec611af0cc4ba82" id="r_a4eaf67179b418d3f0ec611af0cc4ba82"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4eaf67179b418d3f0ec611af0cc4ba82">Log</a> (const char *logMessageFormat, va_list logMessageArguments)</td></tr>
+<tr class="separator:a4eaf67179b418d3f0ec611af0cc4ba82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a625faf686e4194055f8f3616abf1eacd" id="r_a625faf686e4194055f8f3616abf1eacd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a625faf686e4194055f8f3616abf1eacd">LOG_Log</a> (<a class="el" href="log__config_8h.html#a8afdce0fcb23aca7d0641a1e2d233782">LogLevel_e</a> logLevel, const char *logMessageFormat,...)</td></tr>
 <tr class="separator:a625faf686e4194055f8f3616abf1eacd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad08a3e87381760257cb1ea0618d2cd2d" id="r_ad08a3e87381760257cb1ea0618d2cd2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad08a3e87381760257cb1ea0618d2cd2d">LOG_SendNextLog</a> (void)</td></tr>
 <tr class="separator:ad08a3e87381760257cb1ea0618d2cd2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e5c41ee1777c3ba80b846cab7242909" id="r_a7e5c41ee1777c3ba80b846cab7242909"><td class="memItemLeft" align="right" valign="top">__inline void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e5c41ee1777c3ba80b846cab7242909">LOG_SetLogLevel</a> (<a class="el" href="log__config_8h.html#a8afdce0fcb23aca7d0641a1e2d233782">LogLevel_e</a> logLevel)</td></tr>
+<tr class="separator:a7e5c41ee1777c3ba80b846cab7242909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:afbcdce480c19d492656a65199dda34ae" id="r_afbcdce480c19d492656a65199dda34ae"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="log__config_8h.html#a8afdce0fcb23aca7d0641a1e2d233782">LogLevel_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbcdce480c19d492656a65199dda34ae">CurrentLogLevel</a> = <a class="el" href="log__config_8h.html#a8afdce0fcb23aca7d0641a1e2d233782ac74e4f8b7fa7b544b66d09e854b8773a">LOG_VERBOSE</a></td></tr>
+<tr class="separator:afbcdce480c19d492656a65199dda34ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adab8a0a5555592be29ea5af82593b56b" id="r_adab8a0a5555592be29ea5af82593b56b"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adab8a0a5555592be29ea5af82593b56b">logBuffer</a> [<a class="el" href="#a381c342b2b34df0b1a5b39c0d94da4e1">LOG_BUFFER_SIZE</a>+<a class="el" href="#ab234d1358562b66925fb7223c087556b">MAX_MESSAGE_LENGTH</a>+1]</td></tr>
+<tr class="separator:adab8a0a5555592be29ea5af82593b56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8c72faadc84e4f389056dfcb4e4ea08" id="r_ab8c72faadc84e4f389056dfcb4e4ea08"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8c72faadc84e4f389056dfcb4e4ea08">logBufferInPtr</a> = 0</td></tr>
+<tr class="separator:ab8c72faadc84e4f389056dfcb4e4ea08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe1a2a2407e4eb38809e2589e363abd8" id="r_abe1a2a2407e4eb38809e2589e363abd8"><td class="memItemLeft" align="right" valign="top">static volatile uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe1a2a2407e4eb38809e2589e363abd8">logBufferLength</a> = <a class="el" href="#a381c342b2b34df0b1a5b39c0d94da4e1">LOG_BUFFER_SIZE</a></td></tr>
+<tr class="separator:abe1a2a2407e4eb38809e2589e363abd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefc34f15ba62c0cbe42627b47911a68a" id="r_aefc34f15ba62c0cbe42627b47911a68a"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefc34f15ba62c0cbe42627b47911a68a">logBufferOutPtr</a> = 0</td></tr>
+<tr class="separator:aefc34f15ba62c0cbe42627b47911a68a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a258ede8cc1663e735902422c19250dcc" id="r_a258ede8cc1663e735902422c19250dcc"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a258ede8cc1663e735902422c19250dcc">numTotalMessages</a> = 0</td></tr>
+<tr class="separator:a258ede8cc1663e735902422c19250dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bd68eea901ad45687e8ca8c414a0141" id="r_a9bd68eea901ad45687e8ca8c414a0141"><td class="memItemLeft" align="right" valign="top">static volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bd68eea901ad45687e8ca8c414a0141">Sending</a> = false</td></tr>
+<tr class="separator:a9bd68eea901ad45687e8ca8c414a0141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbfa0607fb5b5538b4556e140ad44888" id="r_afbfa0607fb5b5538b4556e140ad44888"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbfa0607fb5b5538b4556e140ad44888">txDmaBuffer</a> [<a class="el" href="#ab234d1358562b66925fb7223c087556b">MAX_MESSAGE_LENGTH</a>+1] = {0}</td></tr>
+<tr class="separator:afbfa0607fb5b5538b4556e140ad44888"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a5779573a359f6955255d59d39e68c52c" name="a5779573a359f6955255d59d39e68c52c"></a>
@@ -189,6 +211,35 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a4eaf67179b418d3f0ec611af0cc4ba82" name="a4eaf67179b418d3f0ec611af0cc4ba82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eaf67179b418d3f0ec611af0cc4ba82">&#9670;&#160;</a></span>Log()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int Log </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>logMessageFormat</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">va_list</td>          <td class="paramname"><span class="paramname"><em>logMessageArguments</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a625faf686e4194055f8f3616abf1eacd" name="a625faf686e4194055f8f3616abf1eacd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a625faf686e4194055f8f3616abf1eacd">&#9670;&#160;</a></span>LOG_Log()</h2>
 
@@ -245,6 +296,183 @@ Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="afbcdce480c19d492656a65199dda34ae" name="afbcdce480c19d492656a65199dda34ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbcdce480c19d492656a65199dda34ae">&#9670;&#160;</a></span>CurrentLogLevel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="log__config_8h.html#a8afdce0fcb23aca7d0641a1e2d233782">LogLevel_e</a> CurrentLogLevel = <a class="el" href="log__config_8h.html#a8afdce0fcb23aca7d0641a1e2d233782ac74e4f8b7fa7b544b66d09e854b8773a">LOG_VERBOSE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adab8a0a5555592be29ea5af82593b56b" name="adab8a0a5555592be29ea5af82593b56b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adab8a0a5555592be29ea5af82593b56b">&#9670;&#160;</a></span>logBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char logBuffer[<a class="el" href="#a381c342b2b34df0b1a5b39c0d94da4e1">LOG_BUFFER_SIZE</a>+<a class="el" href="#ab234d1358562b66925fb7223c087556b">MAX_MESSAGE_LENGTH</a>+1]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab8c72faadc84e4f389056dfcb4e4ea08" name="ab8c72faadc84e4f389056dfcb4e4ea08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8c72faadc84e4f389056dfcb4e4ea08">&#9670;&#160;</a></span>logBufferInPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t logBufferInPtr = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe1a2a2407e4eb38809e2589e363abd8" name="abe1a2a2407e4eb38809e2589e363abd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe1a2a2407e4eb38809e2589e363abd8">&#9670;&#160;</a></span>logBufferLength</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint16_t logBufferLength = <a class="el" href="#a381c342b2b34df0b1a5b39c0d94da4e1">LOG_BUFFER_SIZE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aefc34f15ba62c0cbe42627b47911a68a" name="aefc34f15ba62c0cbe42627b47911a68a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefc34f15ba62c0cbe42627b47911a68a">&#9670;&#160;</a></span>logBufferOutPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t logBufferOutPtr = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a258ede8cc1663e735902422c19250dcc" name="a258ede8cc1663e735902422c19250dcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a258ede8cc1663e735902422c19250dcc">&#9670;&#160;</a></span>numTotalMessages</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int numTotalMessages = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9bd68eea901ad45687e8ca8c414a0141" name="a9bd68eea901ad45687e8ca8c414a0141"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bd68eea901ad45687e8ca8c414a0141">&#9670;&#160;</a></span>Sending</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile bool Sending = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afbfa0607fb5b5538b4556e140ad44888" name="afbfa0607fb5b5538b4556e140ad44888"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbfa0607fb5b5538b4556e140ad44888">&#9670;&#160;</a></span>txDmaBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char txDmaBuffer[<a class="el" href="#ab234d1358562b66925fb7223c087556b">MAX_MESSAGE_LENGTH</a>+1] = {0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

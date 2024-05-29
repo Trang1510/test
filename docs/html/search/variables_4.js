@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['environ_0',['environ',['../syscalls_8c.html#aa006daaf11f1e2e45a6ababaf463212b',1,'syscalls.c']]],
-  ['errno_1',['errno',['../syscalls_8c.html#ad65a8842cc674e3ddf69355898c0ecbf',1,'syscalls.c']]]
+  ['dmaconfigregister_0',['dmaConfigRegister',['../struct_v_g_a__meta_data__s.html#a15d4903b72fc39b261cde27180c9b1e8',1,'VGA_metaData_s']]]
 ];

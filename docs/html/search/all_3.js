@@ -13,5 +13,6 @@ var searchData=
   ['cmsis_10',['CMSIS',['../group___c_m_s_i_s.html',1,'']]],
   ['colortype_11',['ColorType',['../_logic__layer_8h.html#a5e133660cf9d4bcd1cb6a49e3ec16f83',1,'Logic_layer.h']]],
   ['command_5fexecute_5fflag_12',['command_execute_flag',['../structinput__vars.html#ab512fa29bb2879786906930a563360e4',1,'input_vars']]],
-  ['commandtype_13',['CommandType',['../_logic__layer_8h.html#a21e038f5b8958e203d28bc4f18472352',1,'Logic_layer.h']]]
+  ['commandtype_13',['CommandType',['../_logic__layer_8h.html#a21e038f5b8958e203d28bc4f18472352',1,'Logic_layer.h']]],
+  ['currentloglevel_14',['CurrentLogLevel',['../log_8c.html#afbcdce480c19d492656a65199dda34ae',1,'log.c']]]
 ];
