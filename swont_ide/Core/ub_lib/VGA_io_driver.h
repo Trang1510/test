@@ -21,15 +21,15 @@
 // Green (3bit) -> Bit4-Bit2
 // Blue  (2bit) -> Bit1-Bit0
 //--------------------------------------------------------------
-#define  VGA_COLOUR_BLACK          0x00
-#define  VGA_COLOUR_BLUE           0x03
-#define  VGA_COLOUR_GREEN          0x1C
-#define  VGA_COLOUR_RED            0xE0
-#define  VGA_COLOUR_WHITE          0xFF
-
-#define  VGA_COLOUR_CYAN           0x1F
-#define  VGA_COLOUR_MAGENTA        0xE3
-#define  VGA_COLOUR_YELLOW         0xFC
+//#define  VGA_COLOUR_BLACK          0x00
+//#define  VGA_COLOUR_BLUE           0x03
+//#define  VGA_COLOUR_GREEN          0x1C
+//#define  VGA_COLOUR_RED            0xE0
+//#define  VGA_COLOUR_WHITE          0xFF
+//
+//#define  VGA_COLOUR_CYAN           0x1F
+//#define  VGA_COLOUR_MAGENTA        0xE3
+//#define  VGA_COLOUR_YELLOW         0xFC
 
 
 
