@@ -238,6 +238,7 @@ void TIM2_IRQHandler(void)
 void USART2_IRQHandler(void)
 {
   /* USER CODE BEGIN USART2_IRQn 0 */
+    //check for just the receive flag so code doesn't get stuck on own send commands
     uint32_t isrflags   = READ_REG(huart2.Instance->SR);
     uint32_t cr1its     = READ_REG(huart2.Instance->CR1);
 
@@ -245,19 +246,16 @@ void USART2_IRQHandler(void)
     {
 	// Read the received character
 	char uart_char = USART2->DR;
-
-	// Check for CR, LF or dot to determine end of transmission.
-	// Current SerialPort Terminal (SPT) does not send CR or LF when sending single command. (PuTTy does at least)
-	// When sending data sequence send 0 has CR or LF but subsequent don't
-	// Recommend to use dot to terminate when sending single message using SPT
+	/* Check for CR, LF or dot to determine end of transmission.
+	/ Current SerialPort Terminal (SPT) does not send CR or LF when sending single command so a dot is added. (PuTTy does at least)
+	/ When sending data sequence command 0 is only send on first time needs to be reset to work again
+	/ Recommend to use dot to terminate when sending single message using SPT */
 	if ((uart_char == CARRIAGE_RETURN) || (uart_char == '.') || (uart_char == LINE_FEED))
 	{
-	    // Set the flag to indicate command execution
-	    input.command_execute_flag = TRUE;
-	    // Store the message length for processing
-	    input.msglen = input.char_counter;
-	    // Reset the counter for the next line
-	    input.char_counter = 0;
+	    LOGD("EOL received");			// end of line
+	    input.command_execute_flag = TRUE; 		// Set the flag to indicate command execution
+	    input.msglen = input.char_counter;		// Store the message length for processing
+	    input.char_counter = 0;			// Reset the counter for the next line
 	}
 	else
 	{
@@ -265,11 +263,9 @@ void USART2_IRQHandler(void)
 	    input.command_execute_flag = FALSE;
 	    input.line_rx_buffer[input.char_counter] = uart_char;
 	    input.char_counter++;
-	    // Ensure the counter doesn't exceed buffer size
-	    if (input.char_counter >= LINE_BUFLEN)
+	    if (input.char_counter >= LINE_BUFLEN) 	// Ensure the counter doesn't exceed buffer size
 	    {
-		// Handle buffer overflow here if needed
-		LOGW("UART Buffer overflow");
+		LOGW("UART Buffer overflow"); 		//print warning for overflow
 	    }
 	}
     }

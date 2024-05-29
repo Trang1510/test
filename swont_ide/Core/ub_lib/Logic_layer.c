@@ -68,19 +68,18 @@ ColorType get_color_type(const char* command)
  ******************************************************************************/
 
 /**
- * @brief  Separates values from incoming array
+ * @brief  Separates strings from incoming array to parsed data
  * @param  input.line_rx_buffer used
  * @retval None currently
  */
 void LL_receive(void)
 {
     char* data;
-    char UART_copy[LINE_BUFLEN] = {0};
+    char UART_copy[LINE_BUFLEN] = {0};				//if not init as 0 leads to last parsed data inconsistency
 
-    strncpy(UART_copy, input.line_rx_buffer, input.msglen);
+    strncpy(UART_copy, input.line_rx_buffer, input.msglen);	//string copy as double buffer for safety
 
-    // Get the first token
-    data = strtok(UART_copy, ",");
+    data = strtok(UART_copy, ","); 				// Get the first token
 
     // Walk through other tokens
     int i = 0;
@@ -95,8 +94,7 @@ void LL_receive(void)
     {
 	LOGD("data bit %d: %s", j, ParsedData[j]);
     }
-
-    LL_exec();
+    LL_exec();							//after finished parsing call LL_exec
     return;
 }
 
@@ -107,8 +105,6 @@ void LL_receive(void)
 void LL_exec(void)
 {
     CommandType commandType = get_command_type(ParsedData[0]);
-    //DEVLOG("%s",ParsedData[0]);
-    //DEVLOG("%s",ParsedData[5]);
     ColorType colorType = get_color_type(ParsedData[5]);
     switch (commandType)
     {

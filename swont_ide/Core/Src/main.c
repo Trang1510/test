@@ -144,10 +144,9 @@ int main(void)
     {
 	if(input.command_execute_flag == TRUE)
 	{
-	    // Do some stuff
+	    LOGD("command received, executing..");
 	    LL_receive();
-	    // When finished reset the flag
-	    input.command_execute_flag = FALSE;
+	    input.command_execute_flag = FALSE; 	// When finished reset the flag
 	}
 	if(logTxDone)
 	{
