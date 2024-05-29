@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['nmi_5fhandler_0',['NMI_Handler',['../stm32f4xx__it_8c.html#a6ad7a5e3ee69cb6db6a6b9111ba898bc',1,'stm32f4xx_it.c']]]
+  ['getcolortype_0',['GetColorType',['../_logic__layer_8c.html#a0d805842ecf1b31d395c770483fd943e',1,'Logic_layer.c']]],
+  ['getcommandtype_1',['GetCommandType',['../_logic__layer_8c.html#a8792a5fc1433ad410cb33fa490f54ad8',1,'Logic_layer.c']]]
 ];

@@ -1,5 +1,5 @@
-\doxysection{Core/\+Src/main.c File Reference}
-\hypertarget{main_8c}{}\label{main_8c}\index{Core/Src/main.c@{Core/Src/main.c}}
+\doxysection{Src/main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{Src/main.c@{Src/main.c}}
 
 
 \+: Main program body  
@@ -10,40 +10,27 @@
 {\ttfamily \#include "{}tim.\+h"{}}\newline
 {\ttfamily \#include "{}usart.\+h"{}}\newline
 {\ttfamily \#include "{}gpio.\+h"{}}\newline
-\doxysubsubsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\Hypertarget{main_8c_a6bac225908d39cd36055eb038aa79c0b}\label{main_8c_a6bac225908d39cd36055eb038aa79c0b} 
-\#define {\bfseries USART\+\_\+\+PRINTF}~int fputc(int ch, FILE \texorpdfstring{$\ast$}{*}f)
-\end{DoxyCompactItemize}
+{\ttfamily \#include "{}stdbool.\+h"{}}\newline
+{\ttfamily \#include "{}Logic\+\_\+layer.\+h"{}}\newline
+{\ttfamily \#include "{}VGA\+\_\+io\+\_\+driver.\+h"{}}\newline
+{\ttfamily \#include "{}API\+\_\+draw.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{main_8c_a70af21c671abfcc773614a9a4f63d920}{System\+Clock\+\_\+\+Config}} (void)
 \begin{DoxyCompactList}\small\item\em System Clock Configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_aa91741be93f2bda0c80f74760390a397}{Hardware\+Info}} (void)
+\item 
 int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
 \begin{DoxyCompactList}\small\item\em The application entry point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_abcdf9b59049eccbc87d54042f9235b1a}{HAL\+\_\+\+UART\+\_\+\+Tx\+Cplt\+Callback}} (UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}huart)
+\item 
 void \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
 \begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{main_8c_a0d0c46791672d829075326a134858672}\label{main_8c_a0d0c46791672d829075326a134858672} 
-input\+\_\+vars {\bfseries input}
-\item 
-\Hypertarget{main_8c_a945cd2261a2991d2fd051aa21bbd46a0}\label{main_8c_a945cd2261a2991d2fd051aa21bbd46a0} 
-volatile char {\bfseries container} \mbox{[}1024\mbox{]}
-\item 
-\Hypertarget{main_8c_aed71a558a0fc065e11b9c3c8fc2e2ad6}\label{main_8c_aed71a558a0fc065e11b9c3c8fc2e2ad6} 
-volatile int {\bfseries temp}
-\item 
-\Hypertarget{main_8c_aebcfb1663ad4c68bf6386e05f4d990d3}\label{main_8c_aebcfb1663ad4c68bf6386e05f4d990d3} 
-volatile int {\bfseries key}
-\item 
-\mbox{\hyperlink{main_8c_a1a7dab423912a84e2df34e6b03af3553}{USART\+\_\+\+PRINTF}}
-\item 
-\Hypertarget{main_8c_a0523c05685d59544dca911cb6a3db77d}\label{main_8c_a0523c05685d59544dca911cb6a3db77d} 
-return {\bfseries ch}
+volatile bool \mbox{\hyperlink{main_8c_a8e61e39c30490ef89cd1d8db3d71750b}{log\+Tx\+Done}}
 \end{DoxyCompactItemize}
 
 
@@ -73,6 +60,18 @@ This function is executed in case of error occurrence.
 {\em None} & \\
 \hline
 \end{DoxyRetVals}
+\Hypertarget{main_8c_abcdf9b59049eccbc87d54042f9235b1a}\label{main_8c_abcdf9b59049eccbc87d54042f9235b1a} 
+\index{main.c@{main.c}!HAL\_UART\_TxCpltCallback@{HAL\_UART\_TxCpltCallback}}
+\index{HAL\_UART\_TxCpltCallback@{HAL\_UART\_TxCpltCallback}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_UART\_TxCpltCallback()}{HAL\_UART\_TxCpltCallback()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+UART\+\_\+\+Tx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{huart }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8c_aa91741be93f2bda0c80f74760390a397}\label{main_8c_aa91741be93f2bda0c80f74760390a397} 
+\index{main.c@{main.c}!HardwareInfo@{HardwareInfo}}
+\index{HardwareInfo@{HardwareInfo}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{HardwareInfo()}{HardwareInfo()}}
+{\footnotesize\ttfamily void Hardware\+Info (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
 \Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
 \index{main.c@{main.c}!main@{main}}
 \index{main@{main}!main.c@{main.c}}
@@ -110,15 +109,9 @@ Initializes the RCC Oscillators according to the specified parameters in the RCC
 Initializes the CPU, AHB and APB buses clocks
 
 \doxysubsection{Variable Documentation}
-\Hypertarget{main_8c_a1a7dab423912a84e2df34e6b03af3553}\label{main_8c_a1a7dab423912a84e2df34e6b03af3553} 
-\index{main.c@{main.c}!USART\_PRINTF@{USART\_PRINTF}}
-\index{USART\_PRINTF@{USART\_PRINTF}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{USART\_PRINTF}{USART\_PRINTF}}
-{\footnotesize\ttfamily USART\+\_\+\+PRINTF}
+\Hypertarget{main_8c_a8e61e39c30490ef89cd1d8db3d71750b}\label{main_8c_a8e61e39c30490ef89cd1d8db3d71750b} 
+\index{main.c@{main.c}!logTxDone@{logTxDone}}
+\index{logTxDone@{logTxDone}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{logTxDone}{logTxDone}}
+{\footnotesize\ttfamily volatile bool log\+Tx\+Done}
 
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\{}
-\DoxyCodeLine{\ \ \ \ HAL\_UART\_Transmit(\&huart2,\ (uint8\_t*)\ \&ch,\ 1,\ 0xFFFF)}
-
-\end{DoxyCode}

@@ -30,8 +30,8 @@ enum \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352}{Comman
 , \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a7ab01da2eb2fda1de65390974bfa56a6}{CMD\+\_\+\+BITMAP}}
 , \newline
 \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a7d6852f44865db912df44bf6bdb3540c}{CMD\+\_\+\+CLEAR\+\_\+\+SCREEN}}
+, \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352af6e5421b6e2b96487de7e0a6ab529007}{CMD\+\_\+\+DEBUG}}
 , \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a59c51f88aeda3ea6351f01c9c70b9ac7}{CMD\+\_\+\+UNKNOWN}}
-, \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a0593585da9181e972974c1274d8f2b4f}{DEBUG}}
  \}
 \begin{DoxyCompactList}\small\item\em Enumeratie van beschikbare commando types. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83}{Color\+Type}} \{ \newline
@@ -51,14 +51,14 @@ enum \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83}{Color\
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_logic__layer_8h_a47d24901ba5eb6338682f882bfc0dbc1}{LL\+\_\+receive}} (void)
-\begin{DoxyCompactList}\small\item\em Separates values from incoming array. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_logic__layer_8h_a0f7bb123ef759d26a3057c7385bb5e70}{LL\+\_\+exec}} (void)
+void \mbox{\hyperlink{_logic__layer_8h_a85531abb1c0e2d75c3950cf4031c6e0c}{LL\+\_\+\+Receive}} (void)
+\begin{DoxyCompactList}\small\item\em Separates strings from incoming array to parsed data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_logic__layer_8h_ade7512a586e4a947429a3a86960a6b06}{LL\+\_\+\+Execute}} (void)
 \begin{DoxyCompactList}\small\item\em Voert een commando uit op basis van de opgegeven parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structinput__vars}{input\+\_\+vars}} \mbox{\hyperlink{_logic__layer_8h_a0d0c46791672d829075326a134858672}{input}}
+\mbox{\hyperlink{structinput__vars}{input\+\_\+vars}} \mbox{\hyperlink{_logic__layer_8h_a69d1847b7c51da72a1f5bc9b639d0d5d}{Input}}
 \end{DoxyCompactItemize}
 
 
@@ -171,23 +171,23 @@ CMD\+\_\+\+BITMAP&Commando om tekst te tekenen. \\
 CMD\+\_\+\+CLEAR\+\_\+\+SCREEN&Commando om een bitmap te tonen. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_UNKNOWN@{CMD\_UNKNOWN}!Logic\_layer.h@{Logic\_layer.h}}\index{Logic\_layer.h@{Logic\_layer.h}!CMD\_UNKNOWN@{CMD\_UNKNOWN}}}\Hypertarget{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a59c51f88aeda3ea6351f01c9c70b9ac7}\label{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a59c51f88aeda3ea6351f01c9c70b9ac7} 
-CMD\+\_\+\+UNKNOWN&Commando om het scherm te wissen. \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_DEBUG@{CMD\_DEBUG}!Logic\_layer.h@{Logic\_layer.h}}\index{Logic\_layer.h@{Logic\_layer.h}!CMD\_DEBUG@{CMD\_DEBUG}}}\Hypertarget{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352af6e5421b6e2b96487de7e0a6ab529007}\label{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352af6e5421b6e2b96487de7e0a6ab529007} 
+CMD\+\_\+\+DEBUG&Commando om het scherm te wissen. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DEBUG@{DEBUG}!Logic\_layer.h@{Logic\_layer.h}}\index{Logic\_layer.h@{Logic\_layer.h}!DEBUG@{DEBUG}}}\Hypertarget{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a0593585da9181e972974c1274d8f2b4f}\label{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a0593585da9181e972974c1274d8f2b4f} 
-DEBUG&Onbekend commando. \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_UNKNOWN@{CMD\_UNKNOWN}!Logic\_layer.h@{Logic\_layer.h}}\index{Logic\_layer.h@{Logic\_layer.h}!CMD\_UNKNOWN@{CMD\_UNKNOWN}}}\Hypertarget{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a59c51f88aeda3ea6351f01c9c70b9ac7}\label{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a59c51f88aeda3ea6351f01c9c70b9ac7} 
+CMD\+\_\+\+UNKNOWN&Commando om het log level aan te passen. Onbekend commando. \\
 \hline
 
 \end{DoxyEnumFields}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{_logic__layer_8h_a0f7bb123ef759d26a3057c7385bb5e70}\label{_logic__layer_8h_a0f7bb123ef759d26a3057c7385bb5e70} 
-\index{Logic\_layer.h@{Logic\_layer.h}!LL\_exec@{LL\_exec}}
-\index{LL\_exec@{LL\_exec}!Logic\_layer.h@{Logic\_layer.h}}
-\doxysubsubsection{\texorpdfstring{LL\_exec()}{LL\_exec()}}
-{\footnotesize\ttfamily void LL\+\_\+exec (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+\Hypertarget{_logic__layer_8h_ade7512a586e4a947429a3a86960a6b06}\label{_logic__layer_8h_ade7512a586e4a947429a3a86960a6b06} 
+\index{Logic\_layer.h@{Logic\_layer.h}!LL\_Execute@{LL\_Execute}}
+\index{LL\_Execute@{LL\_Execute}!Logic\_layer.h@{Logic\_layer.h}}
+\doxysubsubsection{\texorpdfstring{LL\_Execute()}{LL\_Execute()}}
+{\footnotesize\ttfamily void LL\+\_\+\+Execute (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -198,15 +198,15 @@ Voert een commando uit op basis van de opgegeven parameters.
 {\em Parsed\+Data} & Array van strings met commando en parameters. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{_logic__layer_8h_a47d24901ba5eb6338682f882bfc0dbc1}\label{_logic__layer_8h_a47d24901ba5eb6338682f882bfc0dbc1} 
-\index{Logic\_layer.h@{Logic\_layer.h}!LL\_receive@{LL\_receive}}
-\index{LL\_receive@{LL\_receive}!Logic\_layer.h@{Logic\_layer.h}}
-\doxysubsubsection{\texorpdfstring{LL\_receive()}{LL\_receive()}}
-{\footnotesize\ttfamily void LL\+\_\+receive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+\Hypertarget{_logic__layer_8h_a85531abb1c0e2d75c3950cf4031c6e0c}\label{_logic__layer_8h_a85531abb1c0e2d75c3950cf4031c6e0c} 
+\index{Logic\_layer.h@{Logic\_layer.h}!LL\_Receive@{LL\_Receive}}
+\index{LL\_Receive@{LL\_Receive}!Logic\_layer.h@{Logic\_layer.h}}
+\doxysubsubsection{\texorpdfstring{LL\_Receive()}{LL\_Receive()}}
+{\footnotesize\ttfamily void LL\+\_\+\+Receive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
-Separates values from incoming array. 
+Separates strings from incoming array to parsed data. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -221,9 +221,9 @@ Separates values from incoming array.
 
 
 \doxysubsection{Variable Documentation}
-\Hypertarget{_logic__layer_8h_a0d0c46791672d829075326a134858672}\label{_logic__layer_8h_a0d0c46791672d829075326a134858672} 
-\index{Logic\_layer.h@{Logic\_layer.h}!input@{input}}
-\index{input@{input}!Logic\_layer.h@{Logic\_layer.h}}
-\doxysubsubsection{\texorpdfstring{input}{input}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structinput__vars}{input\+\_\+vars}} input\hspace{0.3cm}{\ttfamily [extern]}}
+\Hypertarget{_logic__layer_8h_a69d1847b7c51da72a1f5bc9b639d0d5d}\label{_logic__layer_8h_a69d1847b7c51da72a1f5bc9b639d0d5d} 
+\index{Logic\_layer.h@{Logic\_layer.h}!Input@{Input}}
+\index{Input@{Input}!Logic\_layer.h@{Logic\_layer.h}}
+\doxysubsubsection{\texorpdfstring{Input}{Input}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structinput__vars}{input\+\_\+vars}} Input\hspace{0.3cm}{\ttfamily [extern]}}
 
