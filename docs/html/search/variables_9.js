@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['msglen_0',['msglen',['../structinput__vars.html#a118cad54a817ac93b88012250dd6ce16',1,'input_vars']]]
+  ['parseddata_0',['ParsedData',['../_logic__layer_8c.html#aeb71cc36047ed90785a93fd7b4a42d7e',1,'Logic_layer.c']]]
 ];

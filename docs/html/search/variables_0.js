@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['_5f_5fsbrk_5fheap_5fend_0',['__sbrk_heap_end',['../sysmem_8c.html#a2cf862d604e9c7cfcf0528a0f539a6a5',1,'sysmem.c']]]
+  ['ahbpresctable_0',['AHBPrescTable',['../group___s_t_m32_f4xx___system___private___variables.html#ga6e1d9cd666f0eacbfde31e9932a93466',1,'system_stm32f4xx.c']]],
+  ['apbpresctable_1',['APBPrescTable',['../group___s_t_m32_f4xx___system___private___variables.html#ga5b4f8b768465842cf854a8f993b375e9',1,'system_stm32f4xx.c']]]
 ];
