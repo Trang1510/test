@@ -1,0 +1,144 @@
+\doxysection{ub\+\_\+lib/\+Logic\+\_\+layer.c File Reference}
+\hypertarget{_logic__layer_8c}{}\label{_logic__layer_8c}\index{ub\_lib/Logic\_layer.c@{ub\_lib/Logic\_layer.c}}
+
+
+This file provides code for the processing of data received and calls to the API functions for executing of commands.  
+
+
+{\ttfamily \#include "{}Logic\+\_\+\+Layer.\+h"{}}\newline
+{\ttfamily \#include "{}API\+\_\+draw.\+h"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_logic__layer_8c_a42f07844fcbd434074d68439a8092822}{SANITIZE\+\_\+\+COLOR}}(color\+Type\+Return)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352}{Command\+Type}} \mbox{\hyperlink{_logic__layer_8c_a24854bc1afb7e1b96430da045f745b35}{get\+\_\+command\+\_\+type}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_logic__layer_8c_a07de6331b9fea5ac0a8d37f71bd188f9}{command}})
+\begin{DoxyCompactList}\small\item\em Converteert een commando string naar een Command\+Type waarde. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83}{Color\+Type}} \mbox{\hyperlink{_logic__layer_8c_aa978ab69f345b692cdbb065fd9d65f17}{get\+\_\+color\+\_\+type}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_logic__layer_8c_a07de6331b9fea5ac0a8d37f71bd188f9}{command}})
+\item 
+void \mbox{\hyperlink{_logic__layer_8c_a47d24901ba5eb6338682f882bfc0dbc1}{LL\+\_\+receive}} (void)
+\begin{DoxyCompactList}\small\item\em Separates values from incoming array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_logic__layer_8c_a0f7bb123ef759d26a3057c7385bb5e70}{LL\+\_\+exec}} (void)
+\begin{DoxyCompactList}\small\item\em Voert een commando uit op basis van de opgegeven parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structinput__vars}{input\+\_\+vars}} \mbox{\hyperlink{_logic__layer_8c_a0d0c46791672d829075326a134858672}{input}}
+\item 
+char \mbox{\hyperlink{_logic__layer_8c_a07de6331b9fea5ac0a8d37f71bd188f9}{command}} \mbox{[}$\,$\mbox{]} = "{}rechthoek,10,10,150,100,licht blauw,0"{}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_logic__layer_8c_aeb71cc36047ed90785a93fd7b4a42d7e}{Parsed\+Data}} \mbox{[}\mbox{\hyperlink{_logic__layer_8h_a5c707deff4e68c7283f2ed73665e0c77}{MAX\+\_\+\+VARS}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file provides code for the processing of data received and calls to the API functions for executing of commands. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_logic__layer_8c_a42f07844fcbd434074d68439a8092822}\label{_logic__layer_8c_a42f07844fcbd434074d68439a8092822} 
+\index{Logic\_layer.c@{Logic\_layer.c}!SANITIZE\_COLOR@{SANITIZE\_COLOR}}
+\index{SANITIZE\_COLOR@{SANITIZE\_COLOR}!Logic\_layer.c@{Logic\_layer.c}}
+\doxysubsubsection{\texorpdfstring{SANITIZE\_COLOR}{SANITIZE\_COLOR}}
+{\footnotesize\ttfamily \#define SANITIZE\+\_\+\+COLOR(\begin{DoxyParamCaption}\item[{}]{color\+Type\+Return }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ (\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ if\ (colorTypeReturn\ ==\ \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83a754677d3d46d29afae5a10dd034bceef}{CMD\_UNKNOWN\_COLOR}})\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ LOGE(\textcolor{stringliteral}{"{}Color\ unkown"{}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_logic__layer_8c_aa978ab69f345b692cdbb065fd9d65f17}\label{_logic__layer_8c_aa978ab69f345b692cdbb065fd9d65f17} 
+\index{Logic\_layer.c@{Logic\_layer.c}!get\_color\_type@{get\_color\_type}}
+\index{get\_color\_type@{get\_color\_type}!Logic\_layer.c@{Logic\_layer.c}}
+\doxysubsubsection{\texorpdfstring{get\_color\_type()}{get\_color\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83}{Color\+Type}} get\+\_\+color\+\_\+type (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
+
+\Hypertarget{_logic__layer_8c_a24854bc1afb7e1b96430da045f745b35}\label{_logic__layer_8c_a24854bc1afb7e1b96430da045f745b35} 
+\index{Logic\_layer.c@{Logic\_layer.c}!get\_command\_type@{get\_command\_type}}
+\index{get\_command\_type@{get\_command\_type}!Logic\_layer.c@{Logic\_layer.c}}
+\doxysubsubsection{\texorpdfstring{get\_command\_type()}{get\_command\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352}{Command\+Type}} get\+\_\+command\+\_\+type (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
+
+
+
+Converteert een commando string naar een Command\+Type waarde. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & De commando string om te converteren. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Command\+Type De overeenkomende Command\+Type waarde. 
+\end{DoxyReturn}
+\Hypertarget{_logic__layer_8c_a0f7bb123ef759d26a3057c7385bb5e70}\label{_logic__layer_8c_a0f7bb123ef759d26a3057c7385bb5e70} 
+\index{Logic\_layer.c@{Logic\_layer.c}!LL\_exec@{LL\_exec}}
+\index{LL\_exec@{LL\_exec}!Logic\_layer.c@{Logic\_layer.c}}
+\doxysubsubsection{\texorpdfstring{LL\_exec()}{LL\_exec()}}
+{\footnotesize\ttfamily void LL\+\_\+exec (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Voert een commando uit op basis van de opgegeven parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Parsed\+Data} & Array van strings met commando en parameters. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_logic__layer_8c_a47d24901ba5eb6338682f882bfc0dbc1}\label{_logic__layer_8c_a47d24901ba5eb6338682f882bfc0dbc1} 
+\index{Logic\_layer.c@{Logic\_layer.c}!LL\_receive@{LL\_receive}}
+\index{LL\_receive@{LL\_receive}!Logic\_layer.c@{Logic\_layer.c}}
+\doxysubsubsection{\texorpdfstring{LL\_receive()}{LL\_receive()}}
+{\footnotesize\ttfamily void LL\+\_\+receive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Separates values from incoming array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input.\+line\+\_\+rx\+\_\+buffer} & used \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & currently \\
+\hline
+\end{DoxyRetVals}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_logic__layer_8c_a07de6331b9fea5ac0a8d37f71bd188f9}\label{_logic__layer_8c_a07de6331b9fea5ac0a8d37f71bd188f9} 
+\index{Logic\_layer.c@{Logic\_layer.c}!command@{command}}
+\index{command@{command}!Logic\_layer.c@{Logic\_layer.c}}
+\doxysubsubsection{\texorpdfstring{command}{command}}
+{\footnotesize\ttfamily char command\mbox{[}$\,$\mbox{]} = "{}rechthoek,10,10,150,100,licht blauw,0"{}}
+
+\Hypertarget{_logic__layer_8c_a0d0c46791672d829075326a134858672}\label{_logic__layer_8c_a0d0c46791672d829075326a134858672} 
+\index{Logic\_layer.c@{Logic\_layer.c}!input@{input}}
+\index{input@{input}!Logic\_layer.c@{Logic\_layer.c}}
+\doxysubsubsection{\texorpdfstring{input}{input}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structinput__vars}{input\+\_\+vars}} input}
+
+\Hypertarget{_logic__layer_8c_aeb71cc36047ed90785a93fd7b4a42d7e}\label{_logic__layer_8c_aeb71cc36047ed90785a93fd7b4a42d7e} 
+\index{Logic\_layer.c@{Logic\_layer.c}!ParsedData@{ParsedData}}
+\index{ParsedData@{ParsedData}!Logic\_layer.c@{Logic\_layer.c}}
+\doxysubsubsection{\texorpdfstring{ParsedData}{ParsedData}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} Parsed\+Data\mbox{[}\mbox{\hyperlink{_logic__layer_8h_a5c707deff4e68c7283f2ed73665e0c77}{MAX\+\_\+\+VARS}}\mbox{]}}
+

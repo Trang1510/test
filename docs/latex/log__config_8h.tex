@@ -1,0 +1,216 @@
+\doxysection{ub\+\_\+lib/log\+\_\+config.h File Reference}
+\hypertarget{log__config_8h}{}\label{log__config_8h}\index{ub\_lib/log\_config.h@{ub\_lib/log\_config.h}}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{log__config_8h_af64732c7d8916315c4af9a4be4067cce}{LOG\+\_\+\+COLOR\+\_\+\+ENABLE}}~(1)
+\item 
+\#define \mbox{\hyperlink{log__config_8h_a002920e802759c2b9d95a6719574311c}{LOG\+\_\+\+USE\+\_\+\+FREERTOS}}~(0)
+\item 
+\#define \mbox{\hyperlink{log__config_8h_a9e33cf0bfe10d38fc6561f8bae5a5cde}{LOG\+\_\+\+SYSTEM\+\_\+\+TIMER\+\_\+\+MS}}~HAL\+\_\+\+Get\+Tick()
+\item 
+\#define \mbox{\hyperlink{log__config_8h_a1bcbbb53724c71df21129fdb62498fe1}{LOG\+\_\+\+NAME\+\_\+\+FUNCTION\+\_\+\+THREAD}}~\+\_\+\+\_\+func\+\_\+\+\_\+
+\item 
+\#define \mbox{\hyperlink{log__config_8h_a627f154a92c4677c933e2f3e37e5a219}{LOG\+\_\+\+COLOR\+\_\+\+BLACK}}~"{}30"{}
+\item 
+\#define \mbox{\hyperlink{log__config_8h_af6467cd567c0679c15e09913f77b9555}{LOG\+\_\+\+COLOR\+\_\+\+RED}}~"{}31"{}
+\item 
+\#define \mbox{\hyperlink{log__config_8h_ab3f1028e542649d3ad064ca8b9b123c0}{LOG\+\_\+\+COLOR\+\_\+\+GREEN}}~"{}32"{}
+\item 
+\#define \mbox{\hyperlink{log__config_8h_a8abd5ead9a52c8bea43552a1c621c40a}{LOG\+\_\+\+COLOR\+\_\+\+BROWN}}~"{}33"{}
+\item 
+\#define \mbox{\hyperlink{log__config_8h_a10b19bd4d5d95ce6133e146d4054f307}{LOG\+\_\+\+COLOR\+\_\+\+BLUE}}~"{}34"{}
+\item 
+\#define \mbox{\hyperlink{log__config_8h_a7a7bb12d268100db6b82e571ec305698}{LOG\+\_\+\+COLOR\+\_\+\+PURPLE}}~"{}35"{}
+\item 
+\#define \mbox{\hyperlink{log__config_8h_ac55e82ec5cb5e2dd18681cba15335f7a}{LOG\+\_\+\+COLOR\+\_\+\+CYAN}}~"{}36"{}
+\item 
+\#define \mbox{\hyperlink{log__config_8h_a920a591d482b029c1e363b435c0ed2e7}{LOG\+\_\+\+COLOR}}(COLOR)~"{}\textbackslash{}033\mbox{[}0;"{} COLOR "{}m"{}
+\item 
+\#define \mbox{\hyperlink{log__config_8h_aa314f899fa2776405c83e9a94a8b9055}{LOG\+\_\+\+BOLD}}(COLOR)~"{}\textbackslash{}033\mbox{[}1;"{} COLOR "{}m"{}
+\item 
+\#define \mbox{\hyperlink{log__config_8h_adc4693a5b6c5a01af79142f27bc0a4a8}{LOG\+\_\+\+RESET\+\_\+\+COLOR}}~"{}\textbackslash{}033\mbox{[}0m"{}
+\item 
+\#define \mbox{\hyperlink{log__config_8h_a2d27c8d7c78dafe0b017cbe67e487777}{LOG\+\_\+\+COLOR\+\_\+E}}~\mbox{\hyperlink{log__config_8h_a920a591d482b029c1e363b435c0ed2e7}{LOG\+\_\+\+COLOR}}(\mbox{\hyperlink{log__config_8h_af6467cd567c0679c15e09913f77b9555}{LOG\+\_\+\+COLOR\+\_\+\+RED}})
+\item 
+\#define \mbox{\hyperlink{log__config_8h_aba630faa31e90118b2e3942ccf21df6c}{LOG\+\_\+\+COLOR\+\_\+W}}~\mbox{\hyperlink{log__config_8h_a920a591d482b029c1e363b435c0ed2e7}{LOG\+\_\+\+COLOR}}(\mbox{\hyperlink{log__config_8h_a8abd5ead9a52c8bea43552a1c621c40a}{LOG\+\_\+\+COLOR\+\_\+\+BROWN}})
+\item 
+\#define \mbox{\hyperlink{log__config_8h_afd58ceaacaad1ec7583873cd698fbcb3}{LOG\+\_\+\+COLOR\+\_\+I}}~\mbox{\hyperlink{log__config_8h_a920a591d482b029c1e363b435c0ed2e7}{LOG\+\_\+\+COLOR}}(\mbox{\hyperlink{log__config_8h_ab3f1028e542649d3ad064ca8b9b123c0}{LOG\+\_\+\+COLOR\+\_\+\+GREEN}})
+\item 
+\#define \mbox{\hyperlink{log__config_8h_a40d49db6dad060bac0b5e944597fb10c}{LOG\+\_\+\+COLOR\+\_\+D}}
+\item 
+\#define \mbox{\hyperlink{log__config_8h_a29945ca92a94e3c6f0ee04eb17c91f82}{LOG\+\_\+\+COLOR\+\_\+V}}
+\item 
+\#define \mbox{\hyperlink{log__config_8h_afe5c2d8d746968555e7ee89e1762e941}{LOG\+\_\+\+COLOR\+\_\+H}}~\mbox{\hyperlink{log__config_8h_a920a591d482b029c1e363b435c0ed2e7}{LOG\+\_\+\+COLOR}}(\mbox{\hyperlink{log__config_8h_ac55e82ec5cb5e2dd18681cba15335f7a}{LOG\+\_\+\+COLOR\+\_\+\+CYAN}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}} \{ \newline
+\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a85639df34979de4e5ff6f7b05e4de8f1}{LOG\+\_\+\+NONE}}
+, \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a230506cce5c68c3bac5a821c42ed3473}{LOG\+\_\+\+ERROR}}
+, \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ac8041ffa22bc823d4726701cdb13fc13}{LOG\+\_\+\+WARN}}
+, \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a6e98ff471e3ce6c4ef2d75c37ee51837}{LOG\+\_\+\+INFO}}
+, \newline
+\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ab9f002c6ffbfd511da8090213227454e}{LOG\+\_\+\+DEBUG}}
+, \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ac74e4f8b7fa7b544b66d09e854b8773a}{LOG\+\_\+\+VERBOSE}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{log__config_8h_aa314f899fa2776405c83e9a94a8b9055}\label{log__config_8h_aa314f899fa2776405c83e9a94a8b9055} 
+\index{log\_config.h@{log\_config.h}!LOG\_BOLD@{LOG\_BOLD}}
+\index{LOG\_BOLD@{LOG\_BOLD}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_BOLD}{LOG\_BOLD}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+BOLD(\begin{DoxyParamCaption}\item[{}]{COLOR }\end{DoxyParamCaption})~"{}\textbackslash{}033\mbox{[}1;"{} COLOR "{}m"{}}
+
+\Hypertarget{log__config_8h_a920a591d482b029c1e363b435c0ed2e7}\label{log__config_8h_a920a591d482b029c1e363b435c0ed2e7} 
+\index{log\_config.h@{log\_config.h}!LOG\_COLOR@{LOG\_COLOR}}
+\index{LOG\_COLOR@{LOG\_COLOR}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR}{LOG\_COLOR}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR(\begin{DoxyParamCaption}\item[{}]{COLOR }\end{DoxyParamCaption})~"{}\textbackslash{}033\mbox{[}0;"{} COLOR "{}m"{}}
+
+\Hypertarget{log__config_8h_a627f154a92c4677c933e2f3e37e5a219}\label{log__config_8h_a627f154a92c4677c933e2f3e37e5a219} 
+\index{log\_config.h@{log\_config.h}!LOG\_COLOR\_BLACK@{LOG\_COLOR\_BLACK}}
+\index{LOG\_COLOR\_BLACK@{LOG\_COLOR\_BLACK}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_BLACK}{LOG\_COLOR\_BLACK}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+\+BLACK~"{}30"{}}
+
+\Hypertarget{log__config_8h_a10b19bd4d5d95ce6133e146d4054f307}\label{log__config_8h_a10b19bd4d5d95ce6133e146d4054f307} 
+\index{log\_config.h@{log\_config.h}!LOG\_COLOR\_BLUE@{LOG\_COLOR\_BLUE}}
+\index{LOG\_COLOR\_BLUE@{LOG\_COLOR\_BLUE}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_BLUE}{LOG\_COLOR\_BLUE}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+\+BLUE~"{}34"{}}
+
+\Hypertarget{log__config_8h_a8abd5ead9a52c8bea43552a1c621c40a}\label{log__config_8h_a8abd5ead9a52c8bea43552a1c621c40a} 
+\index{log\_config.h@{log\_config.h}!LOG\_COLOR\_BROWN@{LOG\_COLOR\_BROWN}}
+\index{LOG\_COLOR\_BROWN@{LOG\_COLOR\_BROWN}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_BROWN}{LOG\_COLOR\_BROWN}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+\+BROWN~"{}33"{}}
+
+\Hypertarget{log__config_8h_ac55e82ec5cb5e2dd18681cba15335f7a}\label{log__config_8h_ac55e82ec5cb5e2dd18681cba15335f7a} 
+\index{log\_config.h@{log\_config.h}!LOG\_COLOR\_CYAN@{LOG\_COLOR\_CYAN}}
+\index{LOG\_COLOR\_CYAN@{LOG\_COLOR\_CYAN}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_CYAN}{LOG\_COLOR\_CYAN}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+\+CYAN~"{}36"{}}
+
+\Hypertarget{log__config_8h_a40d49db6dad060bac0b5e944597fb10c}\label{log__config_8h_a40d49db6dad060bac0b5e944597fb10c} 
+\index{log\_config.h@{log\_config.h}!LOG\_COLOR\_D@{LOG\_COLOR\_D}}
+\index{LOG\_COLOR\_D@{LOG\_COLOR\_D}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_D}{LOG\_COLOR\_D}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+D}
+
+\Hypertarget{log__config_8h_a2d27c8d7c78dafe0b017cbe67e487777}\label{log__config_8h_a2d27c8d7c78dafe0b017cbe67e487777} 
+\index{log\_config.h@{log\_config.h}!LOG\_COLOR\_E@{LOG\_COLOR\_E}}
+\index{LOG\_COLOR\_E@{LOG\_COLOR\_E}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_E}{LOG\_COLOR\_E}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+E~\mbox{\hyperlink{log__config_8h_a920a591d482b029c1e363b435c0ed2e7}{LOG\+\_\+\+COLOR}}(\mbox{\hyperlink{log__config_8h_af6467cd567c0679c15e09913f77b9555}{LOG\+\_\+\+COLOR\+\_\+\+RED}})}
+
+\Hypertarget{log__config_8h_af64732c7d8916315c4af9a4be4067cce}\label{log__config_8h_af64732c7d8916315c4af9a4be4067cce} 
+\index{log\_config.h@{log\_config.h}!LOG\_COLOR\_ENABLE@{LOG\_COLOR\_ENABLE}}
+\index{LOG\_COLOR\_ENABLE@{LOG\_COLOR\_ENABLE}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_ENABLE}{LOG\_COLOR\_ENABLE}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+\+ENABLE~(1)}
+
+\Hypertarget{log__config_8h_ab3f1028e542649d3ad064ca8b9b123c0}\label{log__config_8h_ab3f1028e542649d3ad064ca8b9b123c0} 
+\index{log\_config.h@{log\_config.h}!LOG\_COLOR\_GREEN@{LOG\_COLOR\_GREEN}}
+\index{LOG\_COLOR\_GREEN@{LOG\_COLOR\_GREEN}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_GREEN}{LOG\_COLOR\_GREEN}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+\+GREEN~"{}32"{}}
+
+\Hypertarget{log__config_8h_afe5c2d8d746968555e7ee89e1762e941}\label{log__config_8h_afe5c2d8d746968555e7ee89e1762e941} 
+\index{log\_config.h@{log\_config.h}!LOG\_COLOR\_H@{LOG\_COLOR\_H}}
+\index{LOG\_COLOR\_H@{LOG\_COLOR\_H}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_H}{LOG\_COLOR\_H}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+H~\mbox{\hyperlink{log__config_8h_a920a591d482b029c1e363b435c0ed2e7}{LOG\+\_\+\+COLOR}}(\mbox{\hyperlink{log__config_8h_ac55e82ec5cb5e2dd18681cba15335f7a}{LOG\+\_\+\+COLOR\+\_\+\+CYAN}})}
+
+\Hypertarget{log__config_8h_afd58ceaacaad1ec7583873cd698fbcb3}\label{log__config_8h_afd58ceaacaad1ec7583873cd698fbcb3} 
+\index{log\_config.h@{log\_config.h}!LOG\_COLOR\_I@{LOG\_COLOR\_I}}
+\index{LOG\_COLOR\_I@{LOG\_COLOR\_I}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_I}{LOG\_COLOR\_I}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+I~\mbox{\hyperlink{log__config_8h_a920a591d482b029c1e363b435c0ed2e7}{LOG\+\_\+\+COLOR}}(\mbox{\hyperlink{log__config_8h_ab3f1028e542649d3ad064ca8b9b123c0}{LOG\+\_\+\+COLOR\+\_\+\+GREEN}})}
+
+\Hypertarget{log__config_8h_a7a7bb12d268100db6b82e571ec305698}\label{log__config_8h_a7a7bb12d268100db6b82e571ec305698} 
+\index{log\_config.h@{log\_config.h}!LOG\_COLOR\_PURPLE@{LOG\_COLOR\_PURPLE}}
+\index{LOG\_COLOR\_PURPLE@{LOG\_COLOR\_PURPLE}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_PURPLE}{LOG\_COLOR\_PURPLE}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+\+PURPLE~"{}35"{}}
+
+\Hypertarget{log__config_8h_af6467cd567c0679c15e09913f77b9555}\label{log__config_8h_af6467cd567c0679c15e09913f77b9555} 
+\index{log\_config.h@{log\_config.h}!LOG\_COLOR\_RED@{LOG\_COLOR\_RED}}
+\index{LOG\_COLOR\_RED@{LOG\_COLOR\_RED}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_RED}{LOG\_COLOR\_RED}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+\+RED~"{}31"{}}
+
+\Hypertarget{log__config_8h_a29945ca92a94e3c6f0ee04eb17c91f82}\label{log__config_8h_a29945ca92a94e3c6f0ee04eb17c91f82} 
+\index{log\_config.h@{log\_config.h}!LOG\_COLOR\_V@{LOG\_COLOR\_V}}
+\index{LOG\_COLOR\_V@{LOG\_COLOR\_V}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_V}{LOG\_COLOR\_V}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+V}
+
+\Hypertarget{log__config_8h_aba630faa31e90118b2e3942ccf21df6c}\label{log__config_8h_aba630faa31e90118b2e3942ccf21df6c} 
+\index{log\_config.h@{log\_config.h}!LOG\_COLOR\_W@{LOG\_COLOR\_W}}
+\index{LOG\_COLOR\_W@{LOG\_COLOR\_W}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_W}{LOG\_COLOR\_W}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+W~\mbox{\hyperlink{log__config_8h_a920a591d482b029c1e363b435c0ed2e7}{LOG\+\_\+\+COLOR}}(\mbox{\hyperlink{log__config_8h_a8abd5ead9a52c8bea43552a1c621c40a}{LOG\+\_\+\+COLOR\+\_\+\+BROWN}})}
+
+\Hypertarget{log__config_8h_a1bcbbb53724c71df21129fdb62498fe1}\label{log__config_8h_a1bcbbb53724c71df21129fdb62498fe1} 
+\index{log\_config.h@{log\_config.h}!LOG\_NAME\_FUNCTION\_THREAD@{LOG\_NAME\_FUNCTION\_THREAD}}
+\index{LOG\_NAME\_FUNCTION\_THREAD@{LOG\_NAME\_FUNCTION\_THREAD}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_NAME\_FUNCTION\_THREAD}{LOG\_NAME\_FUNCTION\_THREAD}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+NAME\+\_\+\+FUNCTION\+\_\+\+THREAD~\+\_\+\+\_\+func\+\_\+\+\_\+}
+
+\Hypertarget{log__config_8h_adc4693a5b6c5a01af79142f27bc0a4a8}\label{log__config_8h_adc4693a5b6c5a01af79142f27bc0a4a8} 
+\index{log\_config.h@{log\_config.h}!LOG\_RESET\_COLOR@{LOG\_RESET\_COLOR}}
+\index{LOG\_RESET\_COLOR@{LOG\_RESET\_COLOR}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_RESET\_COLOR}{LOG\_RESET\_COLOR}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+RESET\+\_\+\+COLOR~"{}\textbackslash{}033\mbox{[}0m"{}}
+
+\Hypertarget{log__config_8h_a9e33cf0bfe10d38fc6561f8bae5a5cde}\label{log__config_8h_a9e33cf0bfe10d38fc6561f8bae5a5cde} 
+\index{log\_config.h@{log\_config.h}!LOG\_SYSTEM\_TIMER\_MS@{LOG\_SYSTEM\_TIMER\_MS}}
+\index{LOG\_SYSTEM\_TIMER\_MS@{LOG\_SYSTEM\_TIMER\_MS}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_SYSTEM\_TIMER\_MS}{LOG\_SYSTEM\_TIMER\_MS}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+SYSTEM\+\_\+\+TIMER\+\_\+\+MS~HAL\+\_\+\+Get\+Tick()}
+
+\Hypertarget{log__config_8h_a002920e802759c2b9d95a6719574311c}\label{log__config_8h_a002920e802759c2b9d95a6719574311c} 
+\index{log\_config.h@{log\_config.h}!LOG\_USE\_FREERTOS@{LOG\_USE\_FREERTOS}}
+\index{LOG\_USE\_FREERTOS@{LOG\_USE\_FREERTOS}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_USE\_FREERTOS}{LOG\_USE\_FREERTOS}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+USE\+\_\+\+FREERTOS~(0)}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}\label{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782} 
+\index{log\_config.h@{log\_config.h}!LogLevel\_e@{LogLevel\_e}}
+\index{LogLevel\_e@{LogLevel\_e}!log\_config.h@{log\_config.h}}
+\doxysubsubsection{\texorpdfstring{LogLevel\_e}{LogLevel\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_NONE@{LOG\_NONE}!log\_config.h@{log\_config.h}}\index{log\_config.h@{log\_config.h}!LOG\_NONE@{LOG\_NONE}}}\Hypertarget{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a85639df34979de4e5ff6f7b05e4de8f1}\label{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a85639df34979de4e5ff6f7b05e4de8f1} 
+LOG\+\_\+\+NONE&No log output \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_ERROR@{LOG\_ERROR}!log\_config.h@{log\_config.h}}\index{log\_config.h@{log\_config.h}!LOG\_ERROR@{LOG\_ERROR}}}\Hypertarget{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a230506cce5c68c3bac5a821c42ed3473}\label{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a230506cce5c68c3bac5a821c42ed3473} 
+LOG\+\_\+\+ERROR&Critical errors, software module can not recover on its own \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_WARN@{LOG\_WARN}!log\_config.h@{log\_config.h}}\index{log\_config.h@{log\_config.h}!LOG\_WARN@{LOG\_WARN}}}\Hypertarget{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ac8041ffa22bc823d4726701cdb13fc13}\label{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ac8041ffa22bc823d4726701cdb13fc13} 
+LOG\+\_\+\+WARN&Error conditions from which recovery measures have been taken \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_INFO@{LOG\_INFO}!log\_config.h@{log\_config.h}}\index{log\_config.h@{log\_config.h}!LOG\_INFO@{LOG\_INFO}}}\Hypertarget{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a6e98ff471e3ce6c4ef2d75c37ee51837}\label{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a6e98ff471e3ce6c4ef2d75c37ee51837} 
+LOG\+\_\+\+INFO&Information messages which describe normal flow of events \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_DEBUG@{LOG\_DEBUG}!log\_config.h@{log\_config.h}}\index{log\_config.h@{log\_config.h}!LOG\_DEBUG@{LOG\_DEBUG}}}\Hypertarget{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ab9f002c6ffbfd511da8090213227454e}\label{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ab9f002c6ffbfd511da8090213227454e} 
+LOG\+\_\+\+DEBUG&Extra information which is not necessary for normal use (values, pointers, sizes, etc). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_VERBOSE@{LOG\_VERBOSE}!log\_config.h@{log\_config.h}}\index{log\_config.h@{log\_config.h}!LOG\_VERBOSE@{LOG\_VERBOSE}}}\Hypertarget{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ac74e4f8b7fa7b544b66d09e854b8773a}\label{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ac74e4f8b7fa7b544b66d09e854b8773a} 
+LOG\+\_\+\+VERBOSE&Bigger chunks of debugging information, or frequent messages which can potentially flood the output. \\
+\hline
+
+\end{DoxyEnumFields}

@@ -1,0 +1,73 @@
+\doxysection{Logic\+\_\+layer.\+h}
+\hypertarget{_logic__layer_8h_source}{}\label{_logic__layer_8h_source}\index{ub\_lib/Logic\_layer.h@{ub\_lib/Logic\_layer.h}}
+\mbox{\hyperlink{_logic__layer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ UB\_LIB\_LOGIC\_LAYER\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ UB\_LIB\_LOGIC\_LAYER\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ \ \ Includes\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{log_8h}{log.h}}"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00018\ \textcolor{comment}{*\ \ \ \#defines\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MAX\_VARS\ 10}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ BYTE\_BUFLEN\ \ \ \ \ \ 1}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ LINE\_BUFLEN\ \ \ \ \ \ 1024}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ CARRIAGE\_RETURN\ \ 13\ }\textcolor{comment}{/*\ carriage\ return\ char\ \(\backslash\)r\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LINE\_FEED\ \ \ \ \ \ \ \ 10\ }\textcolor{comment}{/*\ linefeed\ char\ \(\backslash\)n\ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00027\ \textcolor{comment}{*\ \ \ Typedefs\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ uint8\_t\ byte\_buffer\_rx[\mbox{\hyperlink{_logic__layer_8h_a0e3eff829ed19518d75bb7d21a0ca3f6}{BYTE\_BUFLEN}}];\ \textcolor{comment}{//\ Store\ the\ rx\ byte\ from\ the\ USART2}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{char}\ line\_rx\_buffer[\mbox{\hyperlink{_logic__layer_8h_ad1cc016cd2d60fbb1dd56e7e09ecc00c}{LINE\_BUFLEN}}];\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Buffer\ to\ hold\ all\ the\ bytes\ from\ rx\ USART2}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structinput__vars_a118cad54a817ac93b88012250dd6ce16}{msglen}};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structinput__vars_a997ee9ea7bc8366f19711e8292c4ffc5}{char\_counter}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Counter\ for\ line\_rx\_buffer}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structinput__vars_ab512fa29bb2879786906930a563360e4}{command\_execute\_flag}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Set\ =\ whole\ transmission\ is\ received,\ ready\ for\ processing\ \(\backslash\)}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Reset\ =\ still\ receiving*/}}
+\DoxyCodeLine{00037\ \}\mbox{\hyperlink{structinput__vars}{input\_vars}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352abb221177213477f4650b63a6d506b291}{CMD\_LINE}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a0e4ea895ef8ba201c2955c603a91ccd9}{CMD\_RECTANGLE}},\ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a11a307af79dda81e81c39cf4d7bf5222}{CMD\_TEXT}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a7ab01da2eb2fda1de65390974bfa56a6}{CMD\_BITMAP}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a7d6852f44865db912df44bf6bdb3540c}{CMD\_CLEAR\_SCREEN}},\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a59c51f88aeda3ea6351f01c9c70b9ac7}{CMD\_UNKNOWN}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a0593585da9181e972974c1274d8f2b4f}{DEBUG}}}
+\DoxyCodeLine{00052\ \}\ \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352}{CommandType}};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00059\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83aa290b9316712aac3e143a493b654029b}{VGA\_COLOUR\_BLACK}}\ =\ 0x00,}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83a4f3f17724b8b273fce8e3a89fddcecd4}{VGA\_COLOUR\_BLUE}}\ =\ 0x03,}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83af7a341c9b4430ad390cc7c30c6094428}{VGA\_COLOUR\_GREEN}}\ =\ 0x1C,}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83a7c71de16ae72f57462ad8d68f821c5fd}{VGA\_COLOUR\_RED}}\ =\ 0xE0,}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83a97e3fec37b168fe2bcaa412fa7a7c540}{VGA\_COLOUR\_WHITE}}\ =\ 0xFF,}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83aaae2a6e8180f8b90b6fdedc7d198cb28}{VGA\_COLOUR\_CYAN}}\ =\ 0x1F,}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83a01ca6621308a3e731d724c6a8009a17f}{VGA\_COLOUR\_MAGENTA}}\ =\ 0xE3,}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83a60e5d32a80145a35880f661c7f83a73e}{VGA\_COLOUR\_YELLOW}}\ =\ 0xFC,}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83a754677d3d46d29afae5a10dd034bceef}{CMD\_UNKNOWN\_COLOR}}\ =\ -\/1,}
+\DoxyCodeLine{00069\ \}\ \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83}{ColorType}};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00072\ \textcolor{comment}{*\ \ \ Globals\ vars\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00073\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00074\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structinput__vars}{input\_vars}}\ \mbox{\hyperlink{_logic__layer_8h_a0d0c46791672d829075326a134858672}{input}};}
+\DoxyCodeLine{00075\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00076\ \textcolor{comment}{*\ \ \ Global\ function\ prototypes\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00077\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_logic__layer_8h_a47d24901ba5eb6338682f882bfc0dbc1}{LL\_receive}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_logic__layer_8h_a0f7bb123ef759d26a3057c7385bb5e70}{LL\_exec}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UB\_LIB\_LOGIC\_LAYER\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

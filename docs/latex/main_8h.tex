@@ -1,0 +1,289 @@
+\doxysection{Inc/main.h File Reference}
+\hypertarget{main_8h}{}\label{main_8h}\index{Inc/main.h@{Inc/main.h}}
+
+
+\+: Header for \doxylink{main_8c}{main.\+c} file. This file contains the common defines of the application.  
+
+
+{\ttfamily \#include "{}stm32f4xx\+\_\+hal.\+h"{}}\newline
+{\ttfamily \#include "{}stdint.\+h"{}}\newline
+{\ttfamily \#include "{}log.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8h_afce59ab8a15e4e45d9cedeb5dc55b011}{VGA\+\_\+\+BLUE0\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+8
+\item 
+\#define \mbox{\hyperlink{main_8h_a2722cd50a9fc0395b9bd2a9c0a63616d}{VGA\+\_\+\+BLUE0\+\_\+\+GPIO\+\_\+\+Port}}~GPIOE
+\item 
+\#define \mbox{\hyperlink{main_8h_ace86cd9443e38482b1c9047d2bda9d53}{VGA\+\_\+\+BLUE1\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+9
+\item 
+\#define \mbox{\hyperlink{main_8h_a5cca972dc3a9d50ce777fc2f7f059216}{VGA\+\_\+\+BLUE1\+\_\+\+GPIO\+\_\+\+Port}}~GPIOE
+\item 
+\#define \mbox{\hyperlink{main_8h_a29c43dfa97b36b72be4b6ca5bb7ff4a6}{VGA\+\_\+\+GREEN0\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+10
+\item 
+\#define \mbox{\hyperlink{main_8h_a5a24ea26bc7dbd63897ffc1fbdbf8ab5}{VGA\+\_\+\+GREEN0\+\_\+\+GPIO\+\_\+\+Port}}~GPIOE
+\item 
+\#define \mbox{\hyperlink{main_8h_aaaa1d5ed4c7fd52d79e8333db1f6e537}{VGA\+\_\+\+GREEN1\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+11
+\item 
+\#define \mbox{\hyperlink{main_8h_a78f0e07612092c681c14352e19b1dd43}{VGA\+\_\+\+GREEN1\+\_\+\+GPIO\+\_\+\+Port}}~GPIOE
+\item 
+\#define \mbox{\hyperlink{main_8h_ac2f87d2cf75997714c82cb9be451197a}{VGA\+\_\+\+GREEN2\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+12
+\item 
+\#define \mbox{\hyperlink{main_8h_a5c10cbc9b32d68e5c3088e74f3ee05c2}{VGA\+\_\+\+GREEN2\+\_\+\+GPIO\+\_\+\+Port}}~GPIOE
+\item 
+\#define \mbox{\hyperlink{main_8h_ad3d846a5a27fa75304ea5ce870960c37}{VGA\+\_\+\+RED0\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+13
+\item 
+\#define \mbox{\hyperlink{main_8h_a552b19928fd600986ffc171338db615b}{VGA\+\_\+\+RED0\+\_\+\+GPIO\+\_\+\+Port}}~GPIOE
+\item 
+\#define \mbox{\hyperlink{main_8h_a9d54b348bb6ffa3167c71d2f86d4811d}{VGA\+\_\+\+RED1\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+14
+\item 
+\#define \mbox{\hyperlink{main_8h_ae502de8ecdd4df88011b699a9dbf28cc}{VGA\+\_\+\+RED1\+\_\+\+GPIO\+\_\+\+Port}}~GPIOE
+\item 
+\#define \mbox{\hyperlink{main_8h_a2ec813b2d822799b429bbe47cdb857cb}{VGA\+\_\+\+RED2\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+15
+\item 
+\#define \mbox{\hyperlink{main_8h_aa6826e79d9f1d59b40fb522130498485}{VGA\+\_\+\+RED2\+\_\+\+GPIO\+\_\+\+Port}}~GPIOE
+\item 
+\#define \mbox{\hyperlink{main_8h_abf863824d250041fbda99d9f0c66e7cf}{VGA\+\_\+\+HSYNC\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+11
+\item 
+\#define \mbox{\hyperlink{main_8h_a6161041bb0da5ba16ca384f54d15731a}{VGA\+\_\+\+HSYNC\+\_\+\+GPIO\+\_\+\+Port}}~GPIOB
+\item 
+\#define \mbox{\hyperlink{main_8h_ac91699501dec0d81f250f5a5a7a94d1a}{VGA\+\_\+\+VSYNC\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+12
+\item 
+\#define \mbox{\hyperlink{main_8h_ab677279ccb99792d911b6ce225340fce}{VGA\+\_\+\+VSYNC\+\_\+\+GPIO\+\_\+\+Port}}~GPIOB
+\item 
+\#define \mbox{\hyperlink{main_8h_a5a77c037a63d76595f6ee97ecae3cad5}{Green\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+12
+\item 
+\#define \mbox{\hyperlink{main_8h_a5ec9d78fe7fff72fbff2ac1ee8e1ca84}{Green\+\_\+\+GPIO\+\_\+\+Port}}~GPIOD
+\item 
+\#define \mbox{\hyperlink{main_8h_aa66070b94ff12ef84ec295a7bdba0678}{Orange\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+13
+\item 
+\#define \mbox{\hyperlink{main_8h_abfd90b7448ba9510a928404d44a58bd1}{Orange\+\_\+\+GPIO\+\_\+\+Port}}~GPIOD
+\item 
+\#define \mbox{\hyperlink{main_8h_a546a57bc3d25ec503dc791660422cf5e}{Red\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+14
+\item 
+\#define \mbox{\hyperlink{main_8h_a2e31bffc9f06ad4183cbaddf6b66fea4}{Red\+\_\+\+GPIO\+\_\+\+Port}}~GPIOD
+\item 
+\#define \mbox{\hyperlink{main_8h_a9dac6f657ee520e8f601afe25a017437}{Blue\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+15
+\item 
+\#define \mbox{\hyperlink{main_8h_a346aea0943f0adf92ef567c8b4c84990}{Blue\+\_\+\+GPIO\+\_\+\+Port}}~GPIOD
+\item 
+\#define \mbox{\hyperlink{main_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}~0x00
+\item 
+\#define \mbox{\hyperlink{main_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}~0x\+FF
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8h_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Header for \doxylink{main_8c}{main.\+c} file. This file contains the common defines of the application. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+\doxysubsubsection*{\begin{center}\copyright{} Copyright (c) 2020 STMicroelectronics. All rights reserved.\end{center} }
+
+This software component is licensed by ST under BSD 3-\/Clause license, the "{}\+License"{}; You may not use this file except in compliance with the License. You may obtain a copy of the License at\+: opensource.\+org/licenses/\+BSD-\/3-\/\+Clause 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8h_a346aea0943f0adf92ef567c8b4c84990}\label{main_8h_a346aea0943f0adf92ef567c8b4c84990} 
+\index{main.h@{main.h}!Blue\_GPIO\_Port@{Blue\_GPIO\_Port}}
+\index{Blue\_GPIO\_Port@{Blue\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{Blue\_GPIO\_Port}{Blue\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define Blue\+\_\+\+GPIO\+\_\+\+Port~GPIOD}
+
+\Hypertarget{main_8h_a9dac6f657ee520e8f601afe25a017437}\label{main_8h_a9dac6f657ee520e8f601afe25a017437} 
+\index{main.h@{main.h}!Blue\_Pin@{Blue\_Pin}}
+\index{Blue\_Pin@{Blue\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{Blue\_Pin}{Blue\_Pin}}
+{\footnotesize\ttfamily \#define Blue\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+15}
+
+\Hypertarget{main_8h_aa93f0eb578d23995850d61f7d61c55c1}\label{main_8h_aa93f0eb578d23995850d61f7d61c55c1} 
+\index{main.h@{main.h}!FALSE@{FALSE}}
+\index{FALSE@{FALSE}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{FALSE}{FALSE}}
+{\footnotesize\ttfamily \#define FALSE~0x00}
+
+\Hypertarget{main_8h_a5ec9d78fe7fff72fbff2ac1ee8e1ca84}\label{main_8h_a5ec9d78fe7fff72fbff2ac1ee8e1ca84} 
+\index{main.h@{main.h}!Green\_GPIO\_Port@{Green\_GPIO\_Port}}
+\index{Green\_GPIO\_Port@{Green\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{Green\_GPIO\_Port}{Green\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define Green\+\_\+\+GPIO\+\_\+\+Port~GPIOD}
+
+\Hypertarget{main_8h_a5a77c037a63d76595f6ee97ecae3cad5}\label{main_8h_a5a77c037a63d76595f6ee97ecae3cad5} 
+\index{main.h@{main.h}!Green\_Pin@{Green\_Pin}}
+\index{Green\_Pin@{Green\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{Green\_Pin}{Green\_Pin}}
+{\footnotesize\ttfamily \#define Green\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+12}
+
+\Hypertarget{main_8h_abfd90b7448ba9510a928404d44a58bd1}\label{main_8h_abfd90b7448ba9510a928404d44a58bd1} 
+\index{main.h@{main.h}!Orange\_GPIO\_Port@{Orange\_GPIO\_Port}}
+\index{Orange\_GPIO\_Port@{Orange\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{Orange\_GPIO\_Port}{Orange\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define Orange\+\_\+\+GPIO\+\_\+\+Port~GPIOD}
+
+\Hypertarget{main_8h_aa66070b94ff12ef84ec295a7bdba0678}\label{main_8h_aa66070b94ff12ef84ec295a7bdba0678} 
+\index{main.h@{main.h}!Orange\_Pin@{Orange\_Pin}}
+\index{Orange\_Pin@{Orange\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{Orange\_Pin}{Orange\_Pin}}
+{\footnotesize\ttfamily \#define Orange\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+13}
+
+\Hypertarget{main_8h_a2e31bffc9f06ad4183cbaddf6b66fea4}\label{main_8h_a2e31bffc9f06ad4183cbaddf6b66fea4} 
+\index{main.h@{main.h}!Red\_GPIO\_Port@{Red\_GPIO\_Port}}
+\index{Red\_GPIO\_Port@{Red\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{Red\_GPIO\_Port}{Red\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define Red\+\_\+\+GPIO\+\_\+\+Port~GPIOD}
+
+\Hypertarget{main_8h_a546a57bc3d25ec503dc791660422cf5e}\label{main_8h_a546a57bc3d25ec503dc791660422cf5e} 
+\index{main.h@{main.h}!Red\_Pin@{Red\_Pin}}
+\index{Red\_Pin@{Red\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{Red\_Pin}{Red\_Pin}}
+{\footnotesize\ttfamily \#define Red\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+14}
+
+\Hypertarget{main_8h_aa8cecfc5c5c054d2875c03e77b7be15d}\label{main_8h_aa8cecfc5c5c054d2875c03e77b7be15d} 
+\index{main.h@{main.h}!TRUE@{TRUE}}
+\index{TRUE@{TRUE}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{TRUE}{TRUE}}
+{\footnotesize\ttfamily \#define TRUE~0x\+FF}
+
+\Hypertarget{main_8h_a2722cd50a9fc0395b9bd2a9c0a63616d}\label{main_8h_a2722cd50a9fc0395b9bd2a9c0a63616d} 
+\index{main.h@{main.h}!VGA\_BLUE0\_GPIO\_Port@{VGA\_BLUE0\_GPIO\_Port}}
+\index{VGA\_BLUE0\_GPIO\_Port@{VGA\_BLUE0\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_BLUE0\_GPIO\_Port}{VGA\_BLUE0\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+BLUE0\+\_\+\+GPIO\+\_\+\+Port~GPIOE}
+
+\Hypertarget{main_8h_afce59ab8a15e4e45d9cedeb5dc55b011}\label{main_8h_afce59ab8a15e4e45d9cedeb5dc55b011} 
+\index{main.h@{main.h}!VGA\_BLUE0\_Pin@{VGA\_BLUE0\_Pin}}
+\index{VGA\_BLUE0\_Pin@{VGA\_BLUE0\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_BLUE0\_Pin}{VGA\_BLUE0\_Pin}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+BLUE0\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+8}
+
+\Hypertarget{main_8h_a5cca972dc3a9d50ce777fc2f7f059216}\label{main_8h_a5cca972dc3a9d50ce777fc2f7f059216} 
+\index{main.h@{main.h}!VGA\_BLUE1\_GPIO\_Port@{VGA\_BLUE1\_GPIO\_Port}}
+\index{VGA\_BLUE1\_GPIO\_Port@{VGA\_BLUE1\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_BLUE1\_GPIO\_Port}{VGA\_BLUE1\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+BLUE1\+\_\+\+GPIO\+\_\+\+Port~GPIOE}
+
+\Hypertarget{main_8h_ace86cd9443e38482b1c9047d2bda9d53}\label{main_8h_ace86cd9443e38482b1c9047d2bda9d53} 
+\index{main.h@{main.h}!VGA\_BLUE1\_Pin@{VGA\_BLUE1\_Pin}}
+\index{VGA\_BLUE1\_Pin@{VGA\_BLUE1\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_BLUE1\_Pin}{VGA\_BLUE1\_Pin}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+BLUE1\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+9}
+
+\Hypertarget{main_8h_a5a24ea26bc7dbd63897ffc1fbdbf8ab5}\label{main_8h_a5a24ea26bc7dbd63897ffc1fbdbf8ab5} 
+\index{main.h@{main.h}!VGA\_GREEN0\_GPIO\_Port@{VGA\_GREEN0\_GPIO\_Port}}
+\index{VGA\_GREEN0\_GPIO\_Port@{VGA\_GREEN0\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_GREEN0\_GPIO\_Port}{VGA\_GREEN0\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+GREEN0\+\_\+\+GPIO\+\_\+\+Port~GPIOE}
+
+\Hypertarget{main_8h_a29c43dfa97b36b72be4b6ca5bb7ff4a6}\label{main_8h_a29c43dfa97b36b72be4b6ca5bb7ff4a6} 
+\index{main.h@{main.h}!VGA\_GREEN0\_Pin@{VGA\_GREEN0\_Pin}}
+\index{VGA\_GREEN0\_Pin@{VGA\_GREEN0\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_GREEN0\_Pin}{VGA\_GREEN0\_Pin}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+GREEN0\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+10}
+
+\Hypertarget{main_8h_a78f0e07612092c681c14352e19b1dd43}\label{main_8h_a78f0e07612092c681c14352e19b1dd43} 
+\index{main.h@{main.h}!VGA\_GREEN1\_GPIO\_Port@{VGA\_GREEN1\_GPIO\_Port}}
+\index{VGA\_GREEN1\_GPIO\_Port@{VGA\_GREEN1\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_GREEN1\_GPIO\_Port}{VGA\_GREEN1\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+GREEN1\+\_\+\+GPIO\+\_\+\+Port~GPIOE}
+
+\Hypertarget{main_8h_aaaa1d5ed4c7fd52d79e8333db1f6e537}\label{main_8h_aaaa1d5ed4c7fd52d79e8333db1f6e537} 
+\index{main.h@{main.h}!VGA\_GREEN1\_Pin@{VGA\_GREEN1\_Pin}}
+\index{VGA\_GREEN1\_Pin@{VGA\_GREEN1\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_GREEN1\_Pin}{VGA\_GREEN1\_Pin}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+GREEN1\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+11}
+
+\Hypertarget{main_8h_a5c10cbc9b32d68e5c3088e74f3ee05c2}\label{main_8h_a5c10cbc9b32d68e5c3088e74f3ee05c2} 
+\index{main.h@{main.h}!VGA\_GREEN2\_GPIO\_Port@{VGA\_GREEN2\_GPIO\_Port}}
+\index{VGA\_GREEN2\_GPIO\_Port@{VGA\_GREEN2\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_GREEN2\_GPIO\_Port}{VGA\_GREEN2\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+GREEN2\+\_\+\+GPIO\+\_\+\+Port~GPIOE}
+
+\Hypertarget{main_8h_ac2f87d2cf75997714c82cb9be451197a}\label{main_8h_ac2f87d2cf75997714c82cb9be451197a} 
+\index{main.h@{main.h}!VGA\_GREEN2\_Pin@{VGA\_GREEN2\_Pin}}
+\index{VGA\_GREEN2\_Pin@{VGA\_GREEN2\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_GREEN2\_Pin}{VGA\_GREEN2\_Pin}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+GREEN2\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+12}
+
+\Hypertarget{main_8h_a6161041bb0da5ba16ca384f54d15731a}\label{main_8h_a6161041bb0da5ba16ca384f54d15731a} 
+\index{main.h@{main.h}!VGA\_HSYNC\_GPIO\_Port@{VGA\_HSYNC\_GPIO\_Port}}
+\index{VGA\_HSYNC\_GPIO\_Port@{VGA\_HSYNC\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_HSYNC\_GPIO\_Port}{VGA\_HSYNC\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+HSYNC\+\_\+\+GPIO\+\_\+\+Port~GPIOB}
+
+\Hypertarget{main_8h_abf863824d250041fbda99d9f0c66e7cf}\label{main_8h_abf863824d250041fbda99d9f0c66e7cf} 
+\index{main.h@{main.h}!VGA\_HSYNC\_Pin@{VGA\_HSYNC\_Pin}}
+\index{VGA\_HSYNC\_Pin@{VGA\_HSYNC\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_HSYNC\_Pin}{VGA\_HSYNC\_Pin}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+HSYNC\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+11}
+
+\Hypertarget{main_8h_a552b19928fd600986ffc171338db615b}\label{main_8h_a552b19928fd600986ffc171338db615b} 
+\index{main.h@{main.h}!VGA\_RED0\_GPIO\_Port@{VGA\_RED0\_GPIO\_Port}}
+\index{VGA\_RED0\_GPIO\_Port@{VGA\_RED0\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_RED0\_GPIO\_Port}{VGA\_RED0\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+RED0\+\_\+\+GPIO\+\_\+\+Port~GPIOE}
+
+\Hypertarget{main_8h_ad3d846a5a27fa75304ea5ce870960c37}\label{main_8h_ad3d846a5a27fa75304ea5ce870960c37} 
+\index{main.h@{main.h}!VGA\_RED0\_Pin@{VGA\_RED0\_Pin}}
+\index{VGA\_RED0\_Pin@{VGA\_RED0\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_RED0\_Pin}{VGA\_RED0\_Pin}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+RED0\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+13}
+
+\Hypertarget{main_8h_ae502de8ecdd4df88011b699a9dbf28cc}\label{main_8h_ae502de8ecdd4df88011b699a9dbf28cc} 
+\index{main.h@{main.h}!VGA\_RED1\_GPIO\_Port@{VGA\_RED1\_GPIO\_Port}}
+\index{VGA\_RED1\_GPIO\_Port@{VGA\_RED1\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_RED1\_GPIO\_Port}{VGA\_RED1\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+RED1\+\_\+\+GPIO\+\_\+\+Port~GPIOE}
+
+\Hypertarget{main_8h_a9d54b348bb6ffa3167c71d2f86d4811d}\label{main_8h_a9d54b348bb6ffa3167c71d2f86d4811d} 
+\index{main.h@{main.h}!VGA\_RED1\_Pin@{VGA\_RED1\_Pin}}
+\index{VGA\_RED1\_Pin@{VGA\_RED1\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_RED1\_Pin}{VGA\_RED1\_Pin}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+RED1\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+14}
+
+\Hypertarget{main_8h_aa6826e79d9f1d59b40fb522130498485}\label{main_8h_aa6826e79d9f1d59b40fb522130498485} 
+\index{main.h@{main.h}!VGA\_RED2\_GPIO\_Port@{VGA\_RED2\_GPIO\_Port}}
+\index{VGA\_RED2\_GPIO\_Port@{VGA\_RED2\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_RED2\_GPIO\_Port}{VGA\_RED2\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+RED2\+\_\+\+GPIO\+\_\+\+Port~GPIOE}
+
+\Hypertarget{main_8h_a2ec813b2d822799b429bbe47cdb857cb}\label{main_8h_a2ec813b2d822799b429bbe47cdb857cb} 
+\index{main.h@{main.h}!VGA\_RED2\_Pin@{VGA\_RED2\_Pin}}
+\index{VGA\_RED2\_Pin@{VGA\_RED2\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_RED2\_Pin}{VGA\_RED2\_Pin}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+RED2\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+15}
+
+\Hypertarget{main_8h_ab677279ccb99792d911b6ce225340fce}\label{main_8h_ab677279ccb99792d911b6ce225340fce} 
+\index{main.h@{main.h}!VGA\_VSYNC\_GPIO\_Port@{VGA\_VSYNC\_GPIO\_Port}}
+\index{VGA\_VSYNC\_GPIO\_Port@{VGA\_VSYNC\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_VSYNC\_GPIO\_Port}{VGA\_VSYNC\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+VSYNC\+\_\+\+GPIO\+\_\+\+Port~GPIOB}
+
+\Hypertarget{main_8h_ac91699501dec0d81f250f5a5a7a94d1a}\label{main_8h_ac91699501dec0d81f250f5a5a7a94d1a} 
+\index{main.h@{main.h}!VGA\_VSYNC\_Pin@{VGA\_VSYNC\_Pin}}
+\index{VGA\_VSYNC\_Pin@{VGA\_VSYNC\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_VSYNC\_Pin}{VGA\_VSYNC\_Pin}}
+{\footnotesize\ttfamily \#define VGA\+\_\+\+VSYNC\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+12}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8h_a1730ffe1e560465665eb47d9264826f9}\label{main_8h_a1730ffe1e560465665eb47d9264826f9} 
+\index{main.h@{main.h}!Error\_Handler@{Error\_Handler}}
+\index{Error\_Handler@{Error\_Handler}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{Error\_Handler()}{Error\_Handler()}}
+{\footnotesize\ttfamily void Error\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is executed in case of error occurrence. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
