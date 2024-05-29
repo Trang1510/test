@@ -1,27 +1,26 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
-  *
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
+ * All rights reserved.</center></h2>
+ *
+ * This software component is licensed by ST under BSD 3-Clause license,
+ * the "License"; You may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at:
+ *                        opensource.org/licenses/BSD-3-Clause
+ *
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "dma.h"
-#include "iwdg.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -97,7 +96,6 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_USART2_UART_Init();
-  MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
     HAL_GPIO_WritePin(Green_GPIO_Port, Green_Pin, GPIO_PIN_SET);
     HAL_GPIO_WritePin(Red_GPIO_Port, Red_Pin, GPIO_PIN_SET);
@@ -120,7 +118,7 @@ int main(void)
 
     for(i = 0; i < LINE_BUFLEN; i++)
     {
-        input.line_rx_buffer[i] = 0;
+	input.line_rx_buffer[i] = 0;
     }
 
     // Reset some stuff
@@ -144,25 +142,24 @@ int main(void)
 
     while(1)
     {
-        if(input.command_execute_flag == TRUE)
-        {
-            // Do some stuff
-            printf("yes\n");
-            LL_receive();
-            // When finished reset the flag
-            input.command_execute_flag = FALSE;
-        }
-        if(logTxDone)
-        {
-            LOG_SendNextLog();
-            logTxDone = false;
-        }
-        if(HAL_GetTick() >= timeToFeed)
-        {
-            HAL_IWDG_Refresh(&hiwdg); // needs to be fed with in 500ms or device will restart.
-            HAL_GPIO_TogglePin(Green_GPIO_Port, Green_Pin);
-            timeToFeed = HAL_GetTick() + 499;
-        }
+	if(input.command_execute_flag == TRUE)
+	{
+	    // Do some stuff
+	    //printf("yes\n");
+	    LL_receive();
+	    // When finished reset the flag
+	    input.command_execute_flag = FALSE;
+	}
+	if(logTxDone)
+	{
+	    LOG_SendNextLog();
+	    logTxDone = false;
+	}
+	if(HAL_GetTick() >= timeToFeed)
+	{
+	    HAL_GPIO_TogglePin(Green_GPIO_Port, Green_Pin);
+	    timeToFeed = HAL_GetTick() + 499;
+	}
 
     /* USER CODE END WHILE */
 
@@ -188,9 +185,8 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 4;
@@ -226,7 +222,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef* huart)
 void HardwareInfo(void)
 {
     LOGH("\n\n\n\n\n");
-    LOGH("MCU: %s", "stm32f407vgt6");
+    LOGH("MCU: %s: rev: 0x%lx", "stm32f407vgt6", DBGMCU->IDCODE);
     LOGH("Core: Cotrex-m%d", __CORTEX_M);
     LOGH("uid: 0x%lx 0x%lx 0x%lX", HAL_GetUIDw0(), HAL_GetUIDw1(), HAL_GetUIDw2());
     LOGH("\tSystem clock: %lu Hz", HAL_RCC_GetSysClockFreq());
@@ -264,7 +260,7 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
+    /* User can add his own implementation to report the file name and line number,
      tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }
