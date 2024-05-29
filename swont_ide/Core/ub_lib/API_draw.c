@@ -155,7 +155,7 @@ int API_draw_rectangle(int x, int y, int width, int height, int color, int fille
         DrawLine(x, x + width, x, y, color);
         DrawLine(x, x, y, y + height, color);
         DrawLine(x + width, x + width, y, y + height, color);
-        DrawLine(x, x + width, y + height, y + height, color);
+        DrawLine(x, x + width + 1, y + height, y + height, color);
     }
     LOGI("Rectangle draw with width/height: {%d; %d} from {%d; %d} with color: 0x%x", width, height, x, y, color);
     return 0;

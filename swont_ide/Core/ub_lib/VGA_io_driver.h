@@ -57,7 +57,7 @@
 // Frq       = 168MHz/1/12 = 14MHz
 //
 //--------------------------------------------------------------
-#define VGA_TIM1_PERIODE      11
+#define VGA_TIM1_PERIODE      10		//almost centred
 #define VGA_TIM1_PRESCALE      0
 
 
