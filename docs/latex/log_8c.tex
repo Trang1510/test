@@ -1,5 +1,5 @@
-\doxysection{Core/ub\+\_\+lib/log.c File Reference}
-\hypertarget{log_8c}{}\label{log_8c}\index{Core/ub\_lib/log.c@{Core/ub\_lib/log.c}}
+\doxysection{ub\+\_\+lib/log.c File Reference}
+\hypertarget{log_8c}{}\label{log_8c}\index{ub\_lib/log.c@{ub\_lib/log.c}}
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
@@ -9,24 +9,24 @@
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{log_8c_a5779573a359f6955255d59d39e68c52c}{BUFFER\+\_\+\+SIZE\+\_\+\+TOTAL}}~(\mbox{\hyperlink{log_8c_a381c342b2b34df0b1a5b39c0d94da4e1}{LOG\+\_\+\+BUFFER\+\_\+\+SIZE}} + \mbox{\hyperlink{log_8c_ab234d1358562b66925fb7223c087556b}{MAX\+\_\+\+MESSAGE\+\_\+\+LENGTH}} + 1)
-\item 
-\#define \mbox{\hyperlink{log_8c_a56b2b8d92ed426a7d8ed05bb3e28c953}{DROP\+\_\+\+COUNT\+\_\+\+FORMAT}}~"{}\mbox{[}DROP \%u\mbox{]} "{}
+\#define \mbox{\hyperlink{log_8c_ab234d1358562b66925fb7223c087556b}{MAX\+\_\+\+MESSAGE\+\_\+\+LENGTH}}~(256)
 \item 
 \#define \mbox{\hyperlink{log_8c_a381c342b2b34df0b1a5b39c0d94da4e1}{LOG\+\_\+\+BUFFER\+\_\+\+SIZE}}~(8 \texorpdfstring{$\ast$}{*} 1024)
 \item 
-\#define \mbox{\hyperlink{log_8c_ab234d1358562b66925fb7223c087556b}{MAX\+\_\+\+MESSAGE\+\_\+\+LENGTH}}~(256)
+\#define \mbox{\hyperlink{log_8c_a5779573a359f6955255d59d39e68c52c}{BUFFER\+\_\+\+SIZE\+\_\+\+TOTAL}}~(\mbox{\hyperlink{log_8c_a381c342b2b34df0b1a5b39c0d94da4e1}{LOG\+\_\+\+BUFFER\+\_\+\+SIZE}} + \mbox{\hyperlink{log_8c_ab234d1358562b66925fb7223c087556b}{MAX\+\_\+\+MESSAGE\+\_\+\+LENGTH}} + 1)
+\item 
+\#define \mbox{\hyperlink{log_8c_a56b2b8d92ed426a7d8ed05bb3e28c953}{DROP\+\_\+\+COUNT\+\_\+\+FORMAT}}~"{}\mbox{[}DROP \%u\mbox{]} "{}
 \item 
 \#define \mbox{\hyperlink{log_8c_a3acffbd305ee72dcd4593c0d8af64a4f}{MIN}}(a,  b)~((a) $<$ (b) ? (a) \+: (b))
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+\+\_\+\+\_\+inline void \mbox{\hyperlink{log_8c_a7e5c41ee1777c3ba80b846cab7242909}{LOG\+\_\+\+Set\+Log\+Level}} (\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}} log\+Level)
+\item 
 void \mbox{\hyperlink{log_8c_a625faf686e4194055f8f3616abf1eacd}{LOG\+\_\+\+Log}} (\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}} log\+Level, const char \texorpdfstring{$\ast$}{*}log\+Message\+Format,...)
 \item 
 void \mbox{\hyperlink{log_8c_ad08a3e87381760257cb1ea0618d2cd2d}{LOG\+\_\+\+Send\+Next\+Log}} (void)
-\item 
-\+\_\+\+\_\+inline void \mbox{\hyperlink{log_8c_a7e5c41ee1777c3ba80b846cab7242909}{LOG\+\_\+\+Set\+Log\+Level}} (\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}} log\+Level)
 \end{DoxyCompactItemize}
 
 

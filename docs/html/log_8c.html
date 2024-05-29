@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Core/ub_lib/log.c File Reference</title>
+<title>My Project: ub_lib/log.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,7 +71,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_c6310732a22f63c0c2fc5595561e68f1.html">Core</a></li><li class="navelem"><a class="el" href="dir_95d4654657b906944a570105a7f260a6.html">ub_lib</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_01e95dbac1c34de51f66fc7ada251b1a.html">ub_lib</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -90,25 +90,25 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:ab234d1358562b66925fb7223c087556b" id="r_ab234d1358562b66925fb7223c087556b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab234d1358562b66925fb7223c087556b">MAX_MESSAGE_LENGTH</a>&#160;&#160;&#160;(256)</td></tr>
+<tr class="separator:ab234d1358562b66925fb7223c087556b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a381c342b2b34df0b1a5b39c0d94da4e1" id="r_a381c342b2b34df0b1a5b39c0d94da4e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a381c342b2b34df0b1a5b39c0d94da4e1">LOG_BUFFER_SIZE</a>&#160;&#160;&#160;(8 * 1024)</td></tr>
+<tr class="separator:a381c342b2b34df0b1a5b39c0d94da4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5779573a359f6955255d59d39e68c52c" id="r_a5779573a359f6955255d59d39e68c52c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5779573a359f6955255d59d39e68c52c">BUFFER_SIZE_TOTAL</a>&#160;&#160;&#160;(<a class="el" href="#a381c342b2b34df0b1a5b39c0d94da4e1">LOG_BUFFER_SIZE</a> + <a class="el" href="#ab234d1358562b66925fb7223c087556b">MAX_MESSAGE_LENGTH</a> + 1)</td></tr>
 <tr class="separator:a5779573a359f6955255d59d39e68c52c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56b2b8d92ed426a7d8ed05bb3e28c953" id="r_a56b2b8d92ed426a7d8ed05bb3e28c953"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56b2b8d92ed426a7d8ed05bb3e28c953">DROP_COUNT_FORMAT</a>&#160;&#160;&#160;&quot;[DROP %u] &quot;</td></tr>
 <tr class="separator:a56b2b8d92ed426a7d8ed05bb3e28c953"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a381c342b2b34df0b1a5b39c0d94da4e1" id="r_a381c342b2b34df0b1a5b39c0d94da4e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a381c342b2b34df0b1a5b39c0d94da4e1">LOG_BUFFER_SIZE</a>&#160;&#160;&#160;(8 * 1024)</td></tr>
-<tr class="separator:a381c342b2b34df0b1a5b39c0d94da4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab234d1358562b66925fb7223c087556b" id="r_ab234d1358562b66925fb7223c087556b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab234d1358562b66925fb7223c087556b">MAX_MESSAGE_LENGTH</a>&#160;&#160;&#160;(256)</td></tr>
-<tr class="separator:ab234d1358562b66925fb7223c087556b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3acffbd305ee72dcd4593c0d8af64a4f" id="r_a3acffbd305ee72dcd4593c0d8af64a4f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3acffbd305ee72dcd4593c0d8af64a4f">MIN</a>(a,  b)&#160;&#160;&#160;((a) &lt; (b) ? (a) : (b))</td></tr>
 <tr class="separator:a3acffbd305ee72dcd4593c0d8af64a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a7e5c41ee1777c3ba80b846cab7242909" id="r_a7e5c41ee1777c3ba80b846cab7242909"><td class="memItemLeft" align="right" valign="top">__inline void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e5c41ee1777c3ba80b846cab7242909">LOG_SetLogLevel</a> (<a class="el" href="log__config_8h.html#a8afdce0fcb23aca7d0641a1e2d233782">LogLevel_e</a> logLevel)</td></tr>
+<tr class="separator:a7e5c41ee1777c3ba80b846cab7242909"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a625faf686e4194055f8f3616abf1eacd" id="r_a625faf686e4194055f8f3616abf1eacd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a625faf686e4194055f8f3616abf1eacd">LOG_Log</a> (<a class="el" href="log__config_8h.html#a8afdce0fcb23aca7d0641a1e2d233782">LogLevel_e</a> logLevel, const char *logMessageFormat,...)</td></tr>
 <tr class="separator:a625faf686e4194055f8f3616abf1eacd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad08a3e87381760257cb1ea0618d2cd2d" id="r_ad08a3e87381760257cb1ea0618d2cd2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad08a3e87381760257cb1ea0618d2cd2d">LOG_SendNextLog</a> (void)</td></tr>
 <tr class="separator:ad08a3e87381760257cb1ea0618d2cd2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e5c41ee1777c3ba80b846cab7242909" id="r_a7e5c41ee1777c3ba80b846cab7242909"><td class="memItemLeft" align="right" valign="top">__inline void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e5c41ee1777c3ba80b846cab7242909">LOG_SetLogLevel</a> (<a class="el" href="log__config_8h.html#a8afdce0fcb23aca7d0641a1e2d233782">LogLevel_e</a> logLevel)</td></tr>
-<tr class="separator:a7e5c41ee1777c3ba80b846cab7242909"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a5779573a359f6955255d59d39e68c52c" name="a5779573a359f6955255d59d39e68c52c"></a>

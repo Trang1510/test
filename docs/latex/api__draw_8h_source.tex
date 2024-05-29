@@ -1,0 +1,43 @@
+\doxysection{api\+\_\+draw.\+h}
+\hypertarget{api__draw_8h_source}{}\label{api__draw_8h_source}\index{ub\_lib/api\_draw.h@{ub\_lib/api\_draw.h}}
+\mbox{\hyperlink{api__draw_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SWONT\_IDE\_API\_DRAW\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SWONT\_IDE\_API\_DRAW\_H}}
+\DoxyCodeLine{00010\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ \ \ Includes\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}stdint.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_v_g_a__io__driver_8h}{VGA\_io\_driver.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00017\ \textcolor{comment}{*\ \ \ \#defines\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ SCREEN\_SIZE\_HORIZONTAL\ \ (VGA\_DISPLAY\_X)}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ SCREEN\_SIZE\_VERTICAL\ \ \ \ (VGA\_DISPLAY\_Y)}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00022\ \textcolor{comment}{*\ \ \ Typedefs\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00026\ \textcolor{comment}{*\ \ \ Globals\ vars\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00030\ \textcolor{comment}{*\ \ \ Global\ function\ prototypes\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{api__draw_8h_a49a806ab1f245ac4914337f6d7999439}{API\_draw\_text}}(\textcolor{keywordtype}{int}\ x\_lup,\ \textcolor{keywordtype}{int}\ y\_lup,\ \textcolor{keywordtype}{int}\ color,\ \textcolor{keywordtype}{char}*\ text,\ \textcolor{keywordtype}{char}*\ fontname,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fontsize,\ \textcolor{keywordtype}{int}\ fontstyle,\ \textcolor{keywordtype}{int}\ reserved);\ \textcolor{comment}{//\ fontsize:1\ small,\ 2\ big}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{api__draw_8h_a38aac35eed88abb82a1fc46e37f320db}{API\_draw\_line}}(\textcolor{keywordtype}{int}\ x1,\ \textcolor{keywordtype}{int}\ y1,\ \textcolor{keywordtype}{int}\ x2,\ \textcolor{keywordtype}{int}\ y2,\ \textcolor{keywordtype}{int}\ color,\ \textcolor{keywordtype}{int}\ weight,\ \textcolor{keywordtype}{int}\ reserved);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{api__draw_8h_a58f6df5734db7b2c5bfff58950a570d4}{API\_draw\_rectangle}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ color,\ \textcolor{keywordtype}{int}\ filled,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ reserved0,\ \textcolor{keywordtype}{int}\ reserved1);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{api__draw_8h_a196d22f276d5b3398e9c43dea9ccd259}{API\_draw\_bitmap}}(\textcolor{keywordtype}{int}\ x\_lup,\ \textcolor{keywordtype}{int}\ y\_lup,\ \textcolor{keywordtype}{int}\ bm\_nr);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{api__draw_8h_ae08ca89724645e1d05a1bba8dd7c146c}{API\_clearscreen}}(uint8\_t\ color);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//SWONT\_IDE\_API\_DRAW\_H}}
+
+\end{DoxyCode}

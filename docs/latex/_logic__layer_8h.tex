@@ -1,5 +1,5 @@
-\doxysection{Core/ub\+\_\+lib/\+Logic\+\_\+layer.h File Reference}
-\hypertarget{_logic__layer_8h}{}\label{_logic__layer_8h}\index{Core/ub\_lib/Logic\_layer.h@{Core/ub\_lib/Logic\_layer.h}}
+\doxysection{ub\+\_\+lib/\+Logic\+\_\+layer.h File Reference}
+\hypertarget{_logic__layer_8h}{}\label{_logic__layer_8h}\index{ub\_lib/Logic\_layer.h@{ub\_lib/Logic\_layer.h}}
 {\ttfamily \#include "{}main.\+h"{}}\newline
 {\ttfamily \#include "{}log.\+h"{}}\newline
 \doxysubsubsection*{Data Structures}
@@ -10,19 +10,30 @@ struct \mbox{\hyperlink{structinput__vars}{input\+\_\+vars}}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{_logic__layer_8h_a0e3eff829ed19518d75bb7d21a0ca3f6}{BYTE\+\_\+\+BUFLEN}}~1
+\#define \mbox{\hyperlink{_logic__layer_8h_a5c707deff4e68c7283f2ed73665e0c77}{MAX\+\_\+\+VARS}}~10
 \item 
-\#define \mbox{\hyperlink{_logic__layer_8h_a3b81478c7058ceb6ed610ce8e2ca3822}{CARRIAGE\+\_\+\+RETURN}}~13 /\texorpdfstring{$\ast$}{*} carriage return char \textbackslash{}r \texorpdfstring{$\ast$}{*}/
+\#define \mbox{\hyperlink{_logic__layer_8h_a0e3eff829ed19518d75bb7d21a0ca3f6}{BYTE\+\_\+\+BUFLEN}}~1
 \item 
 \#define \mbox{\hyperlink{_logic__layer_8h_ad1cc016cd2d60fbb1dd56e7e09ecc00c}{LINE\+\_\+\+BUFLEN}}~1024
 \item 
-\#define \mbox{\hyperlink{_logic__layer_8h_a3c2cad5489953de23c5733e6e696a93e}{LINE\+\_\+\+FEED}}~10 /\texorpdfstring{$\ast$}{*} linefeed char \textbackslash{}n     \texorpdfstring{$\ast$}{*}/
+\#define \mbox{\hyperlink{_logic__layer_8h_a3b81478c7058ceb6ed610ce8e2ca3822}{CARRIAGE\+\_\+\+RETURN}}~13 /\texorpdfstring{$\ast$}{*} carriage return char \textbackslash{}r \texorpdfstring{$\ast$}{*}/
 \item 
-\#define \mbox{\hyperlink{_logic__layer_8h_a5c707deff4e68c7283f2ed73665e0c77}{MAX\+\_\+\+VARS}}~10
+\#define \mbox{\hyperlink{_logic__layer_8h_a3c2cad5489953de23c5733e6e696a93e}{LINE\+\_\+\+FEED}}~10 /\texorpdfstring{$\ast$}{*} linefeed char \textbackslash{}n     \texorpdfstring{$\ast$}{*}/
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
+enum \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352}{Command\+Type}} \{ \newline
+\mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352abb221177213477f4650b63a6d506b291}{CMD\+\_\+\+LINE}}
+, \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a0e4ea895ef8ba201c2955c603a91ccd9}{CMD\+\_\+\+RECTANGLE}}
+, \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a11a307af79dda81e81c39cf4d7bf5222}{CMD\+\_\+\+TEXT}}
+, \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a7ab01da2eb2fda1de65390974bfa56a6}{CMD\+\_\+\+BITMAP}}
+, \newline
+\mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a7d6852f44865db912df44bf6bdb3540c}{CMD\+\_\+\+CLEAR\+\_\+\+SCREEN}}
+, \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352af6e5421b6e2b96487de7e0a6ab529007}{CMD\+\_\+\+DEBUG}}
+, \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a59c51f88aeda3ea6351f01c9c70b9ac7}{CMD\+\_\+\+UNKNOWN}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeratie van beschikbare commando types. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83}{Color\+Type}} \{ \newline
 \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83aa290b9316712aac3e143a493b654029b}{VGA\+\_\+\+COLOUR\+\_\+\+BLACK}} = 0x00
 , \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83a4f3f17724b8b273fce8e3a89fddcecd4}{VGA\+\_\+\+COLOUR\+\_\+\+BLUE}} = 0x03
@@ -36,25 +47,14 @@ enum \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83}{Color\
 , \newline
 \mbox{\hyperlink{_logic__layer_8h_a5e133660cf9d4bcd1cb6a49e3ec16f83a754677d3d46d29afae5a10dd034bceef}{CMD\+\_\+\+UNKNOWN\+\_\+\+COLOR}} = -\/1
  \}
-\item 
-enum \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352}{Command\+Type}} \{ \newline
-\mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352abb221177213477f4650b63a6d506b291}{CMD\+\_\+\+LINE}}
-, \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a0e4ea895ef8ba201c2955c603a91ccd9}{CMD\+\_\+\+RECTANGLE}}
-, \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a11a307af79dda81e81c39cf4d7bf5222}{CMD\+\_\+\+TEXT}}
-, \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a7ab01da2eb2fda1de65390974bfa56a6}{CMD\+\_\+\+BITMAP}}
-, \newline
-\mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a7d6852f44865db912df44bf6bdb3540c}{CMD\+\_\+\+CLEAR\+\_\+\+SCREEN}}
-, \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352af6e5421b6e2b96487de7e0a6ab529007}{CMD\+\_\+\+DEBUG}}
-, \mbox{\hyperlink{_logic__layer_8h_a21e038f5b8958e203d28bc4f18472352a59c51f88aeda3ea6351f01c9c70b9ac7}{CMD\+\_\+\+UNKNOWN}}
- \}
-\begin{DoxyCompactList}\small\item\em Enumeratie van beschikbare commando types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_logic__layer_8h_ade7512a586e4a947429a3a86960a6b06}{LL\+\_\+\+Execute}} (void)
-\begin{DoxyCompactList}\small\item\em Voert een commando uit op basis van de opgegeven parameters. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_logic__layer_8h_a85531abb1c0e2d75c3950cf4031c6e0c}{LL\+\_\+\+Receive}} (void)
-\begin{DoxyCompactList}\small\item\em Separates strings from incoming array to parsed data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Separates strings from incoming array to parsed data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_logic__layer_8h_ade7512a586e4a947429a3a86960a6b06}{LL\+\_\+\+Execute}} (void)
+\begin{DoxyCompactList}\small\item\em Voert een commando uit op basis van de opgegeven parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 

@@ -1,0 +1,194 @@
+\doxysection{ub\+\_\+lib/api\+\_\+draw.c File Reference}
+\hypertarget{api__draw_8c}{}\label{api__draw_8c}\index{ub\_lib/api\_draw.c@{ub\_lib/api\_draw.c}}
+
+
+This file provides code for the drawing of anything more complex on a vga screen then a single pixel.  
+
+
+{\ttfamily \#include "{}api\+\_\+draw.\+h"{}}\newline
+{\ttfamily \#include "{}math.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{api__draw_8c_a26cfd148214d800261854670d0063654}{SHIFTING\+\_\+\+MULTIPLY\+\_\+\+FLOATLESS\+\_\+\+CALC}}~(8)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{api__draw_8c_add5507e37ac40f7abe4176fbdc7f5e2e}{Draw\+Line}} (int x1, int x2, int y1, int y2, int color)
+\item 
+int \mbox{\hyperlink{api__draw_8c_a49a806ab1f245ac4914337f6d7999439}{API\+\_\+draw\+\_\+text}} (int x\+\_\+lup, int y\+\_\+lup, int color, char \texorpdfstring{$\ast$}{*}text, char \texorpdfstring{$\ast$}{*}fontname, int fontsize, int fontstyle, int reserved)
+\begin{DoxyCompactList}\small\item\em Sets text on screen in the wanted colour and font. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{api__draw_8c_a38aac35eed88abb82a1fc46e37f320db}{API\+\_\+draw\+\_\+line}} (int x1, int y1, int x2, int y2, int color, int weight, int reserved)
+\begin{DoxyCompactList}\small\item\em Sets line on screen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{api__draw_8c_a58f6df5734db7b2c5bfff58950a570d4}{API\+\_\+draw\+\_\+rectangle}} (int x, int y, int width, int height, int color, int filled, int reserved0, int reserved1)
+\begin{DoxyCompactList}\small\item\em Sets rectangle on screen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{api__draw_8c_a196d22f276d5b3398e9c43dea9ccd259}{API\+\_\+draw\+\_\+bitmap}} (int x\+\_\+lup, int y\+\_\+lup, int bm\+\_\+nr)
+\begin{DoxyCompactList}\small\item\em Sets text on screen in the wanted colour and font. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{api__draw_8c_ae08ca89724645e1d05a1bba8dd7c146c}{API\+\_\+clearscreen}} (uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Fill screen with a the wanted colour. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file provides code for the drawing of anything more complex on a vga screen then a single pixel. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{api__draw_8c_a26cfd148214d800261854670d0063654}\label{api__draw_8c_a26cfd148214d800261854670d0063654} 
+\index{api\_draw.c@{api\_draw.c}!SHIFTING\_MULTIPLY\_FLOATLESS\_CALC@{SHIFTING\_MULTIPLY\_FLOATLESS\_CALC}}
+\index{SHIFTING\_MULTIPLY\_FLOATLESS\_CALC@{SHIFTING\_MULTIPLY\_FLOATLESS\_CALC}!api\_draw.c@{api\_draw.c}}
+\doxysubsubsection{\texorpdfstring{SHIFTING\_MULTIPLY\_FLOATLESS\_CALC}{SHIFTING\_MULTIPLY\_FLOATLESS\_CALC}}
+{\footnotesize\ttfamily \#define SHIFTING\+\_\+\+MULTIPLY\+\_\+\+FLOATLESS\+\_\+\+CALC~(8)}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{api__draw_8c_ae08ca89724645e1d05a1bba8dd7c146c}\label{api__draw_8c_ae08ca89724645e1d05a1bba8dd7c146c} 
+\index{api\_draw.c@{api\_draw.c}!API\_clearscreen@{API\_clearscreen}}
+\index{API\_clearscreen@{API\_clearscreen}!api\_draw.c@{api\_draw.c}}
+\doxysubsubsection{\texorpdfstring{API\_clearscreen()}{API\_clearscreen()}}
+{\footnotesize\ttfamily int API\+\_\+clearscreen (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Fill screen with a the wanted colour. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Colour of screen \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Error} & code \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{api__draw_8c_a196d22f276d5b3398e9c43dea9ccd259}\label{api__draw_8c_a196d22f276d5b3398e9c43dea9ccd259} 
+\index{api\_draw.c@{api\_draw.c}!API\_draw\_bitmap@{API\_draw\_bitmap}}
+\index{API\_draw\_bitmap@{API\_draw\_bitmap}!api\_draw.c@{api\_draw.c}}
+\doxysubsubsection{\texorpdfstring{API\_draw\_bitmap()}{API\_draw\_bitmap()}}
+{\footnotesize\ttfamily int API\+\_\+draw\+\_\+bitmap (\begin{DoxyParamCaption}\item[{int}]{x\+\_\+lup,  }\item[{int}]{y\+\_\+lup,  }\item[{int}]{bm\+\_\+nr }\end{DoxyParamCaption})}
+
+
+
+Sets text on screen in the wanted colour and font. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+lup} & Start location x \\
+\hline
+{\em y\+\_\+lup} & Start location y \\
+\hline
+{\em bm\+\_\+nr} & Bitmap number \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Error} & code \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{api__draw_8c_a38aac35eed88abb82a1fc46e37f320db}\label{api__draw_8c_a38aac35eed88abb82a1fc46e37f320db} 
+\index{api\_draw.c@{api\_draw.c}!API\_draw\_line@{API\_draw\_line}}
+\index{API\_draw\_line@{API\_draw\_line}!api\_draw.c@{api\_draw.c}}
+\doxysubsubsection{\texorpdfstring{API\_draw\_line()}{API\_draw\_line()}}
+{\footnotesize\ttfamily int API\+\_\+draw\+\_\+line (\begin{DoxyParamCaption}\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{int}]{x2,  }\item[{int}]{y2,  }\item[{int}]{color,  }\item[{int}]{weight,  }\item[{int}]{reserved }\end{DoxyParamCaption})}
+
+
+
+Sets line on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & Start location x \\
+\hline
+{\em y1} & Start location y \\
+\hline
+{\em x2} & End location x \\
+\hline
+{\em y2} & End location y \\
+\hline
+{\em color} & Line colour \\
+\hline
+{\em weight} & Width of the line in pixels \\
+\hline
+{\em reserved} & Unused \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Error} & code \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{api__draw_8c_a58f6df5734db7b2c5bfff58950a570d4}\label{api__draw_8c_a58f6df5734db7b2c5bfff58950a570d4} 
+\index{api\_draw.c@{api\_draw.c}!API\_draw\_rectangle@{API\_draw\_rectangle}}
+\index{API\_draw\_rectangle@{API\_draw\_rectangle}!api\_draw.c@{api\_draw.c}}
+\doxysubsubsection{\texorpdfstring{API\_draw\_rectangle()}{API\_draw\_rectangle()}}
+{\footnotesize\ttfamily int API\+\_\+draw\+\_\+rectangle (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{color,  }\item[{int}]{filled,  }\item[{int}]{reserved0,  }\item[{int}]{reserved1 }\end{DoxyParamCaption})}
+
+
+
+Sets rectangle on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Start location x \\
+\hline
+{\em y} & Start location y \\
+\hline
+{\em width} & Width of rectangle \\
+\hline
+{\em height} & Height of rectangle \\
+\hline
+{\em color} & Colour of rectangle \\
+\hline
+{\em filled} & Fill rectangle \\
+\hline
+{\em reserved0} & Unused \\
+\hline
+{\em reserved1} & Unused \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Error} & code \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{api__draw_8c_a49a806ab1f245ac4914337f6d7999439}\label{api__draw_8c_a49a806ab1f245ac4914337f6d7999439} 
+\index{api\_draw.c@{api\_draw.c}!API\_draw\_text@{API\_draw\_text}}
+\index{API\_draw\_text@{API\_draw\_text}!api\_draw.c@{api\_draw.c}}
+\doxysubsubsection{\texorpdfstring{API\_draw\_text()}{API\_draw\_text()}}
+{\footnotesize\ttfamily int API\+\_\+draw\+\_\+text (\begin{DoxyParamCaption}\item[{int}]{x\+\_\+lup,  }\item[{int}]{y\+\_\+lup,  }\item[{int}]{color,  }\item[{char \texorpdfstring{$\ast$}{*}}]{text,  }\item[{char \texorpdfstring{$\ast$}{*}}]{fontname,  }\item[{int}]{fontsize,  }\item[{int}]{fontstyle,  }\item[{int}]{reserved }\end{DoxyParamCaption})}
+
+
+
+Sets text on screen in the wanted colour and font. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+lup} & Start location of the text x-\/axis \\
+\hline
+{\em y\+\_\+lup} & Start location of the text y-\/axis \\
+\hline
+{\em color} & String to be displayed \\
+\hline
+{\em fontname} & Font name \\
+\hline
+{\em fontsize} & Size of characters \\
+\hline
+{\em fontstyle} & \\
+\hline
+{\em reserved} & Unused \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Error} & code \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{api__draw_8c_add5507e37ac40f7abe4176fbdc7f5e2e}\label{api__draw_8c_add5507e37ac40f7abe4176fbdc7f5e2e} 
+\index{api\_draw.c@{api\_draw.c}!DrawLine@{DrawLine}}
+\index{DrawLine@{DrawLine}!api\_draw.c@{api\_draw.c}}
+\doxysubsubsection{\texorpdfstring{DrawLine()}{DrawLine()}}
+{\footnotesize\ttfamily int Draw\+Line (\begin{DoxyParamCaption}\item[{int}]{x1,  }\item[{int}]{x2,  }\item[{int}]{y1,  }\item[{int}]{y2,  }\item[{int}]{color }\end{DoxyParamCaption})}
+
