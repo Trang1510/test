@@ -145,7 +145,6 @@ int main(void)
 	if(input.command_execute_flag == TRUE)
 	{
 	    // Do some stuff
-	    //printf("yes\n");
 	    LL_receive();
 	    // When finished reset the flag
 	    input.command_execute_flag = FALSE;

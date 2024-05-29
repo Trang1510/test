@@ -227,8 +227,8 @@ void TIM2_IRQHandler(void)
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
   /* USER CODE BEGIN TIM2_IRQn 1 */
-	__HAL_TIM_CLEAR_IT(&htim2, TIM_IT_CC3); // uncomment HAL_TIM_IRQHandler(&htim2); ^^
-	VGA_InterruptHsync();
+    __HAL_TIM_CLEAR_IT(&htim2, TIM_IT_CC3); // uncomment HAL_TIM_IRQHandler(&htim2); ^^
+    VGA_InterruptHsync();
   /* USER CODE END TIM2_IRQn 1 */
 }
 
@@ -238,7 +238,11 @@ void TIM2_IRQHandler(void)
 void USART2_IRQHandler(void)
 {
   /* USER CODE BEGIN USART2_IRQn 0 */
+    uint32_t isrflags   = READ_REG(huart2.Instance->SR);
+    uint32_t cr1its     = READ_REG(huart2.Instance->CR1);
 
+    if (((isrflags & USART_SR_RXNE) != RESET) && ((cr1its & USART_CR1_RXNEIE) != RESET))
+    {
 	// Read the received character
 	char uart_char = USART2->DR;
 
@@ -248,27 +252,27 @@ void USART2_IRQHandler(void)
 	// Recommend to use dot to terminate when sending single message using SPT
 	if ((uart_char == CARRIAGE_RETURN) || (uart_char == '.') || (uart_char == LINE_FEED))
 	{
-		// Set the flag to indicate command execution
-		input.command_execute_flag = TRUE;
-		// Store the message length for processing
-		input.msglen = input.char_counter;
-		// Reset the counter for the next line
-		input.char_counter = 0;
+	    // Set the flag to indicate command execution
+	    input.command_execute_flag = TRUE;
+	    // Store the message length for processing
+	    input.msglen = input.char_counter;
+	    // Reset the counter for the next line
+	    input.char_counter = 0;
 	}
 	else
 	{
-		// Store the received character in the buffer
-		input.command_execute_flag = FALSE;
-		input.line_rx_buffer[input.char_counter] = uart_char;
-		input.char_counter++;
-		// Ensure the counter doesn't exceed buffer size
-		if (input.char_counter >= LINE_BUFLEN)
-		{
-			// Handle buffer overflow here if needed
-			LOGW("UART Buffer overflow");
-		}
+	    // Store the received character in the buffer
+	    input.command_execute_flag = FALSE;
+	    input.line_rx_buffer[input.char_counter] = uart_char;
+	    input.char_counter++;
+	    // Ensure the counter doesn't exceed buffer size
+	    if (input.char_counter >= LINE_BUFLEN)
+	    {
+		// Handle buffer overflow here if needed
+		LOGW("UART Buffer overflow");
+	    }
 	}
-
+    }
   /* USER CODE END USART2_IRQn 0 */
   HAL_UART_IRQHandler(&huart2);
   /* USER CODE BEGIN USART2_IRQn 1 */
@@ -282,7 +286,7 @@ void USART2_IRQHandler(void)
 void DMA2_Stream5_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream5_IRQn 0 */
-	VGA_InterruptDma();
+    VGA_InterruptDma();
   /* USER CODE END DMA2_Stream5_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_tim1_up);
   /* USER CODE BEGIN DMA2_Stream5_IRQn 1 */
