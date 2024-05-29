@@ -1,0 +1,144 @@
+\doxysection{ub\+\_\+lib/log.h File Reference}
+\hypertarget{log_8h}{}\label{log_8h}\index{ub\_lib/log.h@{ub\_lib/log.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}log\+\_\+config.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{log_8h_ad854a92d6c90733aba0da4715a5f4332}{LOG\+\_\+\+COLOR\+\_\+\+DEV}}~\mbox{\hyperlink{log__config_8h_a920a591d482b029c1e363b435c0ed2e7}{LOG\+\_\+\+COLOR}}(\mbox{\hyperlink{log__config_8h_a7a7bb12d268100db6b82e571ec305698}{LOG\+\_\+\+COLOR\+\_\+\+PURPLE}})
+\item 
+\#define \mbox{\hyperlink{log_8h_a3be4a4853c232a3cd3227ba0862e4802}{LOG\+\_\+\+COLOR\+\_\+\+NONE}}~"{}"{}
+\item 
+\#define \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}~(\+\_\+\+\_\+builtin\+\_\+strrchr(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \textquotesingle{}/\textquotesingle{}) ? \+\_\+\+\_\+builtin\+\_\+strrchr(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \textquotesingle{}/\textquotesingle{}) + 1 \+: \+\_\+\+\_\+\+FILE\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{log_8h_ae0b551094c5aa91e153c0ce904f0b9c0}{LOGH}}(format, ...)~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a230506cce5c68c3bac5a821c42ed3473}{LOG\+\_\+\+ERROR}},   \mbox{\hyperlink{log__config_8h_afe5c2d8d746968555e7ee89e1762e941}{LOG\+\_\+\+COLOR\+\_\+H}},      \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, H, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{log_8h_acffa460ae9bb8ea557ebf194d6e5cbcd}{LOGU}}(format, ...)~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a230506cce5c68c3bac5a821c42ed3473}{LOG\+\_\+\+ERROR}},   \mbox{\hyperlink{log__config_8h_a2d27c8d7c78dafe0b017cbe67e487777}{LOG\+\_\+\+COLOR\+\_\+E}},      \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, U, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{log_8h_a10e2959e9dd57a69401f4c714ee8a41f}{LOGE}}(format, ...)~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a230506cce5c68c3bac5a821c42ed3473}{LOG\+\_\+\+ERROR}},   \mbox{\hyperlink{log__config_8h_a2d27c8d7c78dafe0b017cbe67e487777}{LOG\+\_\+\+COLOR\+\_\+E}},      \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, E, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{log_8h_ad7ff82c877212d56690e79370d4487d2}{LOGW}}(format, ...)~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ac8041ffa22bc823d4726701cdb13fc13}{LOG\+\_\+\+WARN}},    \mbox{\hyperlink{log__config_8h_aba630faa31e90118b2e3942ccf21df6c}{LOG\+\_\+\+COLOR\+\_\+W}},      \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, W, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{log_8h_a49907c4932acc622ca19c803ed399b5f}{LOGI}}(format, ...)~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a6e98ff471e3ce6c4ef2d75c37ee51837}{LOG\+\_\+\+INFO}},    \mbox{\hyperlink{log__config_8h_afd58ceaacaad1ec7583873cd698fbcb3}{LOG\+\_\+\+COLOR\+\_\+I}},      \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, I, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{log_8h_ac513f19c263aad44a00d9e2e5c817fa0}{LOGD}}(format, ...)~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ab9f002c6ffbfd511da8090213227454e}{LOG\+\_\+\+DEBUG}},   \mbox{\hyperlink{log_8h_a3be4a4853c232a3cd3227ba0862e4802}{LOG\+\_\+\+COLOR\+\_\+\+NONE}},   \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, D, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{log_8h_aaf68aa9b86497c85e01d7fb6509a7b23}{LOGV}}(format, ...)~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ac74e4f8b7fa7b544b66d09e854b8773a}{LOG\+\_\+\+VERBOSE}}, \mbox{\hyperlink{log_8h_a3be4a4853c232a3cd3227ba0862e4802}{LOG\+\_\+\+COLOR\+\_\+\+NONE}},   \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, V, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{log_8h_ad54a0eda3ce36e0880d5046afd427f43}{DEVLOG}}(format, ...)~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ab9f002c6ffbfd511da8090213227454e}{LOG\+\_\+\+DEBUG}},   \mbox{\hyperlink{log_8h_ad854a92d6c90733aba0da4715a5f4332}{LOG\+\_\+\+COLOR\+\_\+\+DEV}},    \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, D, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(level,  color,  filename,  line,  prefix,  format, ...)~    \mbox{\hyperlink{log_8c_a625faf686e4194055f8f3616abf1eacd}{LOG\+\_\+\+Log}}(level, "{}\%s"{} \#prefix "{} (\%lu) \mbox{[}\%s\mbox{]} \%s \%d\+: "{} format "{}\textbackslash{}033\mbox{[}0m\textbackslash{}r\textbackslash{}n"{}, color, \mbox{\hyperlink{log__config_8h_a9e33cf0bfe10d38fc6561f8bae5a5cde}{LOG\+\_\+\+SYSTEM\+\_\+\+TIMER\+\_\+\+MS}}, \mbox{\hyperlink{log__config_8h_a1bcbbb53724c71df21129fdb62498fe1}{LOG\+\_\+\+NAME\+\_\+\+FUNCTION\+\_\+\+THREAD}}, filename, line, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{log_8h_ad08a3e87381760257cb1ea0618d2cd2d}{LOG\+\_\+\+Send\+Next\+Log}} (void)
+\item 
+void \mbox{\hyperlink{log_8h_a5cbd0c36bbc3386a5e3b1a93470ff5ad}{LOG\+\_\+\+Log}} (\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}} log\+Level, const char \texorpdfstring{$\ast$}{*}log\+Message\+Format,...) \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((format(printf
+\item 
+void void \mbox{\hyperlink{log_8h_a1ffe97ce3912b6c509b0df2b74ebefc6}{LOG\+\_\+\+Set\+Log\+Level}} (\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}} log\+Level)
+\item 
+\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}} \mbox{\hyperlink{log_8h_a12089d4d2edba0638ade48a8d76ea696}{LOG\+\_\+\+Get\+Log\+Level}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{log_8h_ad54a0eda3ce36e0880d5046afd427f43}\label{log_8h_ad54a0eda3ce36e0880d5046afd427f43} 
+\index{log.h@{log.h}!DEVLOG@{DEVLOG}}
+\index{DEVLOG@{DEVLOG}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{DEVLOG}{DEVLOG}}
+{\footnotesize\ttfamily \#define DEVLOG(\begin{DoxyParamCaption}\item[{}]{format,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ab9f002c6ffbfd511da8090213227454e}{LOG\+\_\+\+DEBUG}},   \mbox{\hyperlink{log_8h_ad854a92d6c90733aba0da4715a5f4332}{LOG\+\_\+\+COLOR\+\_\+\+DEV}},    \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, D, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\Hypertarget{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}\label{log_8h_ad4ede63b4ecc7a0e803f351055b700a9} 
+\index{log.h@{log.h}!FILENAME\_@{FILENAME\_}}
+\index{FILENAME\_@{FILENAME\_}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{FILENAME\_}{FILENAME\_}}
+{\footnotesize\ttfamily \#define FILENAME\+\_\+~(\+\_\+\+\_\+builtin\+\_\+strrchr(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \textquotesingle{}/\textquotesingle{}) ? \+\_\+\+\_\+builtin\+\_\+strrchr(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \textquotesingle{}/\textquotesingle{}) + 1 \+: \+\_\+\+\_\+\+FILE\+\_\+\+\_\+)}
+
+\Hypertarget{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}\label{log_8h_aa6d702c9075fb86b1c83d693e223cdd0} 
+\index{log.h@{log.h}!LOG\_@{LOG\_}}
+\index{LOG\_@{LOG\_}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_}{LOG\_}}
+{\footnotesize\ttfamily \#define LOG\+\_\+(\begin{DoxyParamCaption}\item[{}]{level,  }\item[{}]{color,  }\item[{}]{filename,  }\item[{}]{line,  }\item[{}]{prefix,  }\item[{}]{format,  }\item[{}]{... }\end{DoxyParamCaption})~    \mbox{\hyperlink{log_8c_a625faf686e4194055f8f3616abf1eacd}{LOG\+\_\+\+Log}}(level, "{}\%s"{} \#prefix "{} (\%lu) \mbox{[}\%s\mbox{]} \%s \%d\+: "{} format "{}\textbackslash{}033\mbox{[}0m\textbackslash{}r\textbackslash{}n"{}, color, \mbox{\hyperlink{log__config_8h_a9e33cf0bfe10d38fc6561f8bae5a5cde}{LOG\+\_\+\+SYSTEM\+\_\+\+TIMER\+\_\+\+MS}}, \mbox{\hyperlink{log__config_8h_a1bcbbb53724c71df21129fdb62498fe1}{LOG\+\_\+\+NAME\+\_\+\+FUNCTION\+\_\+\+THREAD}}, filename, line, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\Hypertarget{log_8h_ad854a92d6c90733aba0da4715a5f4332}\label{log_8h_ad854a92d6c90733aba0da4715a5f4332} 
+\index{log.h@{log.h}!LOG\_COLOR\_DEV@{LOG\_COLOR\_DEV}}
+\index{LOG\_COLOR\_DEV@{LOG\_COLOR\_DEV}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_DEV}{LOG\_COLOR\_DEV}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+\+DEV~\mbox{\hyperlink{log__config_8h_a920a591d482b029c1e363b435c0ed2e7}{LOG\+\_\+\+COLOR}}(\mbox{\hyperlink{log__config_8h_a7a7bb12d268100db6b82e571ec305698}{LOG\+\_\+\+COLOR\+\_\+\+PURPLE}})}
+
+\Hypertarget{log_8h_a3be4a4853c232a3cd3227ba0862e4802}\label{log_8h_a3be4a4853c232a3cd3227ba0862e4802} 
+\index{log.h@{log.h}!LOG\_COLOR\_NONE@{LOG\_COLOR\_NONE}}
+\index{LOG\_COLOR\_NONE@{LOG\_COLOR\_NONE}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_COLOR\_NONE}{LOG\_COLOR\_NONE}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COLOR\+\_\+\+NONE~"{}"{}}
+
+\Hypertarget{log_8h_ac513f19c263aad44a00d9e2e5c817fa0}\label{log_8h_ac513f19c263aad44a00d9e2e5c817fa0} 
+\index{log.h@{log.h}!LOGD@{LOGD}}
+\index{LOGD@{LOGD}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{LOGD}{LOGD}}
+{\footnotesize\ttfamily \#define LOGD(\begin{DoxyParamCaption}\item[{}]{format,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ab9f002c6ffbfd511da8090213227454e}{LOG\+\_\+\+DEBUG}},   \mbox{\hyperlink{log_8h_a3be4a4853c232a3cd3227ba0862e4802}{LOG\+\_\+\+COLOR\+\_\+\+NONE}},   \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, D, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\Hypertarget{log_8h_a10e2959e9dd57a69401f4c714ee8a41f}\label{log_8h_a10e2959e9dd57a69401f4c714ee8a41f} 
+\index{log.h@{log.h}!LOGE@{LOGE}}
+\index{LOGE@{LOGE}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{LOGE}{LOGE}}
+{\footnotesize\ttfamily \#define LOGE(\begin{DoxyParamCaption}\item[{}]{format,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a230506cce5c68c3bac5a821c42ed3473}{LOG\+\_\+\+ERROR}},   \mbox{\hyperlink{log__config_8h_a2d27c8d7c78dafe0b017cbe67e487777}{LOG\+\_\+\+COLOR\+\_\+E}},      \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, E, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\Hypertarget{log_8h_ae0b551094c5aa91e153c0ce904f0b9c0}\label{log_8h_ae0b551094c5aa91e153c0ce904f0b9c0} 
+\index{log.h@{log.h}!LOGH@{LOGH}}
+\index{LOGH@{LOGH}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{LOGH}{LOGH}}
+{\footnotesize\ttfamily \#define LOGH(\begin{DoxyParamCaption}\item[{}]{format,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a230506cce5c68c3bac5a821c42ed3473}{LOG\+\_\+\+ERROR}},   \mbox{\hyperlink{log__config_8h_afe5c2d8d746968555e7ee89e1762e941}{LOG\+\_\+\+COLOR\+\_\+H}},      \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, H, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\Hypertarget{log_8h_a49907c4932acc622ca19c803ed399b5f}\label{log_8h_a49907c4932acc622ca19c803ed399b5f} 
+\index{log.h@{log.h}!LOGI@{LOGI}}
+\index{LOGI@{LOGI}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{LOGI}{LOGI}}
+{\footnotesize\ttfamily \#define LOGI(\begin{DoxyParamCaption}\item[{}]{format,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a6e98ff471e3ce6c4ef2d75c37ee51837}{LOG\+\_\+\+INFO}},    \mbox{\hyperlink{log__config_8h_afd58ceaacaad1ec7583873cd698fbcb3}{LOG\+\_\+\+COLOR\+\_\+I}},      \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, I, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\Hypertarget{log_8h_acffa460ae9bb8ea557ebf194d6e5cbcd}\label{log_8h_acffa460ae9bb8ea557ebf194d6e5cbcd} 
+\index{log.h@{log.h}!LOGU@{LOGU}}
+\index{LOGU@{LOGU}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{LOGU}{LOGU}}
+{\footnotesize\ttfamily \#define LOGU(\begin{DoxyParamCaption}\item[{}]{format,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a230506cce5c68c3bac5a821c42ed3473}{LOG\+\_\+\+ERROR}},   \mbox{\hyperlink{log__config_8h_a2d27c8d7c78dafe0b017cbe67e487777}{LOG\+\_\+\+COLOR\+\_\+E}},      \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, U, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\Hypertarget{log_8h_aaf68aa9b86497c85e01d7fb6509a7b23}\label{log_8h_aaf68aa9b86497c85e01d7fb6509a7b23} 
+\index{log.h@{log.h}!LOGV@{LOGV}}
+\index{LOGV@{LOGV}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{LOGV}{LOGV}}
+{\footnotesize\ttfamily \#define LOGV(\begin{DoxyParamCaption}\item[{}]{format,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ac74e4f8b7fa7b544b66d09e854b8773a}{LOG\+\_\+\+VERBOSE}}, \mbox{\hyperlink{log_8h_a3be4a4853c232a3cd3227ba0862e4802}{LOG\+\_\+\+COLOR\+\_\+\+NONE}},   \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, V, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\Hypertarget{log_8h_ad7ff82c877212d56690e79370d4487d2}\label{log_8h_ad7ff82c877212d56690e79370d4487d2} 
+\index{log.h@{log.h}!LOGW@{LOGW}}
+\index{LOGW@{LOGW}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{LOGW}{LOGW}}
+{\footnotesize\ttfamily \#define LOGW(\begin{DoxyParamCaption}\item[{}]{format,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{log_8h_aa6d702c9075fb86b1c83d693e223cdd0}{LOG\+\_\+}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ac8041ffa22bc823d4726701cdb13fc13}{LOG\+\_\+\+WARN}},    \mbox{\hyperlink{log__config_8h_aba630faa31e90118b2e3942ccf21df6c}{LOG\+\_\+\+COLOR\+\_\+W}},      \mbox{\hyperlink{log_8h_ad4ede63b4ecc7a0e803f351055b700a9}{FILENAME\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, W, format, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{log_8h_a12089d4d2edba0638ade48a8d76ea696}\label{log_8h_a12089d4d2edba0638ade48a8d76ea696} 
+\index{log.h@{log.h}!LOG\_GetLogLevel@{LOG\_GetLogLevel}}
+\index{LOG\_GetLogLevel@{LOG\_GetLogLevel}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_GetLogLevel()}{LOG\_GetLogLevel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}} LOG\+\_\+\+Get\+Log\+Level (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{log_8h_a5cbd0c36bbc3386a5e3b1a93470ff5ad}\label{log_8h_a5cbd0c36bbc3386a5e3b1a93470ff5ad} 
+\index{log.h@{log.h}!LOG\_Log@{LOG\_Log}}
+\index{LOG\_Log@{LOG\_Log}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_Log()}{LOG\_Log()}}
+{\footnotesize\ttfamily void LOG\+\_\+\+Log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}}}]{log\+Level,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{log\+Message\+Format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+\Hypertarget{log_8h_ad08a3e87381760257cb1ea0618d2cd2d}\label{log_8h_ad08a3e87381760257cb1ea0618d2cd2d} 
+\index{log.h@{log.h}!LOG\_SendNextLog@{LOG\_SendNextLog}}
+\index{LOG\_SendNextLog@{LOG\_SendNextLog}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_SendNextLog()}{LOG\_SendNextLog()}}
+{\footnotesize\ttfamily void LOG\+\_\+\+Send\+Next\+Log (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{log_8h_a1ffe97ce3912b6c509b0df2b74ebefc6}\label{log_8h_a1ffe97ce3912b6c509b0df2b74ebefc6} 
+\index{log.h@{log.h}!LOG\_SetLogLevel@{LOG\_SetLogLevel}}
+\index{LOG\_SetLogLevel@{LOG\_SetLogLevel}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_SetLogLevel()}{LOG\_SetLogLevel()}}
+{\footnotesize\ttfamily void void LOG\+\_\+\+Set\+Log\+Level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{Log\+Level\+\_\+e}}}]{log\+Level }\end{DoxyParamCaption})}
+

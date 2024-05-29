@@ -1,0 +1,98 @@
+\doxysection{log.\+h}
+\hypertarget{log_8h_source}{}\label{log_8h_source}\index{ub\_lib/log.h@{ub\_lib/log.h}}
+\mbox{\hyperlink{log_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LOG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LOG\_H}}
+\DoxyCodeLine{00003\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*\ \ \ log.h\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*\ \ \ Copyright\ (c)\ 2023\ \ Marijn\ Kagchelland\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*\ \ \ All\ Rights\ Reserved.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ \ \ Author:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ \ \ \ \ Marijn\ Kagchelland\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ \ \ Revision\ information:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*\ \ \ \ \ @version\ \$Revision::\ 1.3.1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{*\ \ \ \ \ @author\ \ \ \ \$Author::\ Marijn\ Kagchelland\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{*\ \ \ \ \ @date\ \ \ \ \ \ \ \ \$Date::\ 15/05/2024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00020\ \textcolor{comment}{*\ \ \ Includes\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00021\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{log__config_8h}{log\_config.h}}"{}}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00026\ \textcolor{comment}{*\ \ \ \#defines\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#if\ LOG\_COLOR\_ENABLE\ ==\ 1}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_DEV\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_COLOR(LOG\_COLOR\_PURPLE)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_NONE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}"{}}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ FILENAME\_\ (\_\_builtin\_strrchr(\_\_FILE\_\_,\ '/')\ ?\ \_\_builtin\_strrchr(\_\_FILE\_\_,\ '/')\ +\ 1\ :\ \_\_FILE\_\_)}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ LOGH(format,\ ...)\ \ \ \ \ \ \ \ LOG\_(LOG\_ERROR,\ \ \ LOG\_COLOR\_H,\ \ \ \ \ \ FILENAME\_,\ \_\_LINE\_\_,\ H,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ }\textcolor{comment}{//\ @brief\ Hardware\ Info}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ LOGU(format,\ ...)\ \ \ \ \ \ \ \ LOG\_(LOG\_ERROR,\ \ \ LOG\_COLOR\_E,\ \ \ \ \ \ FILENAME\_,\ \_\_LINE\_\_,\ U,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ }\textcolor{comment}{//\ @brief\ Urgent.\ System\ will\ not\ work.\ Think\ Hard\ fault.\ I2C\ Device\ not\ detected.}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ LOGE(format,\ ...)\ \ \ \ \ \ \ \ LOG\_(LOG\_ERROR,\ \ \ LOG\_COLOR\_E,\ \ \ \ \ \ FILENAME\_,\ \_\_LINE\_\_,\ E,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ }\textcolor{comment}{//\ @brief\ Error.\ System\ can\ not\ handle\ this\ fault.\ Thick\ out\ of\ bounce.\ Failed\ malloc.\ Can\ not\ be\ directly\ handled}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ LOGW(format,\ ...)\ \ \ \ \ \ \ \ LOG\_(LOG\_WARN,\ \ \ \ LOG\_COLOR\_W,\ \ \ \ \ \ FILENAME\_,\ \_\_LINE\_\_,\ W,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ }\textcolor{comment}{//\ @brief\ Warning.\ System\ can\ go\ on\ with\ this\ fault\ like\ normal.\ It\ can\ be\ fixed\ if\ handled.}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ LOGI(format,\ ...)\ \ \ \ \ \ \ \ LOG\_(LOG\_INFO,\ \ \ \ LOG\_COLOR\_I,\ \ \ \ \ \ FILENAME\_,\ \_\_LINE\_\_,\ I,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ }\textcolor{comment}{//\ @brief\ Info.\ Short\ piece\ of\ information\ for\ the\ user\ of\ status,\ what\ the\ system\ is\ doing,\ ect.}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ LOGD(format,\ ...)\ \ \ \ \ \ \ \ LOG\_(LOG\_DEBUG,\ \ \ LOG\_COLOR\_NONE,\ \ \ FILENAME\_,\ \_\_LINE\_\_,\ D,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ }\textcolor{comment}{//\ @brief\ Debug.\ Used\ in\ production\ to\ debug\ faults\ in\ the\ code.}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ LOGV(format,\ ...)\ \ \ \ \ \ \ \ LOG\_(LOG\_VERBOSE,\ LOG\_COLOR\_NONE,\ \ \ FILENAME\_,\ \_\_LINE\_\_,\ V,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ }\textcolor{comment}{//\ @brief\ Verbose.\ Indepth\ information\ for\ the\ user\ of\ status,\ what\ the\ system\ is\ doing,\ ect.}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ DEVLOG(format,\ ...)\ \ \ \ \ \ LOG\_(LOG\_DEBUG,\ \ \ LOG\_COLOR\_DEV,\ \ \ \ FILENAME\_,\ \_\_LINE\_\_,\ D,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ }\textcolor{comment}{//\ @brief\ Developer.\ Must\ only\ be\ used\ in\ development.\ Should\ never\ be\ pushed\ to\ a\ Version\ Software\ Control.\ Example\ GitHub}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ LOG\_(level,\ color,\ filename,\ line,\ prefix,\ format,\ ...)\ \(\backslash\)}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\ \ \ \ LOG\_Log(level,\ "{}\%s"{}\ \#prefix\ "{}\ (\%lu)\ [\%s]\ \%s\ \%d:\ "{}\ format\ "{}\(\backslash\)033[0m\(\backslash\)r\(\backslash\)n"{},\ color,\ LOG\_SYSTEM\_TIMER\_MS,\ LOG\_NAME\_FUNCTION\_THREAD,\ filename,\ line,\ \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_NONE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}"{}}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ FILENAME\_\ (\_\_builtin\_strrchr(\_\_FILE\_\_,\ '/')\ ?\ \_\_builtin\_strrchr(\_\_FILE\_\_,\ '/')\ +\ 1\ :\ \_\_FILE\_\_)}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ LOGH(format,\ ...)\ \ \ \ \ \ \ \ LOG\_(LOG\_ERROR,\ \ \ FILENAME\_,\ \_\_LINE\_\_,\ H,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ @brief\ Hardware\ Info.}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ LOGU(format,\ ...)\ \ \ \ \ \ \ \ LOG\_(LOG\_ERROR,\ \ \ FILENAME\_,\ \_\_LINE\_\_,\ U,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ @brief\ Urgent.\ System\ will\ not\ work.\ Think\ Hard\ fault.\ I2C\ Device\ not\ detected.}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ LOGE(format,\ ...)\ \ \ \ \ \ \ \ LOG\_(LOG\_ERROR,\ \ \ FILENAME\_,\ \_\_LINE\_\_,\ E,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ @brief\ Error.\ System\ can\ not\ handle\ this\ fault.\ Thick\ out\ of\ bounce.\ Failed\ malloc.\ Can\ not\ be\ directly\ handled}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ LOGW(format,\ ...)\ \ \ \ \ \ \ \ LOG\_(LOG\_WARN,\ \ \ \ FILENAME\_,\ \_\_LINE\_\_,\ W,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ @brief\ Warning.\ System\ can\ go\ on\ with\ this\ fault\ like\ normal.\ It\ can\ be\ fixed\ if\ handled.}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ LOGI(format,\ ...)\ \ \ \ \ \ \ \ LOG\_(LOG\_INFO,\ \ \ \ FILENAME\_,\ \_\_LINE\_\_,\ I,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ @brief\ Info.\ Short\ piece\ of\ information\ for\ the\ user\ of\ status,\ what\ the\ system\ is\ doing,\ ect.}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ LOGD(format,\ ...)\ \ \ \ \ \ \ \ LOG\_(LOG\_DEBUG,\ \ \ FILENAME\_,\ \_\_LINE\_\_,\ D,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ @brief\ Debug.\ Used\ in\ production\ to\ debug\ faults\ in\ the\ code.}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ LOGV(format,\ ...)\ \ \ \ \ \ \ \ LOG\_(LOG\_VERBOSE,\ FILENAME\_,\ \_\_LINE\_\_,\ V,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ @brief\ Verbose.\ Indepth\ information\ for\ the\ user\ of\ status,\ what\ the\ system\ is\ doing,\ ect.}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ DEVLOG(format,\ ...)\ \ \ \ \ \ LOG\_(LOG\_DEBUG,\ \ \ FILENAME\_,\ \_\_LINE\_\_,\ D,\ format,\ \#\#\_\_VA\_ARGS\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ @brief\ Developer.\ Must\ only\ be\ used\ in\ development.\ Should\ never\ be\ pushed\ to\ a\ Version\ Software\ Control.\ Example\ GitHub}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ LOG\_(level,\ filename,\ line,\ prefix,\ format,\ ...)\ \(\backslash\)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\ \ \ \ LOG\_Log(level,\ \#prefix\ "{}\ (\%lu)\ [\%s]\ \%s\ \%d:\ "{}\ format\ "{}\(\backslash\)r\(\backslash\)n"{},\ LOG\_SYSTEM\_TIMER\_MS,\ LOG\_NAME\_FUNCTION\_THREAD,\ filename,\ line,\ \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00065\ \textcolor{comment}{*\ \ \ Typedefs\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00066\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00069\ \textcolor{comment}{*\ \ \ Globals\ vars\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00070\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00073\ \textcolor{comment}{*\ \ \ Global\ function\ prototypes\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00074\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#if\ LOG\_USE\_FREERTOS\ ==\ 1}}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ LOG\_Task(\textcolor{keywordtype}{void}\ *taskParameters);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ LOG\_StopAndFlush(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ LOG\_Start(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{log_8h_ad08a3e87381760257cb1ea0618d2cd2d}{LOG\_SendNextLog}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{log_8h_a5cbd0c36bbc3386a5e3b1a93470ff5ad}{LOG\_Log}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{LogLevel\_e}}\ logLevel,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *logMessageFormat,\ ...)\ \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\_\_attribute\_\_}}\ ((format\ (printf,\ 2,\ 3)));}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{log_8h_a1ffe97ce3912b6c509b0df2b74ebefc6}{LOG\_SetLogLevel}}(\mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{LogLevel\_e}}\ logLevel);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{LogLevel\_e}}\ \mbox{\hyperlink{log_8h_a12089d4d2edba0638ade48a8d76ea696}{LOG\_GetLogLevel}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ end\ LOG\_H}}
+
+\end{DoxyCode}

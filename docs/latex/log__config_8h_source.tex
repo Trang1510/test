@@ -1,0 +1,75 @@
+\doxysection{log\+\_\+config.\+h}
+\hypertarget{log__config_8h_source}{}\label{log__config_8h_source}\index{ub\_lib/log\_config.h@{ub\_lib/log\_config.h}}
+\mbox{\hyperlink{log__config_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LOG\_META\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LOG\_META\_H}}
+\DoxyCodeLine{00003\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*\ \ \ log\_meta.h\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*\ \ \ Copyright\ (c)\ 2023\ \ Marijn\ Kagchelland\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*\ \ \ All\ Rights\ Reserved.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ \ \ Author:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ \ \ \ \ Marijn\ Kagchelland\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ \ \ Revision\ information:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*\ \ \ \ \ @version\ \$Revision::\ 1.0.1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{*\ \ \ \ \ @author\ \ \ \ \$Author::\ Marijn\ Kagchelland\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{*\ \ \ \ \ @date\ \ \ \ \ \ \ \ \$Date::\ 15/05/2024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00020\ \textcolor{comment}{*\ \ \ Includes\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00021\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00024\ \textcolor{comment}{*\ \ \ \#defines\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_ENABLE\ \ \ \ \ \ \ \ \ \ \ \ (1)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ LOG\_USE\_FREERTOS\ \ \ \ \ \ \ \ \ \ \ \ (0)\ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ only\ \ supports\ esp32\ version}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ LOG\_SYSTEM\_TIMER\_MS\ \ \ \ \ \ \ \ \ HAL\_GetTick()}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ LOG\_NAME\_FUNCTION\_THREAD\ \ \ \ \_\_func\_\_}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_BLACK\ \ \ \ \ \ \ \ \ \ \ \ \ "{}30"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_RED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}31"{}}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_GREEN\ \ \ \ \ \ \ \ \ \ \ \ \ "{}32"{}}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_BROWN\ \ \ \ \ \ \ \ \ \ \ \ \ "{}33"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_BLUE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}34"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_PURPLE\ \ \ \ \ \ \ \ \ \ \ \ "{}35"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_CYAN\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}36"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ LOG\_COLOR(COLOR)\ \ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)033[0;"{}\ COLOR\ "{}m"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ LOG\_BOLD(COLOR)\ \ \ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)033[1;"{}\ COLOR\ "{}m"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ LOG\_RESET\_COLOR\ \ \ \ \ \ \ \ \ \ \ \ \ "{}\(\backslash\)033[0m"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_E\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_COLOR(LOG\_COLOR\_RED)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_W\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_COLOR(LOG\_COLOR\_BROWN)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_I\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_COLOR(LOG\_COLOR\_GREEN)}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_D}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_V}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ LOG\_COLOR\_H\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_COLOR(LOG\_COLOR\_CYAN)}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00049\ \textcolor{comment}{*\ \ \ Typedefs\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00050\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00052\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a85639df34979de4e5ff6f7b05e4de8f1}{LOG\_NONE}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a230506cce5c68c3bac5a821c42ed3473}{LOG\_ERROR}},\ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ac8041ffa22bc823d4726701cdb13fc13}{LOG\_WARN}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782a6e98ff471e3ce6c4ef2d75c37ee51837}{LOG\_INFO}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ab9f002c6ffbfd511da8090213227454e}{LOG\_DEBUG}},\ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782ac74e4f8b7fa7b544b66d09e854b8773a}{LOG\_VERBOSE}}\ \ \ \ \ }
+\DoxyCodeLine{00059\ \}\ \mbox{\hyperlink{log__config_8h_a8afdce0fcb23aca7d0641a1e2d233782}{LogLevel\_e}};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00062\ \textcolor{comment}{*\ \ \ Globals\ vars\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00063\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00066\ \textcolor{comment}{*\ \ \ Global\ function\ prototypes\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00067\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ End\ LOG\_META\_H}}
+
+\end{DoxyCode}

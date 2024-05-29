@@ -1,0 +1,84 @@
+\doxysection{ub\+\_\+lib/\+VGA\+\_\+io\+\_\+driver.c File Reference}
+\hypertarget{_v_g_a__io__driver_8c}{}\label{_v_g_a__io__driver_8c}\index{ub\_lib/VGA\_io\_driver.c@{ub\_lib/VGA\_io\_driver.c}}
+{\ttfamily \#include "{}VGA\+\_\+io\+\_\+driver.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_v_g_a__meta_data__s}{VGA\+\_\+meta\+Data\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_v_g_a__io__driver_8c_a1eb0ed04a3ad078ead07f8ad2d53e9d3}{VGA\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{_v_g_a__io__driver_8c_afd59ec5680a14a2ca2034ae39d0da198}{VGA\+\_\+\+Set\+Pixel}} (uint16\+\_\+t xp, uint16\+\_\+t yp, uint8\+\_\+t color)
+\item 
+\+\_\+\+\_\+inline void \mbox{\hyperlink{_v_g_a__io__driver_8c_aed9f69166dce2d70d9f771a6d03d0107}{VGA\+\_\+\+Interrupt\+Hsync}} (void)
+\item 
+\+\_\+\+\_\+inline void \mbox{\hyperlink{_v_g_a__io__driver_8c_a84d215e11685996b4be46701a2d9970b}{VGA\+\_\+\+Interrupt\+Dma}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{_v_g_a__io__driver_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{_v_g_a__io__driver_8c_a2c80fd5510e2990a59a5c90d745c716c}{htim2}}
+\item 
+DMA\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{_v_g_a__io__driver_8c_a66e79e362967e621b35e4adc5a9239c1}{hdma\+\_\+tim1\+\_\+up}}
+\item 
+\mbox{\hyperlink{struct_v_g_a__meta_data__s}{VGA\+\_\+meta\+Data\+\_\+s}} \mbox{\hyperlink{_v_g_a__io__driver_8c_afbe4f21b09ab99d48bcf1d5d56bdf04e}{vga\+Data\+\_\+s}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_v_g_a__io__driver_8c_a1eb0ed04a3ad078ead07f8ad2d53e9d3}\label{_v_g_a__io__driver_8c_a1eb0ed04a3ad078ead07f8ad2d53e9d3} 
+\index{VGA\_io\_driver.c@{VGA\_io\_driver.c}!VGA\_Init@{VGA\_Init}}
+\index{VGA\_Init@{VGA\_Init}!VGA\_io\_driver.c@{VGA\_io\_driver.c}}
+\doxysubsubsection{\texorpdfstring{VGA\_Init()}{VGA\_Init()}}
+{\footnotesize\ttfamily void VGA\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_v_g_a__io__driver_8c_a84d215e11685996b4be46701a2d9970b}\label{_v_g_a__io__driver_8c_a84d215e11685996b4be46701a2d9970b} 
+\index{VGA\_io\_driver.c@{VGA\_io\_driver.c}!VGA\_InterruptDma@{VGA\_InterruptDma}}
+\index{VGA\_InterruptDma@{VGA\_InterruptDma}!VGA\_io\_driver.c@{VGA\_io\_driver.c}}
+\doxysubsubsection{\texorpdfstring{VGA\_InterruptDma()}{VGA\_InterruptDma()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+inline void VGA\+\_\+\+Interrupt\+Dma (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_v_g_a__io__driver_8c_aed9f69166dce2d70d9f771a6d03d0107}\label{_v_g_a__io__driver_8c_aed9f69166dce2d70d9f771a6d03d0107} 
+\index{VGA\_io\_driver.c@{VGA\_io\_driver.c}!VGA\_InterruptHsync@{VGA\_InterruptHsync}}
+\index{VGA\_InterruptHsync@{VGA\_InterruptHsync}!VGA\_io\_driver.c@{VGA\_io\_driver.c}}
+\doxysubsubsection{\texorpdfstring{VGA\_InterruptHsync()}{VGA\_InterruptHsync()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+inline void VGA\+\_\+\+Interrupt\+Hsync (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_v_g_a__io__driver_8c_afd59ec5680a14a2ca2034ae39d0da198}\label{_v_g_a__io__driver_8c_afd59ec5680a14a2ca2034ae39d0da198} 
+\index{VGA\_io\_driver.c@{VGA\_io\_driver.c}!VGA\_SetPixel@{VGA\_SetPixel}}
+\index{VGA\_SetPixel@{VGA\_SetPixel}!VGA\_io\_driver.c@{VGA\_io\_driver.c}}
+\doxysubsubsection{\texorpdfstring{VGA\_SetPixel()}{VGA\_SetPixel()}}
+{\footnotesize\ttfamily void VGA\+\_\+\+Set\+Pixel (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{xp,  }\item[{uint16\+\_\+t}]{yp,  }\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_v_g_a__io__driver_8c_a66e79e362967e621b35e4adc5a9239c1}\label{_v_g_a__io__driver_8c_a66e79e362967e621b35e4adc5a9239c1} 
+\index{VGA\_io\_driver.c@{VGA\_io\_driver.c}!hdma\_tim1\_up@{hdma\_tim1\_up}}
+\index{hdma\_tim1\_up@{hdma\_tim1\_up}!VGA\_io\_driver.c@{VGA\_io\_driver.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_tim1\_up}{hdma\_tim1\_up}}
+{\footnotesize\ttfamily DMA\+\_\+\+Handle\+Type\+Def hdma\+\_\+tim1\+\_\+up\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{_v_g_a__io__driver_8c_a25fc663547539bc49fecc0011bd76ab5}\label{_v_g_a__io__driver_8c_a25fc663547539bc49fecc0011bd76ab5} 
+\index{VGA\_io\_driver.c@{VGA\_io\_driver.c}!htim1@{htim1}}
+\index{htim1@{htim1}!VGA\_io\_driver.c@{VGA\_io\_driver.c}}
+\doxysubsubsection{\texorpdfstring{htim1}{htim1}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim1\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{_v_g_a__io__driver_8c_a2c80fd5510e2990a59a5c90d745c716c}\label{_v_g_a__io__driver_8c_a2c80fd5510e2990a59a5c90d745c716c} 
+\index{VGA\_io\_driver.c@{VGA\_io\_driver.c}!htim2@{htim2}}
+\index{htim2@{htim2}!VGA\_io\_driver.c@{VGA\_io\_driver.c}}
+\doxysubsubsection{\texorpdfstring{htim2}{htim2}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim2\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{_v_g_a__io__driver_8c_afbe4f21b09ab99d48bcf1d5d56bdf04e}\label{_v_g_a__io__driver_8c_afbe4f21b09ab99d48bcf1d5d56bdf04e} 
+\index{VGA\_io\_driver.c@{VGA\_io\_driver.c}!vgaData\_s@{vgaData\_s}}
+\index{vgaData\_s@{vgaData\_s}!VGA\_io\_driver.c@{VGA\_io\_driver.c}}
+\doxysubsubsection{\texorpdfstring{vgaData\_s}{vgaData\_s}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_v_g_a__meta_data__s}{VGA\+\_\+meta\+Data\+\_\+s}} vga\+Data\+\_\+s}
+

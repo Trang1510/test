@@ -1,0 +1,184 @@
+\doxysection{ub\+\_\+lib/\+API\+\_\+draw.h File Reference}
+\hypertarget{_a_p_i__draw_8h}{}\label{_a_p_i__draw_8h}\index{ub\_lib/API\_draw.h@{ub\_lib/API\_draw.h}}
+{\ttfamily \#include "{}stdint.\+h"{}}\newline
+{\ttfamily \#include "{}VGA\+\_\+io\+\_\+driver.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_a_p_i__draw_8h_a10ad4d69027074a8d44798113fc609b7}{SCREEN\+\_\+\+SIZE\+\_\+\+HORIZONTAL}}~(\mbox{\hyperlink{_v_g_a__io__driver_8h_ace7f348dc91111917772d3e19f8821d3}{VGA\+\_\+\+DISPLAY\+\_\+X}})
+\item 
+\#define \mbox{\hyperlink{_a_p_i__draw_8h_adbe0a811dd5ae2c1d0bd38ba33510b69}{SCREEN\+\_\+\+SIZE\+\_\+\+VERTICAL}}~(\mbox{\hyperlink{_v_g_a__io__driver_8h_a9c3e46882b624fe1887d0ec6171d771b}{VGA\+\_\+\+DISPLAY\+\_\+Y}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_a_p_i__draw_8h_a49a806ab1f245ac4914337f6d7999439}{API\+\_\+draw\+\_\+text}} (int x\+\_\+lup, int y\+\_\+lup, int color, char \texorpdfstring{$\ast$}{*}text, char \texorpdfstring{$\ast$}{*}fontname, int fontsize, int fontstyle, int reserved)
+\begin{DoxyCompactList}\small\item\em Sets text on screen in the wanted colour and font. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_a_p_i__draw_8h_a38aac35eed88abb82a1fc46e37f320db}{API\+\_\+draw\+\_\+line}} (int x1, int y1, int x2, int y2, int color, int weight, int reserved)
+\begin{DoxyCompactList}\small\item\em Sets line on screen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_a_p_i__draw_8h_a58f6df5734db7b2c5bfff58950a570d4}{API\+\_\+draw\+\_\+rectangle}} (int x, int y, int width, int height, int color, int filled, int reserved0, int reserved1)
+\begin{DoxyCompactList}\small\item\em Sets rectangle on screen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_a_p_i__draw_8h_a196d22f276d5b3398e9c43dea9ccd259}{API\+\_\+draw\+\_\+bitmap}} (int x\+\_\+lup, int y\+\_\+lup, int bm\+\_\+nr)
+\begin{DoxyCompactList}\small\item\em Sets text on screen in the wanted colour and font. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_a_p_i__draw_8h_ae08ca89724645e1d05a1bba8dd7c146c}{API\+\_\+clearscreen}} (uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Fill screen with a the wanted colour. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_a_p_i__draw_8h_a10ad4d69027074a8d44798113fc609b7}\label{_a_p_i__draw_8h_a10ad4d69027074a8d44798113fc609b7} 
+\index{API\_draw.h@{API\_draw.h}!SCREEN\_SIZE\_HORIZONTAL@{SCREEN\_SIZE\_HORIZONTAL}}
+\index{SCREEN\_SIZE\_HORIZONTAL@{SCREEN\_SIZE\_HORIZONTAL}!API\_draw.h@{API\_draw.h}}
+\doxysubsubsection{\texorpdfstring{SCREEN\_SIZE\_HORIZONTAL}{SCREEN\_SIZE\_HORIZONTAL}}
+{\footnotesize\ttfamily \#define SCREEN\+\_\+\+SIZE\+\_\+\+HORIZONTAL~(\mbox{\hyperlink{_v_g_a__io__driver_8h_ace7f348dc91111917772d3e19f8821d3}{VGA\+\_\+\+DISPLAY\+\_\+X}})}
+
+\Hypertarget{_a_p_i__draw_8h_adbe0a811dd5ae2c1d0bd38ba33510b69}\label{_a_p_i__draw_8h_adbe0a811dd5ae2c1d0bd38ba33510b69} 
+\index{API\_draw.h@{API\_draw.h}!SCREEN\_SIZE\_VERTICAL@{SCREEN\_SIZE\_VERTICAL}}
+\index{SCREEN\_SIZE\_VERTICAL@{SCREEN\_SIZE\_VERTICAL}!API\_draw.h@{API\_draw.h}}
+\doxysubsubsection{\texorpdfstring{SCREEN\_SIZE\_VERTICAL}{SCREEN\_SIZE\_VERTICAL}}
+{\footnotesize\ttfamily \#define SCREEN\+\_\+\+SIZE\+\_\+\+VERTICAL~(\mbox{\hyperlink{_v_g_a__io__driver_8h_a9c3e46882b624fe1887d0ec6171d771b}{VGA\+\_\+\+DISPLAY\+\_\+Y}})}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_a_p_i__draw_8h_ae08ca89724645e1d05a1bba8dd7c146c}\label{_a_p_i__draw_8h_ae08ca89724645e1d05a1bba8dd7c146c} 
+\index{API\_draw.h@{API\_draw.h}!API\_clearscreen@{API\_clearscreen}}
+\index{API\_clearscreen@{API\_clearscreen}!API\_draw.h@{API\_draw.h}}
+\doxysubsubsection{\texorpdfstring{API\_clearscreen()}{API\_clearscreen()}}
+{\footnotesize\ttfamily int API\+\_\+clearscreen (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Fill screen with a the wanted colour. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Colour of screen \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Error} & code \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{_a_p_i__draw_8h_a196d22f276d5b3398e9c43dea9ccd259}\label{_a_p_i__draw_8h_a196d22f276d5b3398e9c43dea9ccd259} 
+\index{API\_draw.h@{API\_draw.h}!API\_draw\_bitmap@{API\_draw\_bitmap}}
+\index{API\_draw\_bitmap@{API\_draw\_bitmap}!API\_draw.h@{API\_draw.h}}
+\doxysubsubsection{\texorpdfstring{API\_draw\_bitmap()}{API\_draw\_bitmap()}}
+{\footnotesize\ttfamily int API\+\_\+draw\+\_\+bitmap (\begin{DoxyParamCaption}\item[{int}]{x\+\_\+lup,  }\item[{int}]{y\+\_\+lup,  }\item[{int}]{bm\+\_\+nr }\end{DoxyParamCaption})}
+
+
+
+Sets text on screen in the wanted colour and font. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+lup} & Start location x \\
+\hline
+{\em y\+\_\+lup} & Start location y \\
+\hline
+{\em bm\+\_\+nr} & Bitmap number \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Error} & code \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{_a_p_i__draw_8h_a38aac35eed88abb82a1fc46e37f320db}\label{_a_p_i__draw_8h_a38aac35eed88abb82a1fc46e37f320db} 
+\index{API\_draw.h@{API\_draw.h}!API\_draw\_line@{API\_draw\_line}}
+\index{API\_draw\_line@{API\_draw\_line}!API\_draw.h@{API\_draw.h}}
+\doxysubsubsection{\texorpdfstring{API\_draw\_line()}{API\_draw\_line()}}
+{\footnotesize\ttfamily int API\+\_\+draw\+\_\+line (\begin{DoxyParamCaption}\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{int}]{x2,  }\item[{int}]{y2,  }\item[{int}]{color,  }\item[{int}]{weight,  }\item[{int}]{reserved }\end{DoxyParamCaption})}
+
+
+
+Sets line on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & Start location x \\
+\hline
+{\em y1} & Start location y \\
+\hline
+{\em x2} & End location x \\
+\hline
+{\em y2} & End location y \\
+\hline
+{\em color} & Line colour \\
+\hline
+{\em weight} & Width of the line in pixels \\
+\hline
+{\em reserved} & Unused \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Error} & code \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{_a_p_i__draw_8h_a58f6df5734db7b2c5bfff58950a570d4}\label{_a_p_i__draw_8h_a58f6df5734db7b2c5bfff58950a570d4} 
+\index{API\_draw.h@{API\_draw.h}!API\_draw\_rectangle@{API\_draw\_rectangle}}
+\index{API\_draw\_rectangle@{API\_draw\_rectangle}!API\_draw.h@{API\_draw.h}}
+\doxysubsubsection{\texorpdfstring{API\_draw\_rectangle()}{API\_draw\_rectangle()}}
+{\footnotesize\ttfamily int API\+\_\+draw\+\_\+rectangle (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{color,  }\item[{int}]{filled,  }\item[{int}]{reserved0,  }\item[{int}]{reserved1 }\end{DoxyParamCaption})}
+
+
+
+Sets rectangle on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Start location x \\
+\hline
+{\em y} & Start location y \\
+\hline
+{\em width} & Width of rectangle \\
+\hline
+{\em height} & Height of rectangle \\
+\hline
+{\em color} & Colour of rectangle \\
+\hline
+{\em filled} & Fill rectangle \\
+\hline
+{\em reserved0} & Unused \\
+\hline
+{\em reserved1} & Unused \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Error} & code \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{_a_p_i__draw_8h_a49a806ab1f245ac4914337f6d7999439}\label{_a_p_i__draw_8h_a49a806ab1f245ac4914337f6d7999439} 
+\index{API\_draw.h@{API\_draw.h}!API\_draw\_text@{API\_draw\_text}}
+\index{API\_draw\_text@{API\_draw\_text}!API\_draw.h@{API\_draw.h}}
+\doxysubsubsection{\texorpdfstring{API\_draw\_text()}{API\_draw\_text()}}
+{\footnotesize\ttfamily int API\+\_\+draw\+\_\+text (\begin{DoxyParamCaption}\item[{int}]{x\+\_\+lup,  }\item[{int}]{y\+\_\+lup,  }\item[{int}]{color,  }\item[{char \texorpdfstring{$\ast$}{*}}]{text,  }\item[{char \texorpdfstring{$\ast$}{*}}]{fontname,  }\item[{int}]{fontsize,  }\item[{int}]{fontstyle,  }\item[{int}]{reserved }\end{DoxyParamCaption})}
+
+
+
+Sets text on screen in the wanted colour and font. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+lup} & Start location of the text x-\/axis \\
+\hline
+{\em y\+\_\+lup} & Start location of the text y-\/axis \\
+\hline
+{\em color} & String to be displayed \\
+\hline
+{\em fontname} & Font name \\
+\hline
+{\em fontsize} & Size of characters \\
+\hline
+{\em fontstyle} & \\
+\hline
+{\em reserved} & Unused \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Error} & code \\
+\hline
+\end{DoxyRetVals}
