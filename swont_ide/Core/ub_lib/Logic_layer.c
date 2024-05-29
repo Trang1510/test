@@ -117,38 +117,32 @@ void LL_receive(void)
 void LL_exec(void)
 {
 	CommandType commandType = get_command_type(ParsedData[0]);
-	DEVLOG("%s",ParsedData[0]);
 	ColorType colorType;
-	DEVLOG("%s",ParsedData[5]);
 	    switch (commandType)
 	    {
 	        case CMD_LINE:
 	        	colorType = get_color_type(ParsedData[5]);
 	        	SANITIZE_COLOR(colorType);
-	        	DEVLOG("%d",colorType);
-	            API_draw_line(atoi(ParsedData[1]), atoi(ParsedData[2]), atoi(ParsedData[3]), atoi(ParsedData[4]), colorType, atoi(ParsedData[6]), atoi(ParsedData[7]));
-	            break;
+			API_draw_line(atoi(ParsedData[1]), atoi(ParsedData[2]), atoi(ParsedData[3]), atoi(ParsedData[4]), colorType, atoi(ParsedData[6]), atoi(ParsedData[7]));
+			break;
 	        case CMD_RECTANGLE:
 	        	colorType = get_color_type(ParsedData[5]);
 	        	SANITIZE_COLOR(colorType);
-	        	DEVLOG("%d",colorType);
-	            API_draw_rectangle(atoi(ParsedData[1]), atoi(ParsedData[2]), atoi(ParsedData[3]), atoi(ParsedData[4]), colorType, atoi(ParsedData[6]), atoi(ParsedData[7]), atoi(ParsedData[8]));
-	            break;
+			API_draw_rectangle(atoi(ParsedData[1]), atoi(ParsedData[2]), atoi(ParsedData[3]), atoi(ParsedData[4]), colorType, atoi(ParsedData[6]), atoi(ParsedData[7]), atoi(ParsedData[8]));
+			break;
 	        case CMD_TEXT:
 	        	colorType = get_color_type(ParsedData[3]);
 	        	SANITIZE_COLOR(colorType);
-	        	DEVLOG("%d",colorType);
 	        	API_draw_text(atoi(ParsedData[1]), atoi(ParsedData[2]), colorType, ParsedData[4],(ParsedData[5]), atoi(ParsedData[6]), atoi(ParsedData[7]), atoi(ParsedData[8]));
-	            break;
+	            	break;
 	        case CMD_BITMAP:
-	            API_draw_bitmap(atoi(ParsedData[1]), atoi(ParsedData[2]), atoi(ParsedData[3]));
-	            break;
+			API_draw_bitmap(atoi(ParsedData[1]), atoi(ParsedData[2]), atoi(ParsedData[3]));
+			break;
 	        case CMD_CLEAR_SCREEN:
 	        	colorType = get_color_type(ParsedData[1]);
 	        	SANITIZE_COLOR(colorType);
-	        	DEVLOG("%d",colorType);
-	            API_clearscreen(colorType);
-	            break;
+	            	API_clearscreen(colorType);
+	            	break;
 	        case CMD_UNKNOWN:
 	            // Foutafhandeling voor onbekende commando's
 	            LOGW("Onbekend commando: %s\n", ParsedData[0]);
