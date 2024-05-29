@@ -21,17 +21,6 @@
 // Green (3bit) -> Bit4-Bit2
 // Blue  (2bit) -> Bit1-Bit0
 //--------------------------------------------------------------
-//#define  VGA_COLOUR_BLACK          0x00
-//#define  VGA_COLOUR_BLUE           0x03
-//#define  VGA_COLOUR_GREEN          0x1C
-//#define  VGA_COLOUR_RED            0xE0
-//#define  VGA_COLOUR_WHITE          0xFF
-//
-//#define  VGA_COLOUR_CYAN           0x1F
-//#define  VGA_COLOUR_MAGENTA        0xE3
-//#define  VGA_COLOUR_YELLOW         0xFC
-
-
 
 //--------------------------------------------------------------
 // define the VGA_display
@@ -57,7 +46,7 @@
 // Frq       = 168MHz/1/12 = 14MHz
 //
 //--------------------------------------------------------------
-#define VGA_TIM1_PERIODE      10		//almost centred
+#define VGA_TIM1_PERIODE      10        //almost centred
 #define VGA_TIM1_PRESCALE      0
 
 
@@ -77,7 +66,7 @@
 
 #define  VGA_TIM2_HSYNC_IMP        320  // HSync-length (3,81us)
 #define  VGA_TIM2_HTRIGGER_START   480  // HSync+BackPorch (5,71us)
-#define  VGA_TIM2_DMA_DELAY         10  // Frontporch?
+#define  VGA_TIM2_DMA_DELAY         10  // Front porch?
 
 //--------------------------------------------------------------
 // VSync-Signal
