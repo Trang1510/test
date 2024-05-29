@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Doxy test: Core/Src/main.c File Reference</title>
+<title>Software Ontwikkeling: Src/main.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,9 +23,8 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Doxy test<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Software Ontwikkeling<span id="projectnumber">&#160;2.0</span>
    </div>
-   <div id="projectbrief">Doxy software ontwikkeling</div>
   </td>
  </tr>
  </tbody>
@@ -72,12 +71,11 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_c6310732a22f63c0c2fc5595561e68f1.html">Core</a></li><li class="navelem"><a class="el" href="dir_b596f468b52957496e4f78b80e029268.html">Src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_413f4e031a85da0d68269c6fd2f76e1c.html">Src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">main.c File Reference</div></div>
@@ -86,49 +84,36 @@ $(function() {
 
 <p>: Main program body  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;main.h&quot;</code><br />
-<code>#include &quot;dma.h&quot;</code><br />
-<code>#include &quot;tim.h&quot;</code><br />
-<code>#include &quot;usart.h&quot;</code><br />
-<code>#include &quot;gpio.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="dma_8h_source.html">dma.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tim_8h_source.html">tim.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="usart_8h_source.html">usart.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gpio_8h_source.html">gpio.h</a>&quot;</code><br />
+<code>#include &quot;stdbool.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_logic__layer_8h_source.html">Logic_layer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_v_g_a__io__driver_8h_source.html">VGA_io_driver.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_a_p_i__draw_8h_source.html">API_draw.h</a>&quot;</code><br />
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a6bac225908d39cd36055eb038aa79c0b" id="r_a6bac225908d39cd36055eb038aa79c0b"><td class="memItemLeft" align="right" valign="top"><a id="a6bac225908d39cd36055eb038aa79c0b" name="a6bac225908d39cd36055eb038aa79c0b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>USART_PRINTF</b>&#160;&#160;&#160;int fputc(int ch, FILE *f)</td></tr>
-<tr class="separator:a6bac225908d39cd36055eb038aa79c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a70af21c671abfcc773614a9a4f63d920" id="r_a70af21c671abfcc773614a9a4f63d920"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70af21c671abfcc773614a9a4f63d920">SystemClock_Config</a> (void)</td></tr>
 <tr class="memdesc:a70af21c671abfcc773614a9a4f63d920"><td class="mdescLeft">&#160;</td><td class="mdescRight">System Clock Configuration.  <br /></td></tr>
 <tr class="separator:a70af21c671abfcc773614a9a4f63d920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa91741be93f2bda0c80f74760390a397" id="r_aa91741be93f2bda0c80f74760390a397"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa91741be93f2bda0c80f74760390a397">HardwareInfo</a> (void)</td></tr>
+<tr class="separator:aa91741be93f2bda0c80f74760390a397"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe" id="r_a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
 <tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The application entry point.  <br /></td></tr>
 <tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcdf9b59049eccbc87d54042f9235b1a" id="r_abcdf9b59049eccbc87d54042f9235b1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcdf9b59049eccbc87d54042f9235b1a">HAL_UART_TxCpltCallback</a> (UART_HandleTypeDef *huart)</td></tr>
+<tr class="separator:abcdf9b59049eccbc87d54042f9235b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1730ffe1e560465665eb47d9264826f9" id="r_a1730ffe1e560465665eb47d9264826f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a> (void)</td></tr>
 <tr class="memdesc:a1730ffe1e560465665eb47d9264826f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is executed in case of error occurrence.  <br /></td></tr>
 <tr class="separator:a1730ffe1e560465665eb47d9264826f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a0d0c46791672d829075326a134858672" id="r_a0d0c46791672d829075326a134858672"><td class="memItemLeft" align="right" valign="top"><a id="a0d0c46791672d829075326a134858672" name="a0d0c46791672d829075326a134858672"></a>
-input_vars&#160;</td><td class="memItemRight" valign="bottom"><b>input</b></td></tr>
-<tr class="separator:a0d0c46791672d829075326a134858672"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a945cd2261a2991d2fd051aa21bbd46a0" id="r_a945cd2261a2991d2fd051aa21bbd46a0"><td class="memItemLeft" align="right" valign="top"><a id="a945cd2261a2991d2fd051aa21bbd46a0" name="a945cd2261a2991d2fd051aa21bbd46a0"></a>
-volatile char&#160;</td><td class="memItemRight" valign="bottom"><b>container</b> [1024]</td></tr>
-<tr class="separator:a945cd2261a2991d2fd051aa21bbd46a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed71a558a0fc065e11b9c3c8fc2e2ad6" id="r_aed71a558a0fc065e11b9c3c8fc2e2ad6"><td class="memItemLeft" align="right" valign="top"><a id="aed71a558a0fc065e11b9c3c8fc2e2ad6" name="aed71a558a0fc065e11b9c3c8fc2e2ad6"></a>
-volatile int&#160;</td><td class="memItemRight" valign="bottom"><b>temp</b></td></tr>
-<tr class="separator:aed71a558a0fc065e11b9c3c8fc2e2ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebcfb1663ad4c68bf6386e05f4d990d3" id="r_aebcfb1663ad4c68bf6386e05f4d990d3"><td class="memItemLeft" align="right" valign="top"><a id="aebcfb1663ad4c68bf6386e05f4d990d3" name="aebcfb1663ad4c68bf6386e05f4d990d3"></a>
-volatile int&#160;</td><td class="memItemRight" valign="bottom"><b>key</b></td></tr>
-<tr class="separator:aebcfb1663ad4c68bf6386e05f4d990d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a7dab423912a84e2df34e6b03af3553" id="r_a1a7dab423912a84e2df34e6b03af3553"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a7dab423912a84e2df34e6b03af3553">USART_PRINTF</a></td></tr>
-<tr class="separator:a1a7dab423912a84e2df34e6b03af3553"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0523c05685d59544dca911cb6a3db77d" id="r_a0523c05685d59544dca911cb6a3db77d"><td class="memItemLeft" align="right" valign="top"><a id="a0523c05685d59544dca911cb6a3db77d" name="a0523c05685d59544dca911cb6a3db77d"></a>
-return&#160;</td><td class="memItemRight" valign="bottom"><b>ch</b></td></tr>
-<tr class="separator:a0523c05685d59544dca911cb6a3db77d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e61e39c30490ef89cd1d8db3d71750b" id="r_a8e61e39c30490ef89cd1d8db3d71750b"><td class="memItemLeft" align="right" valign="top">volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e61e39c30490ef89cd1d8db3d71750b">logTxDone</a></td></tr>
+<tr class="separator:a8e61e39c30490ef89cd1d8db3d71750b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>: Main program body </p>
@@ -158,6 +143,40 @@ return&#160;</td><td class="memItemRight" valign="bottom"><b>ch</b></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="abcdf9b59049eccbc87d54042f9235b1a" name="abcdf9b59049eccbc87d54042f9235b1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcdf9b59049eccbc87d54042f9235b1a">&#9670;&#160;</a></span>HAL_UART_TxCpltCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_UART_TxCpltCallback </td>
+          <td>(</td>
+          <td class="paramtype">UART_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>huart</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa91741be93f2bda0c80f74760390a397" name="aa91741be93f2bda0c80f74760390a397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa91741be93f2bda0c80f74760390a397">&#9670;&#160;</a></span>HardwareInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HardwareInfo </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -215,20 +234,18 @@ return&#160;</td><td class="memItemRight" valign="bottom"><b>ch</b></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a1a7dab423912a84e2df34e6b03af3553" name="a1a7dab423912a84e2df34e6b03af3553"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a7dab423912a84e2df34e6b03af3553">&#9670;&#160;</a></span>USART_PRINTF</h2>
+<a id="a8e61e39c30490ef89cd1d8db3d71750b" name="a8e61e39c30490ef89cd1d8db3d71750b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e61e39c30490ef89cd1d8db3d71750b">&#9670;&#160;</a></span>logTxDone</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">USART_PRINTF</td>
+          <td class="memname">volatile bool logTxDone</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">    HAL_UART_Transmit(&amp;huart2, (uint8_t*) &amp;ch, 1, 0xFFFF)</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 </div><!-- contents -->
